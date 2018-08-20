@@ -63,7 +63,7 @@
 		7CD734732126951F0050F1AA /* ReminderRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD734712126951F0050F1AA /* ReminderRecommandTableViewCell.swift */; };
 		7CD734772126952A0050F1AA /* CalendarRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD734752126952A0050F1AA /* CalendarRecommandTableViewCell.swift */; };
 		7CD7347B2126954C0050F1AA /* ContactRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD734792126954C0050F1AA /* ContactRecommandTableViewCell.swift */; };
-		7CD7347E2127CF3F0050F1AA /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7347D2127CF3F0050F1AA /* NoteTableViewCell.swift */; };
+		7CDABDF4212A777000485B01 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDABDF3212A777000485B01 /* NoteCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,7 +126,7 @@
 		7CD734712126951F0050F1AA /* ReminderRecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRecommandTableViewCell.swift; sourceTree = "<group>"; };
 		7CD734752126952A0050F1AA /* CalendarRecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRecommandTableViewCell.swift; sourceTree = "<group>"; };
 		7CD734792126954C0050F1AA /* ContactRecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRecommandTableViewCell.swift; sourceTree = "<group>"; };
-		7CD7347D2127CF3F0050F1AA /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		7CDABDF3212A777000485B01 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +241,6 @@
 				7C8A3B112128EF1F00AF59D9 /* BottomView */,
 				7CD7348C2127D2920050F1AA /* Common */,
 				7C8A3B20212911AD00AF59D9 /* MainCollectionViewCell */,
-				7CD7348D2127D29D0050F1AA /* MainTableViewCell */,
 				7CD7348B2127D2750050F1AA /* RecommendTableViewCell */,
 				7C8A3AFF21282CF100AF59D9 /* ContextInputView.swift */,
 				7C8A3B0121282D1F00AF59D9 /* EmojiInputView.swift */,
@@ -270,6 +269,7 @@
 				7C8A3B1A21290F7400AF59D9 /* CalendarCollectionViewCell.swift */,
 				7C8A3B1C21290F8200AF59D9 /* ContactCollectionViewCell.swift */,
 				7C8A3B1E21290F9500AF59D9 /* ReminderCollectionViewCell.swift */,
+				7CDABDF3212A777000485B01 /* NoteCollectionViewCell.swift */,
 			);
 			path = MainCollectionViewCell;
 			sourceTree = "<group>";
@@ -332,14 +332,6 @@
 				7C2EA86B212547930075C82D /* NotificationView.xib */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		7CD7348D2127D29D0050F1AA /* MainTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				7CD7347D2127CF3F0050F1AA /* NoteTableViewCell.swift */,
-			);
-			path = MainTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,7 +423,7 @@
 				7C8AD081212003B800F3249F /* Piano.xcdatamodeld in Sources */,
 				7C2EA8662125467B0075C82D /* LoadingView.swift in Sources */,
 				7C2EA85C2125462E0075C82D /* StoreService.swift in Sources */,
-				7CD7347E2127CF3F0050F1AA /* NoteTableViewCell.swift in Sources */,
+				7CDABDF4212A777000485B01 /* NoteCollectionViewCell.swift in Sources */,
 				7C2EA832212545290075C82D /* UITextView_extension.swift in Sources */,
 				7C8A3B0A2128EE9900AF59D9 /* BottomView_TableViewDataSource.swift in Sources */,
 				7C2EA835212545290075C82D /* Color_extension.swift in Sources */,
