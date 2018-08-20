@@ -8,6 +8,6 @@
 
 import Foundation
 
-extension MainTableViewController: TextFieldDelegate {
+extension MainCollectionViewController: TextFieldDelegate {
     
 }

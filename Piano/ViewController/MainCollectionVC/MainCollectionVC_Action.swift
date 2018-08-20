@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MainTableViewController {
+extension MainCollectionViewController {
     
     @IBAction func tapCalendar(_ sender: Any) {
         //1. 테이블 뷰 일정으로 갱신
@@ -30,8 +30,8 @@ extension MainTableViewController {
     }
 }
 
-extension MainTableViewController {
-    enum TableViewType {
+extension MainCollectionViewController {
+    enum CollectionViewType {
         case note
         case calendar
         case reminder
@@ -39,7 +39,7 @@ extension MainTableViewController {
         case photos
     }
     
-    private func reloadTableView(for: TableViewType) {
+    private func reloadCollectionView(for: CollectionViewType) {
         //1. FetchedResultsController 갱신
         
         //2. 비동기로 리로드

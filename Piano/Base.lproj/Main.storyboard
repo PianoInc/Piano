@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Table View Controller-->
+        <!--Main Collection View Controller-->
         <scene sceneID="6pk-P5-B5a">
             <objects>
-                <viewController id="CXr-tG-QbL" customClass="MainTableViewController" customModule="Piano" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CXr-tG-QbL" customClass="MainCollectionViewController" customModule="Piano" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hsh-cZ-g78">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -302,7 +302,7 @@
                                         <rect key="frame" x="8" y="8" width="359" height="234"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Biy-oj-bLs">
-                                                <rect key="frame" x="0.0" y="201" width="30" height="33"/>
+                                                <rect key="frame" x="0.0" y="201" width="0.0" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="📔"/>
                                                 <state key="selected" title="📖"/>
@@ -312,7 +312,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bzu-Ae-dkE">
-                                                <rect key="frame" x="34" y="63" width="291" height="171"/>
+                                                <rect key="frame" x="4" y="50" width="291" height="184"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-cU-TOf">
                                                         <rect key="frame" x="0.0" y="0.0" width="291" height="134"/>
@@ -552,10 +552,10 @@
                                                         </connections>
                                                     </tableView>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaH-c8-xut">
-                                                        <rect key="frame" x="0.0" y="134" width="291" height="37"/>
+                                                        <rect key="frame" x="0.0" y="134" width="291" height="50"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yRc-Ro-xhc" customClass="GrowingTextView" customModule="Piano" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="291" height="37"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="291" height="50"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -567,7 +567,7 @@
                                                                 </connections>
                                                             </textView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOu-TD-dIx">
-                                                                <rect key="frame" x="257" y="4" width="30" height="33"/>
+                                                                <rect key="frame" x="257" y="17" width="30" height="33"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <state key="normal" title="😁"/>
                                                                 <state key="selected" title="🤣"/>
@@ -595,14 +595,14 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ylr-vR-Dyg">
-                                                <rect key="frame" x="329" y="204" width="26" height="30"/>
+                                                <rect key="frame" x="299" y="204" width="26" height="30"/>
                                                 <state key="normal" title="🕵️‍♀️"/>
                                                 <connections>
                                                     <action selector="tapSearchEmoji:" destination="06l-Zz-6Qd" eventType="touchUpInside" id="YVo-5W-ldU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjz-w0-FR0">
-                                                <rect key="frame" x="359" y="201" width="0.0" height="33"/>
+                                                <rect key="frame" x="329" y="201" width="30" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="✏️"/>
                                                 <connections>
@@ -676,6 +676,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bottomView" destination="06l-Zz-6Qd" id="nOU-Ql-qoy"/>
+                        <outlet property="collectionView" destination="bdl-rs-Xc7" id="Ps0-my-QHB"/>
                         <outlet property="titleLabel" destination="N8W-rr-5p1" id="4lB-IS-PPJ"/>
                     </connections>
                 </viewController>
