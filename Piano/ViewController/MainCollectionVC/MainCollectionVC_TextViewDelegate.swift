@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MainTableViewController: UITextViewDelegate {
+extension MainCollectionViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         changeState(for: textView)

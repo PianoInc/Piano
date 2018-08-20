@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTableViewController: UIViewController {
+class MainCollectionViewController: UIViewController {
     enum VCType {
         case note
         case calendar
@@ -18,7 +18,8 @@ class MainTableViewController: UIViewController {
         
     }
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomView: BottomView!
     internal var type: VCType = .note {
         didSet {

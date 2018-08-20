@@ -8,6 +8,6 @@
 
 import Foundation
 
-extension MainTableViewController: CollectionViewDelegate {
+extension MainCollectionViewController: CollectionViewDelegate {
     
 }
