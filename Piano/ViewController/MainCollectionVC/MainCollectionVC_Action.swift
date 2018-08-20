@@ -12,7 +12,7 @@ extension MainCollectionViewController {
     
     @IBAction func tapCalendar(_ sender: Any) {
         //1. 테이블 뷰 일정으로 갱신
-        reloadTableView(for: .calendar)
+        reloadCollectionView(for: .calendar)
         
         //2. 키보드 원래대로 만들기
     }
