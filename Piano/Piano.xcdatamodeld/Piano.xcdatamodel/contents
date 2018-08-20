@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="18A365a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Calendar" representedClassName="Calendar" syncable="YES" codeGenerationType="class">
         <attribute name="identifiers" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Contact" representedClassName="Contact" syncable="YES" codeGenerationType="class">
         <attribute name="identifiers" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Emoji" representedClassName="Emoji" syncable="YES" codeGenerationType="class">
+        <attribute name="emojiHash" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="emojies" inverseEntity="Note" syncable="YES"/>
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,6 +16,7 @@
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="modifiedDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556254960" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="emojies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emoji" inverseName="notes" inverseEntity="Emoji" syncable="YES"/>
     </entity>
     <entity name="Photos" representedClassName="Photos" syncable="YES" codeGenerationType="class">
         <attribute name="identifiers" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,10 +25,11 @@
         <attribute name="identifiers" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Calendar" positionX="0" positionY="45" width="128" height="60"/>
-        <element name="Contact" positionX="18" positionY="63" width="128" height="60"/>
-        <element name="Note" positionX="-36" positionY="9" width="128" height="120"/>
-        <element name="Photos" positionX="-9" positionY="54" width="128" height="60"/>
-        <element name="Reminder" positionX="18" positionY="81" width="128" height="60"/>
+        <element name="Calendar" positionX="295" positionY="-288" width="128" height="60"/>
+        <element name="Contact" positionX="322" positionY="-126" width="128" height="60"/>
+        <element name="Emoji" positionX="-83" positionY="-162" width="128" height="73"/>
+        <element name="Note" positionX="-299" positionY="-108" width="128" height="133"/>
+        <element name="Photos" positionX="142" positionY="-144" width="128" height="60"/>
+        <element name="Reminder" positionX="277" positionY="54" width="128" height="60"/>
     </elements>
 </model>
