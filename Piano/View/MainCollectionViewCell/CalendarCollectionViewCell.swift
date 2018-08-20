@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 class CalendarCollectionViewCell: UICollectionViewCell {
     
@@ -15,5 +16,8 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
     
+    func configure(_ event: EKEvent) {
+        
+    }
     
 }
