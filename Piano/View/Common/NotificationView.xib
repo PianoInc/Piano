@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="406" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="복사 완료" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoC-xQ-Y02">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="캘린더에 추가되었습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoC-xQ-Y02">
                     <rect key="frame" x="0.0" y="20" width="406" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="diC-Er-OQv"/>
@@ -24,31 +24,20 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTb-gb-Sn8">
-                    <rect key="frame" x="0.0" y="0.0" width="406" height="64"/>
-                    <connections>
-                        <action selector="actionWithButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Vsx-UC-vSP"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="oTb-gb-Sn8" firstAttribute="leading" secondItem="bKe-Nl-gQJ" secondAttribute="leading" id="6a2-YB-N37"/>
                 <constraint firstAttribute="trailing" secondItem="WoC-xQ-Y02" secondAttribute="trailing" id="E7U-MK-gk4"/>
-                <constraint firstItem="oTb-gb-Sn8" firstAttribute="top" secondItem="bKe-Nl-gQJ" secondAttribute="top" id="Qrh-Va-Ebj"/>
                 <constraint firstAttribute="bottom" secondItem="WoC-xQ-Y02" secondAttribute="bottom" id="Qy1-iY-hZB"/>
-                <constraint firstItem="bKe-Nl-gQJ" firstAttribute="bottom" secondItem="oTb-gb-Sn8" secondAttribute="bottom" id="RZs-PU-uP4"/>
-                <constraint firstItem="bKe-Nl-gQJ" firstAttribute="trailing" secondItem="oTb-gb-Sn8" secondAttribute="trailing" id="d3G-Xu-95Z"/>
                 <constraint firstItem="WoC-xQ-Y02" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="x8B-gz-TZO"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="bKe-Nl-gQJ"/>
             <connections>
-                <outlet property="button" destination="oTb-gb-Sn8" id="V8Q-UW-8WT"/>
                 <outlet property="ibLabel" destination="WoC-xQ-Y02" id="9QD-aN-mM5"/>
                 <outlet property="labelHeightAnchor" destination="diC-Er-OQv" id="ADG-Xq-AX1"/>
             </connections>
-            <point key="canvasLocation" x="49" y="-244.5"/>
+            <point key="canvasLocation" x="49" y="-245"/>
         </view>
     </objects>
 </document>

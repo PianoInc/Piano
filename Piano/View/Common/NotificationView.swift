@@ -12,8 +12,5 @@ class NotificationView: UIView {
     
     @IBOutlet weak var ibLabel: UILabel!
     @IBOutlet weak var labelHeightAnchor: NSLayoutConstraint!
-    @IBOutlet weak var button: UIButton!
-    var didSelect: (() -> ())?
-    @IBAction func action(button: UIButton) {didSelect?()}
     
 }

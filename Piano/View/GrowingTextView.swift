@@ -54,6 +54,15 @@ open class GrowingTextView: UITextView {
         commonInit()
     }
     
+//    open override var textInputMode: UITextInputMode? {
+//        for mode in UITextInputMode.activeInputModes {
+//            if mode.primaryLanguage == "emoji" {
+//                return mode
+//            }
+//        }
+//        return nil
+//    }
+    
     private func commonInit() {
         contentMode = .redraw
         associateConstraints()
