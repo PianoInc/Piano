@@ -13,7 +13,7 @@ class BlockTextView: UITextView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-//        layoutManager.delegate = self
+        layoutManager.delegate = self
 //        textContainerInset = UIEdgeInsets.zero
 //        textContainer.lineFragmentPadding = 0
 //        inputAssistantItem.leadingBarButtonGroups = []
@@ -51,11 +51,11 @@ class BlockTextView: UITextView {
 
 }
 
-//extension BlockTextView: NSLayoutManagerDelegate {
-//    func layoutManager(_ layoutManager: NSLayoutManager, lineSpacingAfterGlyphAt glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
-//        return 6
-//    }
-//}
+extension BlockTextView: NSLayoutManagerDelegate {
+    func layoutManager(_ layoutManager: NSLayoutManager, lineSpacingAfterGlyphAt glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
+        return 6
+    }
+}
 
 
 

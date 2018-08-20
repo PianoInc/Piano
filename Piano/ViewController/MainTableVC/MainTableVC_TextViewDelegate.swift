@@ -25,9 +25,9 @@ extension MainTableViewController: UITextViewDelegate {
         bottomView.writeButton.isHidden = textView.text.count == 0
         
         if let position = textView.selectedTextRange?.end, textView.text.count != 0 {
-            let caretX = textView.caretRect(for: position).origin.x
+            let caretOriginX = textView.caretRect(for: position).origin.x
             let textViewWidth = textView.bounds.width
-            bottomView.emojiButton.isHidden = textViewWidth < 40 + caretX
+            bottomView.emojiButton.isHidden = textViewWidth < 50 + caretOriginX
         }
         
     }
