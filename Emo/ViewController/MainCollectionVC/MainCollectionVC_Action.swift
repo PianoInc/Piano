@@ -53,7 +53,7 @@ extension MainCollectionViewController {
         }
     }
     
-    private func auth(check type: CollectionViewType, _ completion: @escaping (() -> ())) {
+    private func auth(check type: VCType, _ completion: @escaping (() -> ())) {
         if type == .calendar || type == .reminder {
             let type: EKEntityType = (type == .calendar) ? .event : .reminder
             let message = (type == .event) ? "달력 권한 주세요." : "미리알림 권한 주세요."
@@ -184,16 +184,8 @@ extension MainCollectionViewController {
         flowLayout.minimumLineSpacing = 0
         
     }
-    
-    enum CollectionViewType {
-        case note
-        case calendar
-        case reminder
-        case contact
-        case photo
-    }
-    
-    private func reloadCollectionView(for type: CollectionViewType) {
+
+    private func reloadCollectionView(for type: VCType) {
         switch type {
         case .calendar: CalendarDatasource<CalendarCollectionViewCell>(self, collectionView).fetch()
         case .reminder: ReminderDatasource<ReminderCollectionViewCell>(self, collectionView).fetch()

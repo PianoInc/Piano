@@ -27,13 +27,34 @@ class MainCollectionViewController: UIViewController {
     var contactDataSource: [String]?
     var photoDataSource: [String]?
 
+    // for test
+    lazy var noteResultsController: NSFetchedResultsController<Note> = {
+        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+        let sort = NSSortDescriptor(key: "modifiedDate", ascending: true)
+        fetchRequest.sortDescriptors = [sort]
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
+        return fetchedResultsController
+    }()
+
+    // for test
+    lazy var emojiResultsController: NSFetchedResultsController<Emoji> = {
+        let fetchRequest: NSFetchRequest<Emoji> = Emoji.fetchRequest()
+        fetchRequest.sortDescriptors = []
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
+        return fetchedResultsController
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bottomView.delegate = self
         resultsController = createNoteResultsController()
         setupCollectionViewLayout(for: .note)
+
     }
 
+}
+
+extension MainCollectionViewController {
     func saveContext() {
         if managedContext.hasChanges {
             do {
@@ -44,8 +65,4 @@ class MainCollectionViewController: UIViewController {
             }
         }
     }
-}
-
-extension MainCollectionViewController {
-
 }

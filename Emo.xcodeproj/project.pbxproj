@@ -33,7 +33,7 @@
 		6BD0C92237A84F13D76AFBC12A953B01 /* MainCollectionVC_TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DD8FDB1362F2791C9C435D3DF182F9 /* MainCollectionVC_TextFieldDelegate.swift */; };
 		6E42C3E728D3B0926E1760617D47712B /* ContactRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21970C89961D984C67980E0F4E4F3A22 /* ContactRecommandTableViewCell.swift */; };
 		6FFBA285212BBB5E0007A554 /* MainCollectionVC_BottomViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFBA284212BBB5E0007A554 /* MainCollectionVC_BottomViewDelegate.swift */; };
-		6FFBA28D212BBC1B0007A554 /* EmoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFBA28C212BBC1B0007A554 /* EmoTests.swift */; };
+		6FFBA28D212BBC1B0007A554 /* BottomViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFBA28C212BBC1B0007A554 /* BottomViewTests.swift */; };
 		7091491CE74928C15157EBD6A0A2F1C9 /* CalendarRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E125F94246A31E28BE0980730CF1B /* CalendarRecommandTableViewCell.swift */; };
 		717B1A63C1C97761E7FD43ECAF89415A /* NSRange_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6D881B98B96559AB1A53D0C11E299 /* NSRange_extension.swift */; };
 		7739EDE77C9CEBD49510FAB5487EF2C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309D050B523DE66E1EF8FFD541330B98 /* LaunchScreen.storyboard */; };
@@ -110,7 +110,7 @@
 		6E492AC0ADAAADDE5E69F9A1DAEBA51C /* BottomView_TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomView_TableViewDelegate.swift; sourceTree = "<group>"; };
 		6FFBA284212BBB5E0007A554 /* MainCollectionVC_BottomViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionVC_BottomViewDelegate.swift; sourceTree = "<group>"; };
 		6FFBA28A212BBC1B0007A554 /* EmoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6FFBA28C212BBC1B0007A554 /* EmoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoTests.swift; sourceTree = "<group>"; };
+		6FFBA28C212BBC1B0007A554 /* BottomViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewTests.swift; sourceTree = "<group>"; };
 		6FFBA28E212BBC1B0007A554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7274918C101E745C6DB989A65880FC76 /* MainCollectionVC_CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionVC_CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		7907FABB81235CCB3D804F39B38808BB /* NotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 		6FFBA28B212BBC1B0007A554 /* EmoTests */ = {
 			isa = PBXGroup;
 			children = (
-				6FFBA28C212BBC1B0007A554 /* EmoTests.swift */,
+				6FFBA28C212BBC1B0007A554 /* BottomViewTests.swift */,
 				6FFBA28E212BBC1B0007A554 /* Info.plist */,
 			);
 			path = EmoTests;
@@ -490,7 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FFBA28D212BBC1B0007A554 /* EmoTests.swift in Sources */,
+				6FFBA28D212BBC1B0007A554 /* BottomViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
