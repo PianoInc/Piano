@@ -23,6 +23,7 @@ extension MainCollectionViewController: UITextViewDelegate {
         
         bottomView.emojiSearchButton.isHidden = textView.text.count != 0
         bottomView.writeButton.isHidden = textView.text.count == 0
+        bottomView.writeButton.isEnabled = textView.text.count != 0
         
         if let position = textView.selectedTextRange?.end, textView.text.count != 0 {
             let caretOriginX = textView.caretRect(for: position).origin.x

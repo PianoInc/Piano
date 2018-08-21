@@ -16,7 +16,7 @@ extension BottomView {
     }
     
     @IBAction func tapWrite(_ sender: Any) {
-        
+        delegate?.didTapWriteButton(text: textView.text)
     }
     
     @IBAction func tapSearchEmoji(_ sender: Any) {

@@ -24,6 +24,9 @@ class MainCollectionViewController: UIViewController {
     @IBOutlet weak var bottomView: BottomView!
 
     weak var persistentContainer: NSPersistentContainer!
+    lazy var managedContext: NSManagedObjectContext = {
+        return persistentContainer.viewContext
+    }()
 
 
     internal var type: VCType = .note {
@@ -36,10 +39,20 @@ class MainCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        bottomView.delegate = self
 
         
         
     }
 
+    func saveContext() {
+        if managedContext.hasChanges {
+            do {
+                try managedContext.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
 }
