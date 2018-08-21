@@ -28,36 +28,28 @@ extension MainCollectionViewController {
         }
     }
     
-    @IBAction func tapReminder(_ sender: Any) {
-        setup(for: .reminder)
-    }
-    
-    @IBAction func tapContact(_ sender: Any) {
-        setup(for: .contact)
-    }
     
     @IBAction func tapPhoto(_ sender: Any) {
-    
-        auth(check: .photo) {  [weak self] in
-            setup(for: .photo)
+        auth(check: .photo) { [weak self] in
+            self?.setup(for: .photo)
         }
     }
     
     @IBAction func tapReminder(_ sender: Any) {
         auth(check: .reminder) {  [weak self] in
-            setup(for: .reminder)
+            self?.setup(for: .reminder)
         }
     }
     
     @IBAction func tapContact(_ sender: Any) {
         auth(check: .contact) {  [weak self] in
-            setup(for: .contact)
+            self?.setup(for: .contact)
         }
     }
     
     @IBAction func tapPhotos(_ sender: Any) {
         auth(check: .photo) {  [weak self] in
-            setup(for: .photo)
+            self?.setup(for: .photo)
         }
     }
     
@@ -198,7 +190,7 @@ extension MainCollectionViewController {
         case calendar
         case reminder
         case contact
-        case photos
+        case photo
     }
     
     private func reloadCollectionView(for type: CollectionViewType) {
@@ -206,7 +198,7 @@ extension MainCollectionViewController {
         case .calendar: CalendarDatasource<CalendarCollectionViewCell>(self, collectionView).fetch()
         case .reminder: ReminderDatasource<ReminderCollectionViewCell>(self, collectionView).fetch()
         case .contact: ContactDatasource<ContactCollectionViewCell>(self, collectionView).fetch()
-        case .photos: break
+        case .photo: break
         default: break
         }
         bottomView.textView.inputView = nil
