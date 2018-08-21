@@ -52,6 +52,10 @@ extension View {
 
 extension UIView {
     
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
+    
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius

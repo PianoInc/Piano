@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Contacts
 
 class ContactCollectionViewCell: UICollectionViewCell {
     
@@ -19,6 +20,8 @@ class ContactCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var emailStackView: UIStackView!
     @IBOutlet weak var urlStackView: UIStackView!
     
-    
+    func configure(_ contact: CNContact) {
+        
+    }
     
 }
