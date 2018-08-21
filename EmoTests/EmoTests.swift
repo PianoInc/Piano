@@ -1,15 +1,15 @@
 //
-//  PianoTests.swift
-//  PianoTests
+//  EmoTests.swift
+//  EmoTests
 //
 //  Created by hoemoon on 21/08/2018.
 //  Copyright © 2018 Piano. All rights reserved.
 //
 
 import XCTest
-@testable import Piano
+@testable import Emo
 
-class PianoTests: XCTestCase {
+class EmoTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

@@ -63,4 +63,8 @@ extension BottomView {
 }
 
 extension BottomView {
+    internal func resetInputView() {
+        textView.inputView = nil
+        textView.reloadInputViews()
+    }
 }

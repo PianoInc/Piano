@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="18A365a" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Calendar" representedClassName="Calendar" syncable="YES" codeGenerationType="class">
         <attribute name="identifiers" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -18,7 +18,7 @@
         <attribute name="modifiedDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556254960" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="emojies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emoji" inverseName="notes" inverseEntity="Emoji" syncable="YES"/>
     </entity>
-    <entity name="Photos" representedClassName="Photos" syncable="YES" codeGenerationType="class">
+    <entity name="Photo" representedClassName="Photo" syncable="YES" codeGenerationType="class">
         <attribute name="identifiers" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
@@ -29,7 +29,7 @@
         <element name="Contact" positionX="322" positionY="-126" width="128" height="60"/>
         <element name="Emoji" positionX="-83" positionY="-162" width="128" height="73"/>
         <element name="Note" positionX="-299" positionY="-108" width="128" height="133"/>
-        <element name="Photos" positionX="142" positionY="-144" width="128" height="60"/>
+        <element name="Photo" positionX="142" positionY="-144" width="128" height="60"/>
         <element name="Reminder" positionX="277" positionY="54" width="128" height="60"/>
     </elements>
 </model>

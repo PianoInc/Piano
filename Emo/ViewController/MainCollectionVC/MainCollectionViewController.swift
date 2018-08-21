@@ -10,39 +10,28 @@ import UIKit
 import CoreData
 
 class MainCollectionViewController: UIViewController {
-    enum VCType {
-        case note
-        case calendar
-        case reminder
-        case contact
-        case photos
-        
-    }
-    @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet var segmentControl: UISegmentedControl!
+    @IBOutlet var titleView: TitleView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomView: BottomView!
-
     weak var persistentContainer: NSPersistentContainer!
+
     lazy var managedContext: NSManagedObjectContext = {
         return persistentContainer.viewContext
     }()
 
+    var resultsController: NSFetchedResultsController<Note>?
+    var calendarDataSource: [String]?
+    var reminderDataSource: [String]?
+    var contactDataSource: [String]?
+    var photoDataSource: [String]?
 
-    internal var type: VCType = .note {
-        didSet {
-            // 컬렉션 뷰를 타입에 맞게 리로드(컬렉션 뷰의 데이터소스 로직에서 타입이 노트일 경우 item count == 0)
-            
-        }
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         bottomView.delegate = self
-
-        
-        
+        resultsController = createNoteResultsController()
+        setupCollectionViewLayout(for: .note)
     }
 
     func saveContext() {
@@ -55,4 +44,8 @@ class MainCollectionViewController: UIViewController {
             }
         }
     }
+}
+
+extension MainCollectionViewController {
+
 }
