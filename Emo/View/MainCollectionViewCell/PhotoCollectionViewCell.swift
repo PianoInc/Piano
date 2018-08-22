@@ -9,6 +9,11 @@
 import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var imageView: UIImageView!
+    
+    func configure(_ image: UIImage?) {
+        imageView.image = image
+    }
     
 }

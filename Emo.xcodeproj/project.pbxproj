@@ -37,11 +37,11 @@
 		6E42C3E728D3B0926E1760617D47712B /* ContactRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21970C89961D984C67980E0F4E4F3A22 /* ContactRecommandTableViewCell.swift */; };
 		7091491CE74928C15157EBD6A0A2F1C9 /* CalendarRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E125F94246A31E28BE0980730CF1B /* CalendarRecommandTableViewCell.swift */; };
 		717B1A63C1C97761E7FD43ECAF89415A /* NSRange_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6D881B98B96559AB1A53D0C11E299 /* NSRange_extension.swift */; };
-		7739EDE77C9CEBD49510FAB5487EF2C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309D050B523DE66E1EF8FFD541330B98 /* LaunchScreen.storyboard */; };
 		781829494729FD3F5F29CF3A0CD6F95B /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD8AC056C9A6C26F970C3F8E314C970 /* NoteCollectionViewCell.swift */; };
 		85C5E978B088D777CEFFD61B5B2D60FD /* iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35011B421A261853BC56EA515393EC0 /* iOS.swift */; };
 		8A64EE4218C920331FB3ACF641CDFEB6 /* BlockTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53CE68D7B828048F5154C58D1711525 /* BlockTextView.swift */; };
 		924A5DFE9A0ECB0A3CDE7E2B5A331EEC /* PasteboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B38ECFC674DA7EB6B7CB38096589F0 /* PasteboardManager.swift */; };
+		9A09EF180199A5208A4286AFB438CEDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309D050B523DE66E1EF8FFD541330B98 /* LaunchScreen.storyboard */; };
 		9D89D20E5990816A82030846C9167DDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8155EF4BE7AAE5948C1B98B54456C9A2 /* Main.storyboard */; };
 		9EE8074E8B036748A086C3C6B4603106 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7907FABB81235CCB3D804F39B38808BB /* NotificationView.xib */; };
 		9F828DE084F92F5F3A7AD3C7F5DB5DB2 /* Color_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B4A0C8857C728C508C251C61C24DC9 /* Color_extension.swift */; };
@@ -99,6 +99,7 @@
 		25960829C9F7A92F71CBD06D9A9830EE /* Detection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detection.swift; sourceTree = "<group>"; };
 		28484B2221ACD1AFA881B62295DF5F7D /* NSManagedObjectContext_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext_extension.swift; sourceTree = "<group>"; };
 		299DD96092ACDBBC9D94FF8CA0890A97 /* Piano.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Piano.xcdatamodel; sourceTree = "<group>"; };
+		309D050B523DE66E1EF8FFD541330B98 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3295777E7920C7C53ACB1268B2A1FB9A /* PianoBullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoBullet.swift; sourceTree = "<group>"; };
 		3773487C367A475A8DB66F3BD209C656 /* View_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View_extension.swift; sourceTree = "<group>"; };
 		37B38ECFC674DA7EB6B7CB38096589F0 /* PasteboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteboardManager.swift; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		A9CB04FAAAE18E2445431CA576292145 /* MainCollectionVC_Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionVC_Action.swift; sourceTree = "<group>"; };
 		AAC49C28E6DF7CE43378FF6E1A72837E /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		AF057C86EEB95213D48E88E3632E0B54 /* EmojiInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiInputView.swift; sourceTree = "<group>"; };
-		B6AA87592CE6588FFD9D9F1DAE992D6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6B7C07906D0EBA85FEF289037A5C02A /* UINavigationController_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController_extension.swift; sourceTree = "<group>"; };
 		B7F7E8E5100D3B1446A97FF3E3F08DCA /* ContactCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBF264436038859C83DB7495CD82B695 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -172,17 +172,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BACDA2C662F185034D88A33B0012A792 /* Context */ = {
-			isa = PBXGroup;
-			children = (
-				0D5974D1E549367245DA79CFFA1DA39C /* CalendarManager.swift */,
-				14E3C389F90725A2665DD8DDB78AC7C8 /* ContactManager.swift */,
-				0ACDE9527048DF5A9E316E0FE5C8D71B /* PhotoManager.swift */,
-				524ACB2129A06D4AE85041933BF0CC2F /* ReminderManager.swift */,
-			);
-			path = Context;
-			sourceTree = "<group>";
-		};
 		17EFBF8A279C822531AC15C5600DDF87 = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +345,17 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		BACDA2C662F185034D88A33B0012A792 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				0D5974D1E549367245DA79CFFA1DA39C /* CalendarManager.swift */,
+				14E3C389F90725A2665DD8DDB78AC7C8 /* ContactManager.swift */,
+				0ACDE9527048DF5A9E316E0FE5C8D71B /* PhotoManager.swift */,
+				524ACB2129A06D4AE85041933BF0CC2F /* ReminderManager.swift */,
+			);
+			path = Context;
+			sourceTree = "<group>";
+		};
 		F37FDF66BE58D9D2934B7C376CE08DBE /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,7 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2247D0E3EAC6A853B3B6382E4AB33B82 /* Assets.xcassets in Resources */,
-				7739EDE77C9CEBD49510FAB5487EF2C3 /* LaunchScreen.storyboard in Resources */,
+				9A09EF180199A5208A4286AFB438CEDA /* LaunchScreen.storyboard in Resources */,
 				311A485696241F2621CDE6C36A8F495F /* LoadingView.xib in Resources */,
 				9D89D20E5990816A82030846C9167DDF /* Main.storyboard in Resources */,
 				9EE8074E8B036748A086C3C6B4603106 /* NotificationView.xib in Resources */,
@@ -573,14 +573,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		309D050B523DE66E1EF8FFD541330B98 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B6AA87592CE6588FFD9D9F1DAE992D6A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		8155EF4BE7AAE5948C1B98B54456C9A2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
