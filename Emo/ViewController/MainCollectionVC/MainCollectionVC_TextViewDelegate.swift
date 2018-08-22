@@ -17,6 +17,7 @@ extension MainCollectionViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         changeState(for: textView)
+        filterNotes(with: textView.text)
     }
     
     private func changeState(for textView: TextView) {
@@ -35,24 +36,49 @@ extension MainCollectionViewController: UITextViewDelegate {
     }
 
     private func filterNotes(with text: String) {
-        guard text.count > 0 else { return }
-        let request: NSFetchRequest<Emoji> = Emoji.fetchRequest()
-        let predicates = Set(text.emojis)
-            .map { $0.hashValue }
-            .map { NSPredicate(format: "%K == %lld", #keyPath(Emoji.emojiHash), $0) }
-        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        guard text.count > 0 else {
+            noteFetchRequest.predicate = nil
+            DispatchQueue.main.async { [weak self] in
+                self?.refreshCollectionView()
+            }
+            return
+        }
+        // lexicalClass을 사용할 수 있으면
+        if let language = NSLinguisticTagger.dominantLanguage(for: text),
+            NSLinguisticTagger.availableTagSchemes(forLanguage: language).contains(.lexicalClass) {
 
-        do {
-            let results = try managedContext.fetch(request)
-            let notes = results.compactMap { $0.notes }
-                .compactMap { $0.allObjects as? [Note] }
-                .reduce([], +)
-            let predicates = notes.compactMap { $0.identifier }
-                .map { NSPredicate(format: "%K == %@", #keyPath(Note.identifier), $0 as CVarArg) }
+            let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
+            tagger.string = text
+
+            let range = NSRange(location: 0, length: text.utf16.count)
+            let options: NSLinguisticTagger.Options = [.omitWhitespace]
+            let tags: [NSLinguisticTag] = [.noun, .verb, .otherWord, .number]
+            var words = Array<String>()
+
+            tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange, stop in
+
+                if let tag = tag, tags.contains(tag) {
+                    let word = (text as NSString).substring(with: tokenRange)
+                    words.append(word)
+                }
+            }
+            let predicates = Set(words)
+                .map { $0.lowercased() }
+                .map { NSPredicate(format: "content contains[cd] %@", $0) }
+
             noteFetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
 
-        } catch {
-            // TODO: error 처리
+        } else {
+            let trimmed = text.lowercased()
+                .trimmingCharacters(in: .illegalCharacters)
+                .trimmingCharacters(in: .punctuationCharacters)
+
+            let predicate = NSPredicate(format: "content contains[cd] %@", trimmed)
+            noteFetchRequest.predicate = predicate
+        }
+
+        DispatchQueue.main.async { [weak self] in
+            self?.refreshCollectionView()
         }
     }
 }

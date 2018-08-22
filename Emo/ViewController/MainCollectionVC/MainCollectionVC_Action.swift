@@ -146,12 +146,13 @@ extension MainCollectionViewController {
     }
     
     internal func createNoteResultsController() -> NSFetchedResultsController<Note> {
-        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
-        let sort = NSSortDescriptor(key: "modifiedDate", ascending: true)
-        fetchRequest.sortDescriptors = [sort]
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
-
-        return fetchedResultsController
+        let controller = NSFetchedResultsController(
+            fetchRequest: noteFetchRequest,
+            managedObjectContext: managedContext,
+            sectionNameKeyPath: nil,
+            cacheName: "Note"
+        )
+        return controller
     }
     
     internal func setupCollectionViewLayout(for type: VCType) {

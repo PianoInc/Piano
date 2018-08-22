@@ -34,16 +34,12 @@ class MainCollectionViewController: UIViewController {
         return request
     }()
 
-    lazy var noteResultsController: NSFetchedResultsController<Note> = {
-        let controller = NSFetchedResultsController(fetchRequest: noteFetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
-        return controller
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         bottomView.delegate = self
         resultsController = createNoteResultsController()
         setupCollectionViewLayout(for: .note)
+        refreshCollectionView()
     }
     
 }
@@ -60,5 +56,13 @@ extension MainCollectionViewController {
             }
         }
     }
-    
+
+    func refreshCollectionView() {
+        do {
+            try resultsController?.performFetch()
+            collectionView.reloadData()
+        } catch {
+            // TODO: 예외처리
+        }
+    }
 }

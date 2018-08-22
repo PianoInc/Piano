@@ -35,7 +35,10 @@ extension MainCollectionViewController: CollectionViewDataSource {
     }
     
     private func configure(noteCell: NoteCollectionViewCell, indexPath: IndexPath) {
-        
+        let note = resultsController?.object(at: indexPath)
+        noteCell.contentLabel.text = note?.content
+        if let date = note?.modifiedDate {
+            noteCell.dateLabel.text = DateFormatter.sharedInstance.string(from: date)
+        }
     }
-    
 }
