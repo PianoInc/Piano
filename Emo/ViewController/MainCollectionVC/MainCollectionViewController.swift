@@ -21,28 +21,23 @@ class MainCollectionViewController: UIViewController {
         return persistentContainer.viewContext
     }()
 
+    lazy var noteFetchRequest: NSFetchRequest<Note> = {
+        let request:NSFetchRequest<Note> = Note.fetchRequest()
+        let sort = NSSortDescriptor(key: "modifiedDate", ascending: true)
+        request.sortDescriptors = [sort]
+        return request
+    }()
+
+    lazy var noteResultsController: NSFetchedResultsController<Note> = {
+        let controller = NSFetchedResultsController(fetchRequest: noteFetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
+        return controller
+    }()
+
     var resultsController: NSFetchedResultsController<Note>?
     var calendarDataSource: [String]?
     var reminderDataSource: [String]?
     var contactDataSource: [String]?
     var photoDataSource: [String]?
-
-    // for test
-    lazy var noteResultsController: NSFetchedResultsController<Note> = {
-        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
-        let sort = NSSortDescriptor(key: "modifiedDate", ascending: true)
-        fetchRequest.sortDescriptors = [sort]
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
-        return fetchedResultsController
-    }()
-
-    // for test
-    lazy var emojiResultsController: NSFetchedResultsController<Emoji> = {
-        let fetchRequest: NSFetchRequest<Emoji> = Emoji.fetchRequest()
-        fetchRequest.sortDescriptors = []
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
-        return fetchedResultsController
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

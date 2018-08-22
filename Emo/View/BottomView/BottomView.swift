@@ -54,7 +54,7 @@ extension BottomView {
     private func setup() {
         let isEmpty = textView.text.count == 0
         writeButton.isEnabled = !isEmpty
-        
+
         DispatchQueue.main.async { [weak self] in
             self?.textView.becomeFirstResponder()
         }
