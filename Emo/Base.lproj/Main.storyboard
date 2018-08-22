@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bdl-rs-Xc7">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bdl-rs-Xc7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FQe-PY-3cB">
@@ -75,6 +75,11 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="checkButton" destination="zNM-M4-o9B" id="dDr-Jn-wBa"/>
+                                            <outlet property="eventDateLabel" destination="xmx-Wx-at7" id="mpb-F8-mO5"/>
+                                            <outlet property="label" destination="uhl-Ux-TCI" id="Ydw-9h-O0y"/>
+                                        </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCollectionViewCell" id="kxR-Sk-HG0" customClass="CalendarCollectionViewCell" customModule="Emo" customModuleProvider="target">
                                         <rect key="frame" x="27.5" y="102" width="320" height="92"/>
@@ -288,7 +293,7 @@
                                             <outlet property="dateLabel" destination="UTo-82-Jdo" id="TM9-ex-Oct"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ec5-sQ-S21" customClass="PhotoCollectionViewCell" customModule="Emo" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="ec5-sQ-S21" customClass="PhotoCollectionViewCell" customModule="Emo" customModuleProvider="target">
                                         <rect key="frame" x="114" y="395" width="147" height="92"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -944,7 +949,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6e-sF-5hJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3447" y="-488"/>
+            <point key="canvasLocation" x="3444" y="-499"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZsU-SU-jLU">

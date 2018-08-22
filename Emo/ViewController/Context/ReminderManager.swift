@@ -14,7 +14,10 @@ class ReminderManager<Cell: ReminderCollectionViewCell>: NSObject, NSFetchedResu
     
     private weak var viewController: UIViewController!
     private weak var collectionView: UICollectionView!
+    
+    private let eventStore = EKEventStore()
     private var fetchRC: NSFetchedResultsController<Reminder>?
+    private var fetchData: [EKReminder]?
     
     init(_ viewController: UIViewController, _ collectionView: UICollectionView) {
         self.viewController = viewController
@@ -25,11 +28,23 @@ class ReminderManager<Cell: ReminderCollectionViewCell>: NSObject, NSFetchedResu
     }
     
     func fetch() {
+        fetchData = nil
         let request = NSFetchRequest<Reminder>(entityName: "Reminder")
         request.fetchLimit = 20
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         fetchRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "Reminder")
         fetchRC?.delegate = self
+    }
+    
+    func fetchAll() {
+        fetchRC = nil
+        let predicate = eventStore.predicateForReminders(in: nil)
+        eventStore.fetchReminders(matching: predicate) { reminders in
+            self.fetchData = reminders
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
@@ -38,34 +53,48 @@ class ReminderManager<Cell: ReminderCollectionViewCell>: NSObject, NSFetchedResu
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchRC?.sections?.count ?? 0
+        switch fetchRC != nil {
+        case true: return fetchRC?.sections?.count ?? 0
+        case false: return fetchData?.count ?? 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let id = fetchRC?.object(at: indexPath).identifiers else {return UICollectionViewCell()}
-        guard let reminder = EKEventStore().calendarItem(withIdentifier: id) as? EKReminder else {return UICollectionViewCell()}
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.reuseIdentifier, for: indexPath) as! Cell
-        cell.configure(reminder)
+        switch fetchRC != nil {
+        case true:
+            guard let id = fetchRC?.object(at: indexPath).identifiers else {return UICollectionViewCell()}
+            guard let reminder = eventStore.calendarItem(withIdentifier: id) as? EKReminder else {return UICollectionViewCell()}
+            cell.configure(reminder)
+        case false:
+            guard let reminder = fetchData?[indexPath.row] else {return UICollectionViewCell()}
+            cell.configure(reminder)
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
-        guard let id = fetchRC?.object(at: indexPath).identifiers else {return}
-        let eventStore = EKEventStore()
-        guard let reminder = eventStore.calendarItem(withIdentifier: id) as? EKReminder else {return}
-        edit(reminder, using: eventStore)
+        switch fetchRC != nil {
+        case true:
+            guard let id = fetchRC?.object(at: indexPath).identifiers else {return}
+            guard let reminder = eventStore.calendarItem(withIdentifier: id) as? EKReminder else {return}
+            edit(reminder)
+        case false:
+            guard let reminder = fetchData?[indexPath.row] else {return}
+            edit(reminder)
+        }
     }
     
-    func edit(_ reminder: EKReminder, using store: EKEventStore) {
-        let date = reminder.completionDate ?? Date()
+    func edit(_ reminder: EKReminder) {
+        let date = reminder.alarms?.first?.absoluteDate ?? Date()
         eventAlert(date, reminder.title) {
-            let reminder = EKReminder(eventStore: store)
+            let reminder = EKReminder(eventStore: self.eventStore)
             reminder.title = $0
             reminder.addAlarm(EKAlarm(absoluteDate: date))
-            reminder.calendar = store.defaultCalendarForNewReminders()
+            reminder.calendar = self.eventStore.defaultCalendarForNewReminders()
             do {
-                try store.save(reminder, commit: true)
+                try self.eventStore.save(reminder, commit: true)
                 self.eventResult(alert: "미리알림 등록 성공")
             } catch {
                 self.eventResult(alert: "미리알림 등록 실패")
