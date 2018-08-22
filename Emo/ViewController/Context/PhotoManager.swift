@@ -17,13 +17,8 @@ class PhotoManager<Cell: PhotoCollectionViewCell>: NSObject, PHPhotoLibraryChang
     private weak var collectionView: UICollectionView!
     
     private let imageManager = PHCachingImageManager()
+    private var photoFetchResult = PHFetchResult<PHAsset>()
     private var photoAssets = [PHAsset]()
-    private var photoFetchResult = PHFetchResult<PHAsset>() {
-        didSet {
-            photoAssets = reverse(photo: photoFetchResult)
-            collectionView.reloadData()
-        }
-    }
     
     init(_ collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -37,25 +32,18 @@ class PhotoManager<Cell: PhotoCollectionViewCell>: NSObject, PHPhotoLibraryChang
         }
     }
     
-    func fetch() {
-        if let album = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).firstObject {
-            PHPhotoLibrary.shared().register(self)
-            photoFetchResult = PHAsset.fetchAssets(in: album, options: nil)
-        }
-    }
-    
-    private func reverse(photo: PHFetchResult<PHAsset>) -> [PHAsset] {
-        if photo.count <= 0 {return [PHAsset]()}
-        var tempArray = [PHAsset]()
-        for object in photo.objects(at: IndexSet(0...photo.count - 1)) {
-            tempArray.append(object)
-        }
-        return tempArray.reversed()
+    func fetchAll() {
+        guard let album = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).firstObject else {return}
+        PHPhotoLibrary.shared().register(self)
+        photoFetchResult = PHAsset.fetchAssets(in: album, options: nil)
+        photoAssets = photoFetchResult.objects(at: IndexSet(0...photoFetchResult.count - 1)).reversed()
+        collectionView.reloadData()
     }
     
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         guard let newPhotos = changeInstance.changeDetails(for: photoFetchResult) else {return}
         photoFetchResult = newPhotos.fetchResultAfterChanges
+        photoAssets = photoFetchResult.objects(at: IndexSet(0...photoFetchResult.count - 1)).reversed()
         DispatchQueue.main.async {
             if newPhotos.hasIncrementalChanges {
                 self.collectionView.performBatchUpdates({
@@ -100,7 +88,6 @@ class PhotoManager<Cell: PhotoCollectionViewCell>: NSObject, PHPhotoLibraryChang
                 cellSize = floor((collectionView.bounds.width - landCutSpacing) / landCellNum)
             }
         }
-        
         return CGSize(width: cellSize, height: cellSize)
     }
     

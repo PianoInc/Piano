@@ -128,16 +128,16 @@ extension MainCollectionViewController {
             resultsController = createNoteResultsController()
         case .calendar:
             calendarManager = CalendarManager<CalendarCollectionViewCell>(self, collectionView)
-            calendarManager?.fetch()
+            calendarManager?.fetchAll()
         case .reminder:
             reminderManager = ReminderManager<ReminderCollectionViewCell>(self, collectionView)
-            reminderManager?.fetch()
+            reminderManager?.fetchAll()
         case .contact:
             contactManager = ContactManager<ContactCollectionViewCell>(self, collectionView)
-            contactManager?.fetch()
+            contactManager?.fetchAll()
         case .photo:
             photoManager = PhotoManager<PhotoCollectionViewCell>(collectionView)
-            photoManager?.fetch()
+            photoManager?.fetchAll()
         }
     }
     

@@ -21,7 +21,10 @@ class ContactCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var urlStackView: UIStackView!
     
     func configure(_ contact: CNContact) {
-        
+        nameLabel.text = contact.givenName + contact.familyName
+        numberLabel.text = contact.phoneNumbers.first(where: {$0.value.stringValue != ""})?.value.stringValue.replacingOccurrences(of: "//", with: "")
+        emailLabel.text = contact.emailAddresses.first(where: {$0.value != ""})?.value as String?
+        urlLabel.text = contact.urlAddresses.first(where: {$0.value != ""})?.value as String?
     }
     
 }

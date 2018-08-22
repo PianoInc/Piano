@@ -17,7 +17,14 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var endDateLabel: UILabel!
     
     func configure(_ event: EKEvent) {
-        
+        let calendar = Foundation.Calendar(identifier: .gregorian)
+        let interval = calendar.dateComponents([.day], from: event.startDate, to: event.endDate).day ?? 0
+        dDayLabel.text = "\((interval == 0) ? "D-day" : "-" + String(interval))"
+        titleLabel.text = event.title
+        let format = DateFormatter()
+        format.dateFormat = "yyyy. MM. dd. hh:mm aa"
+        startDateLabel.text = format.string(from: event.startDate)
+        endDateLabel.text = format.string(from: event.endDate)
     }
     
 }

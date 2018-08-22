@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -15,12 +14,12 @@
         <!--Main Collection View Controller-->
         <scene sceneID="6pk-P5-B5a">
             <objects>
-                <viewController id="CXr-tG-QbL" customClass="MainCollectionViewController" customModule="Piano" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CXr-tG-QbL" customClass="MainCollectionViewController" customModule="Emo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hsh-cZ-g78">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bdl-rs-Xc7">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bdl-rs-Xc7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FQe-PY-3cB">
@@ -30,7 +29,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReminderCollectionViewCell" id="czY-tu-uUw" customClass="ReminderCollectionViewCell" customModule="Piano" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReminderCollectionViewCell" id="czY-tu-uUw" customClass="ReminderCollectionViewCell" customModule="Emo" customModuleProvider="target">
                                         <rect key="frame" x="25.5" y="0.0" width="324" height="92"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -76,8 +75,13 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="checkButton" destination="zNM-M4-o9B" id="dDr-Jn-wBa"/>
+                                            <outlet property="eventDateLabel" destination="xmx-Wx-at7" id="mpb-F8-mO5"/>
+                                            <outlet property="label" destination="uhl-Ux-TCI" id="Ydw-9h-O0y"/>
+                                        </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCollectionViewCell" id="kxR-Sk-HG0" customClass="CalendarCollectionViewCell" customModule="Piano" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCollectionViewCell" id="kxR-Sk-HG0" customClass="CalendarCollectionViewCell" customModule="Emo" customModuleProvider="target">
                                         <rect key="frame" x="27.5" y="102" width="320" height="92"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -140,7 +144,7 @@
                                             <outlet property="titleLabel" destination="9nr-lW-zJg" id="sC8-B2-d2o"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContactCollectionViewCell" id="mKM-V5-on6" customClass="ContactCollectionViewCell" customModule="Piano" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContactCollectionViewCell" id="mKM-V5-on6" customClass="ContactCollectionViewCell" customModule="Emo" customModuleProvider="target">
                                         <rect key="frame" x="12.5" y="204" width="350" height="92"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -245,7 +249,7 @@
                                             <outlet property="urlStackView" destination="Zq6-fo-3He" id="gby-Et-KDv"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoteCollectionViewCell" id="jwY-ZX-GKP" customClass="NoteCollectionViewCell" customModule="Piano" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoteCollectionViewCell" id="jwY-ZX-GKP" customClass="NoteCollectionViewCell" customModule="Emo" customModuleProvider="target">
                                         <rect key="frame" x="4.5" y="306" width="366" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -289,7 +293,7 @@
                                             <outlet property="dateLabel" destination="UTo-82-Jdo" id="TM9-ex-Oct"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ec5-sQ-S21" customClass="PhotoCollectionViewCell" customModule="Piano" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="ec5-sQ-S21" customClass="PhotoCollectionViewCell" customModule="Emo" customModuleProvider="target">
                                         <rect key="frame" x="114" y="395" width="147" height="92"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -318,14 +322,14 @@
                                     <outlet property="delegate" destination="CXr-tG-QbL" id="LQB-Wp-Wg2"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06l-Zz-6Qd" customClass="BottomView" customModule="Piano" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06l-Zz-6Qd" customClass="BottomView" customModule="Emo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="550" width="375" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="c5L-Qa-5Mi">
                                         <rect key="frame" x="8" y="8" width="359" height="234"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Biy-oj-bLs">
-                                                <rect key="frame" x="0.0" y="201" width="0.0" height="33"/>
+                                                <rect key="frame" x="0.0" y="201" width="30" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="📔"/>
                                                 <state key="selected" title="📖"/>
@@ -335,13 +339,13 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bzu-Ae-dkE">
-                                                <rect key="frame" x="4" y="50" width="291" height="184"/>
+                                                <rect key="frame" x="34" y="63" width="291" height="171"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-cU-TOf">
                                                         <rect key="frame" x="0.0" y="0.0" width="291" height="134"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="nid-0Z-aio" customClass="ReminderRecommandTableViewCell" customModule="Piano" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="nid-0Z-aio" customClass="ReminderRecommandTableViewCell" customModule="Emo" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="291" height="94"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nid-0Z-aio" id="l5I-9Z-YX6">
@@ -399,7 +403,7 @@
                                                                     <outlet property="titleLabel" destination="dDp-Xc-RDb" id="y93-2t-HNS"/>
                                                                 </connections>
                                                             </tableViewCell>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="78" id="6kW-z2-gJG" customClass="CalendarRecommandTableViewCell" customModule="Piano" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="78" id="6kW-z2-gJG" customClass="CalendarRecommandTableViewCell" customModule="Emo" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="122" width="291" height="78"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6kW-z2-gJG" id="UKH-pW-sKM">
@@ -464,7 +468,7 @@
                                                                     <outlet property="titleLabel" destination="Z3j-En-07g" id="Jef-AU-Qgu"/>
                                                                 </connections>
                                                             </tableViewCell>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="99" id="rn4-9U-Pun" customClass="ContactRecommandTableViewCell" customModule="Piano" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="99" id="rn4-9U-Pun" customClass="ContactRecommandTableViewCell" customModule="Emo" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="200" width="291" height="99"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rn4-9U-Pun" id="y0E-R8-EI2">
@@ -575,10 +579,10 @@
                                                         </connections>
                                                     </tableView>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaH-c8-xut">
-                                                        <rect key="frame" x="0.0" y="134" width="291" height="50"/>
+                                                        <rect key="frame" x="0.0" y="134" width="291" height="37"/>
                                                         <subviews>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yRc-Ro-xhc" customClass="GrowingTextView" customModule="Piano" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="291" height="50"/>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yRc-Ro-xhc" customClass="GrowingTextView" customModule="Emo" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="291" height="37"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -590,7 +594,7 @@
                                                                 </connections>
                                                             </textView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOu-TD-dIx">
-                                                                <rect key="frame" x="257" y="17" width="30" height="33"/>
+                                                                <rect key="frame" x="257" y="4" width="30" height="33"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <state key="normal" title="😁"/>
                                                                 <state key="selected" title="🤣"/>
@@ -618,14 +622,14 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ylr-vR-Dyg">
-                                                <rect key="frame" x="299" y="204" width="26" height="30"/>
+                                                <rect key="frame" x="329" y="204" width="26" height="30"/>
                                                 <state key="normal" title="🕵️‍♀️"/>
                                                 <connections>
                                                     <action selector="tapSearchEmoji:" destination="06l-Zz-6Qd" eventType="touchUpInside" id="YVo-5W-ldU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjz-w0-FR0">
-                                                <rect key="frame" x="329" y="201" width="30" height="33"/>
+                                                <rect key="frame" x="359" y="201" width="0.0" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="✏️"/>
                                                 <connections>
@@ -687,7 +691,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRJ-wq-wfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="x4P-A9-Xg4" customClass="ContextInputView" customModule="Piano" customModuleProvider="target">
+                <view contentMode="scaleToFill" id="x4P-A9-Xg4" customClass="ContextInputView" customModule="Emo" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -742,7 +746,7 @@
                         <segment title="Specific"/>
                     </segments>
                 </segmentedControl>
-                <view contentMode="scaleToFill" id="VFM-Q5-BET" customClass="TitleView" customModule="Piano" customModuleProvider="target">
+                <view contentMode="scaleToFill" id="VFM-Q5-BET" customClass="TitleView" customModule="Emo" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -863,7 +867,7 @@
         <!--Title-->
         <scene sceneID="Fsw-Jh-8Lx">
             <objects>
-                <viewController id="6Ne-mQ-DQU" customClass="NoteDetailViewController" customModule="Piano" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6Ne-mQ-DQU" customClass="NoteDetailViewController" customModule="Emo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ASX-vN-0sA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -871,7 +875,7 @@
                             <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9J-Zi-R9e">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rqH-LY-evY" customClass="BlockTextView" customModule="Piano" customModuleProvider="target">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rqH-LY-evY" customClass="BlockTextView" customModule="Emo" customModuleProvider="target">
                                         <rect key="frame" x="8" y="8" width="359" height="587"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -945,7 +949,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6e-sF-5hJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3447" y="-488"/>
+            <point key="canvasLocation" x="3444" y="-499"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZsU-SU-jLU">
