@@ -31,9 +31,10 @@ class BottomView: UIView {
     /** 유저 인터렉션에 따라 자연스럽게 바텀뷰가 내려가게 하기 위한 옵저빙 토큰 */
     internal var keyboardToken: NSKeyValueObservation?
     internal var keyboardHeight: CGFloat?
-
+    
     weak var delegate: BottomViewDelegate?
-
+    var returnToNoteList: (() -> ())?
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         registerKeyboardNotification()
@@ -47,19 +48,19 @@ class BottomView: UIView {
         super.draw(rect)
         setup()
     }
-
+    
 }
 
 extension BottomView {
     private func setup() {
         let isEmpty = textView.text.count == 0
         writeButton.isEnabled = !isEmpty
-
+        
         DispatchQueue.main.async { [weak self] in
             self?.textView.becomeFirstResponder()
         }
     }
-
+    
 }
 
 extension BottomView {

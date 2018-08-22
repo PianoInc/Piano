@@ -22,6 +22,19 @@ extension MainCollectionViewController {
         case photo
     }
     
+    @IBAction func tapSegment(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            contactManager?.fetchAll()
+            reminderManager?.fetchAll()
+            calendarManager?.fetchAll()
+        default:
+            contactManager?.fetch()
+            reminderManager?.fetch()
+            calendarManager?.fetch()
+        }
+    }
+    
     @IBAction func tapCalendar(_ sender: Any) {
         auth(check: .calendar) { [weak self] in
             self?.setup(for: .calendar)
@@ -100,7 +113,7 @@ extension MainCollectionViewController {
 
 extension MainCollectionViewController {
     
-    private func setup(for vcType: VCType) {
+    func setup(for vcType: VCType) {
         createSnapShotAndAnimate()
         DispatchQueue.main.async { [weak self] in
             self?.bottomView.resetInputView()
@@ -112,7 +125,7 @@ extension MainCollectionViewController {
     
     private func setupNavigationBar(for vcType: VCType) {
         switch vcType {
-        case .note:
+        case .note, .photo:
             navigationItem.titleView = titleView
         default:
             navigationItem.titleView = segmentControl
@@ -125,7 +138,6 @@ extension MainCollectionViewController {
         case .note:
             collectionView.dataSource = self
             collectionView.delegate = self
-            resultsController = createNoteResultsController()
         case .calendar:
             calendarManager = CalendarManager<CalendarCollectionViewCell>(self, collectionView)
             calendarManager?.fetchAll()

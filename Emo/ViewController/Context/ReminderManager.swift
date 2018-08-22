@@ -29,8 +29,10 @@ class ReminderManager<Cell: ReminderCollectionViewCell>: NSObject, NSFetchedResu
     
     func fetch() {
         fetchData = nil
+        collectionView.reloadData()
         let request = NSFetchRequest<Reminder>(entityName: "Reminder")
         request.fetchLimit = 20
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Reminder.identifiers), ascending: true)]
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         fetchRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "Reminder")
         fetchRC?.delegate = self

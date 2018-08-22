@@ -37,8 +37,10 @@ class ContactManager<Cell: ContactCollectionViewCell>: NSObject, NSFetchedResult
     
     func fetch() {
         fetchData = nil
+        collectionView.reloadData()
         let request = NSFetchRequest<Contact>(entityName: "Contact")
         request.fetchLimit = 20
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Contact.identifiers), ascending: true)]
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         fetchRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "Contact")
         fetchRC?.delegate = self
