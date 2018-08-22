@@ -15,12 +15,18 @@ class MainCollectionViewController: UIViewController {
     @IBOutlet var titleView: TitleView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomView: BottomView!
+    
     weak var persistentContainer: NSPersistentContainer!
-
     lazy var managedContext: NSManagedObjectContext = {
         return persistentContainer.viewContext
     }()
-
+    
+    var resultsController: NSFetchedResultsController<Note>?
+    var contactManager: ContactManager<ContactCollectionViewCell>?
+    var reminderManager: ReminderManager<ReminderCollectionViewCell>?
+    var calendarManager: CalendarManager<CalendarCollectionViewCell>?
+    var photoManager: PhotoManager<PhotoCollectionViewCell>?
+    
     lazy var noteFetchRequest: NSFetchRequest<Note> = {
         let request:NSFetchRequest<Note> = Note.fetchRequest()
         let sort = NSSortDescriptor(key: "modifiedDate", ascending: true)
@@ -33,23 +39,17 @@ class MainCollectionViewController: UIViewController {
         return controller
     }()
 
-    var resultsController: NSFetchedResultsController<Note>?
-    var calendarDataSource: [String]?
-    var reminderDataSource: [String]?
-    var contactDataSource: [String]?
-    var photoDataSource: [String]?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         bottomView.delegate = self
         resultsController = createNoteResultsController()
         setupCollectionViewLayout(for: .note)
-
     }
-
+    
 }
 
 extension MainCollectionViewController {
+    
     func saveContext() {
         if managedContext.hasChanges {
             do {
@@ -60,4 +60,5 @@ extension MainCollectionViewController {
             }
         }
     }
+    
 }
