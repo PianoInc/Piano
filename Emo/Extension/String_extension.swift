@@ -67,27 +67,31 @@ extension String {
         return emojiScalars.map { String($0) }.reduce("", +)
     }
     
+//    var emojis: [String] {
+//
+//        var scalars: [[UnicodeScalar]] = []
+//        var currentScalarSet: [UnicodeScalar] = []
+//        var previousScalar: UnicodeScalar?
+//
+//        for scalar in emojiScalars {
+//
+//            if let prev = previousScalar, !prev.isZeroWidthJoiner && !scalar.isZeroWidthJoiner {
+//
+//                scalars.append(currentScalarSet)
+//                currentScalarSet = []
+//            }
+//            currentScalarSet.append(scalar)
+//
+//            previousScalar = scalar
+//        }
+//
+//        scalars.append(currentScalarSet)
+//
+//        return scalars.map { $0.map{ String($0) } .reduce("", +) }
+//    }
+
     var emojis: [String] {
-        
-        var scalars: [[UnicodeScalar]] = []
-        var currentScalarSet: [UnicodeScalar] = []
-        var previousScalar: UnicodeScalar?
-        
-        for scalar in emojiScalars {
-            
-            if let prev = previousScalar, !prev.isZeroWidthJoiner && !scalar.isZeroWidthJoiner {
-                
-                scalars.append(currentScalarSet)
-                currentScalarSet = []
-            }
-            currentScalarSet.append(scalar)
-            
-            previousScalar = scalar
-        }
-        
-        scalars.append(currentScalarSet)
-        
-        return scalars.map { $0.map{ String($0) } .reduce("", +) }
+        return self.filter { String($0).containsEmoji }.map { String($0) }
     }
     
     fileprivate var emojiScalars: [UnicodeScalar] {

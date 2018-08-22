@@ -14,11 +14,11 @@ extension MainCollectionViewController: BottomViewDelegate {
         guard text.count > 0 else { return }
         let note = Note(context: managedContext)
         note.content = text
-        extactEmojies(with: note)
+        detectEmojies(in: note)
         saveContext()
     }
 
-    private func extactEmojies(with note: Note) {
+    private func detectEmojies(in note: Note) {
         guard let text = note.content else { return }
         let request:NSFetchRequest<Emoji> = Emoji.fetchRequest()
         Set(text.emojis).forEach {
@@ -30,8 +30,8 @@ extension MainCollectionViewController: BottomViewDelegate {
                     let emoji = Emoji(context: managedContext)
                     emoji.emojiHash = Int64($0.hashValue)
                     note.addToEmojies(emoji)
-                    // 이미 있는 이모지일 경우
                 } else {
+                    // 이미 있는 이모지일 경우
                     results.forEach {
                         note.addToEmojies($0)
                     }

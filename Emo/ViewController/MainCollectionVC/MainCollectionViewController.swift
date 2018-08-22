@@ -27,23 +27,18 @@ class MainCollectionViewController: UIViewController {
     var calendarManager: CalendarManager<CalendarCollectionViewCell>?
     var photoManager: PhotoManager<PhotoCollectionViewCell>?
     
-    // for test
-    lazy var noteResultsController: NSFetchedResultsController<Note> = {
-        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+    lazy var noteFetchRequest: NSFetchRequest<Note> = {
+        let request:NSFetchRequest<Note> = Note.fetchRequest()
         let sort = NSSortDescriptor(key: "modifiedDate", ascending: true)
-        fetchRequest.sortDescriptors = [sort]
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
-        return fetchedResultsController
+        request.sortDescriptors = [sort]
+        return request
     }()
-    
-    // for test
-    lazy var emojiResultsController: NSFetchedResultsController<Emoji> = {
-        let fetchRequest: NSFetchRequest<Emoji> = Emoji.fetchRequest()
-        fetchRequest.sortDescriptors = []
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
-        return fetchedResultsController
+
+    lazy var noteResultsController: NSFetchedResultsController<Note> = {
+        let controller = NSFetchedResultsController(fetchRequest: noteFetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
+        return controller
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bottomView.delegate = self
