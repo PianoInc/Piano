@@ -28,7 +28,6 @@ extension MainCollectionViewController {
         }
     }
     
-    
     @IBAction func tapPhoto(_ sender: Any) {
         auth(check: .photo) { [weak self] in
             self?.setup(for: .photo)
@@ -47,14 +46,9 @@ extension MainCollectionViewController {
         }
     }
     
-    @IBAction func tapPhotos(_ sender: Any) {
-        auth(check: .photo) {  [weak self] in
-            self?.setup(for: .photo)
-        }
-    }
-    
     private func auth(check type: VCType, _ completion: @escaping (() -> ())) {
-        if type == .calendar || type == .reminder {
+        switch type {
+        case .calendar, .reminder:
             let type: EKEntityType = (type == .calendar) ? .event : .reminder
             let message = (type == .event) ? "달력 권한 주세요." : "미리알림 권한 주세요."
             switch EKEventStore.authorizationStatus(for: type) {
@@ -70,7 +64,7 @@ extension MainCollectionViewController {
             case .authorized: completion()
             case .restricted, .denied: eventAuth(alert: message)
             }
-        } else if type == .photo {
+        case .photo:
             PHPhotoLibrary.requestAuthorization { status in
                 DispatchQueue.main.async {
                     switch status {
@@ -79,7 +73,7 @@ extension MainCollectionViewController {
                     }
                 }
             }
-        } else {
+        default:
             CNContactStore().requestAccess(for: .contacts) { status, error in
                 DispatchQueue.main.async {
                     switch status {
@@ -105,10 +99,9 @@ extension MainCollectionViewController {
 }
 
 extension MainCollectionViewController {
+    
     private func setup(for vcType: VCType) {
-        
         createSnapShotAndAnimate()
-        
         DispatchQueue.main.async { [weak self] in
             self?.bottomView.resetInputView()
             self?.setupNavigationBar(for: vcType)
@@ -128,47 +121,28 @@ extension MainCollectionViewController {
     
     //TODO: 데이터 타입에 따른 데이터 소스 생성하기
     private func setupDataSource(for vcType: VCType) {
-        setNilAllDataSources()
-        
         switch vcType {
         case .note:
+            collectionView.dataSource = self
+            collectionView.delegate = self
             resultsController = createNoteResultsController()
         case .calendar:
-            calendarDataSource = fetchCalendarDataSource()
+            calendarManager = CalendarManager<CalendarCollectionViewCell>(self, collectionView)
+            calendarManager?.fetch()
         case .reminder:
-            reminderDataSource = fetchReminderDataSource()
+            reminderManager = ReminderManager<ReminderCollectionViewCell>(self, collectionView)
+            reminderManager?.fetch()
         case .contact:
-            contactDataSource = fetchContactDataSource()
+            contactManager = ContactManager<ContactCollectionViewCell>(self, collectionView)
+            contactManager?.fetch()
         case .photo:
-            photoDataSource = fetchPhotoDataSource()
+            photoManager = PhotoManager<PhotoCollectionViewCell>(collectionView)
+            photoManager?.fetch()
         }
-    }
-    
-    private func setNilAllDataSources() {
-        calendarDataSource = nil
-        reminderDataSource = nil
-        contactDataSource = nil
-        resultsController = nil
     }
     
     private func createSnapShotAndAnimate() {
         
-    }
-    
-    private func fetchCalendarDataSource() -> [String] {
-        return ["hello"]
-    }
-    
-    private func fetchReminderDataSource() -> [String] {
-        return ["hello"]
-    }
-    
-    private func fetchContactDataSource() -> [String] {
-        return ["hello"]
-    }
-    
-    private func fetchPhotoDataSource() -> [String] {
-        return ["hello"]
     }
     
     internal func createNoteResultsController() -> NSFetchedResultsController<Note> {
@@ -184,17 +158,5 @@ extension MainCollectionViewController {
         flowLayout.minimumLineSpacing = 0
         
     }
-
-    private func reloadCollectionView(for type: VCType) {
-        switch type {
-        case .calendar: CalendarDatasource<CalendarCollectionViewCell>(self, collectionView).fetch()
-        case .reminder: ReminderDatasource<ReminderCollectionViewCell>(self, collectionView).fetch()
-        case .contact: ContactDatasource<ContactCollectionViewCell>(self, collectionView).fetch()
-        case .photo: break
-        default: break
-        }
-        bottomView.textView.inputView = nil
-        reloadInputViews()
-    }
-
+    
 }
