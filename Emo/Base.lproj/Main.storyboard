@@ -360,7 +360,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bzu-Ae-dkE">
-                                                <rect key="frame" x="34" y="63" width="291" height="171"/>
+                                                <rect key="frame" x="34" y="50" width="291" height="184"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-cU-TOf">
                                                         <rect key="frame" x="0.0" y="0.0" width="291" height="134"/>
@@ -600,10 +600,10 @@
                                                         </connections>
                                                     </tableView>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaH-c8-xut">
-                                                        <rect key="frame" x="0.0" y="134" width="291" height="37"/>
+                                                        <rect key="frame" x="0.0" y="134" width="291" height="50"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yRc-Ro-xhc" customClass="GrowingTextView" customModule="Emo" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="291" height="37"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="291" height="50"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -618,7 +618,7 @@
                                                                 </connections>
                                                             </textView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOu-TD-dIx">
-                                                                <rect key="frame" x="257" y="4" width="30" height="33"/>
+                                                                <rect key="frame" x="257" y="17" width="30" height="33"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <state key="normal" title="😁"/>
                                                                 <state key="selected" title="🤣"/>
