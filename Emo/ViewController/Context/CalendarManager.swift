@@ -29,8 +29,10 @@ class CalendarManager<Cell: CalendarCollectionViewCell>: NSObject, NSFetchedResu
     
     func fetch() {
         fetchData = nil
+        collectionView.reloadData()
         let request = NSFetchRequest<Calendar>(entityName: "Calendar")
         request.fetchLimit = 20
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Calendar.identifiers), ascending: true)]
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         fetchRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "Calendar")
         fetchRC?.delegate = self

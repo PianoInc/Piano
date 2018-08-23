@@ -739,12 +739,15 @@
                     <viewLayoutGuide key="safeArea" id="OmH-5f-35e"/>
                 </view>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="EC6-K9-BmW">
-                    <rect key="frame" x="0.0" y="-1" width="121" height="30"/>
+                    <rect key="frame" x="0.0" y="0.0" width="121" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="All"/>
                         <segment title="Specific"/>
                     </segments>
+                    <connections>
+                        <action selector="tapSegment:" destination="CXr-tG-QbL" eventType="valueChanged" id="Yib-LL-ERz"/>
+                    </connections>
                 </segmentedControl>
                 <view contentMode="scaleToFill" id="VFM-Q5-BET" customClass="TitleView" customModule="Emo" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>

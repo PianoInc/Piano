@@ -32,18 +32,26 @@ class MainCollectionViewController: UIViewController {
     lazy var noteFetchRequest: NSFetchRequest<Note> = {
         let request:NSFetchRequest<Note> = Note.fetchRequest()
         let sort = NSSortDescriptor(key: "modifiedDate", ascending: true)
+//        request.fetchLimit = 20
         request.sortDescriptors = [sort]
         return request
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadNote()
         bottomView.delegate = self
+        bottomView.returnToNoteList = {
+            self.setup(for: .note)
+            self.loadNote()
+        }
+    }
+    
+    private func loadNote() {
         resultsController = createNoteResultsController()
         setupCollectionViewLayout(for: .note)
+        refreshCollectionView()
 
-        try? resultsController?.performFetch()
-        collectionView.reloadData()
     }
     
 }
@@ -58,6 +66,18 @@ extension MainCollectionViewController {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+
+    func refreshCollectionView() {
+        do {
+            try resultsController?.performFetch()
+            let count = resultsController?.fetchedObjects?.count ?? 0
+            titleView.label.text = (count <= 0) ? "메모없음" : "\(count)개의 메모"
+            navigationItem.titleView = titleView
+            collectionView.reloadData()
+        } catch {
+            // TODO: 예외처리
         }
     }
 }

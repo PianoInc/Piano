@@ -49,8 +49,7 @@ extension MainCollectionViewController: UITextViewDelegate {
         guard text.count > 0 else {
             noteFetchRequest.predicate = nil
             DispatchQueue.main.async { [weak self] in
-                try? self?.resultsController?.performFetch()
-                self?.collectionView.reloadData()
+                self?.refreshCollectionView()
             }
             return
         }
@@ -65,8 +64,7 @@ extension MainCollectionViewController: UITextViewDelegate {
         }
 
         DispatchQueue.main.async { [weak self] in
-            try? self?.resultsController?.performFetch()
-            self?.collectionView.reloadData()
+            self?.refreshCollectionView()
         }
     }
 
