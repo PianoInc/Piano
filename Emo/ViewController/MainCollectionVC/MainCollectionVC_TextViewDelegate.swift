@@ -18,12 +18,19 @@ extension MainCollectionViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         changeState(for: textView)
         typingCounter += 1
-        perform(#selector(requestQuery(_:)), with: textView.text, afterDelay: 0.2)
+        perform(#selector(requestQuery(_:)), with: textView.text, afterDelay: 0.3)
     }
 
+    /// persistent store에 검색 요청하는 메서드.
+    /// 검색할 문자열의 길이가 30보다 작을 경우,
+    /// 0.3초 이상 멈추는 경우에만 실제로 요청한다.
+    ///
+    /// - Parameter sender: 검색할 문자열
     @objc func requestQuery(_ sender: Any?) {
         typingCounter -= 1
-        guard let text = sender as? String, typingCounter == 0 else { return }
+        guard let text = sender as? String,
+            typingCounter == 0,
+            text.count < 30  else { return }
 
         DispatchQueue.global(qos: .userInteractive).async {
             self.refreshFetchRequest(with: text)
@@ -46,7 +53,7 @@ extension MainCollectionViewController: UITextViewDelegate {
     }
 
     private func refreshFetchRequest(with text: String) {
-        guard text.count > 0 else {
+        guard 1...30 ~= text.count else {
             noteFetchRequest.predicate = nil
             DispatchQueue.main.async { [weak self] in
                 self?.refreshCollectionView()
@@ -89,7 +96,6 @@ extension MainCollectionViewController: UITextViewDelegate {
             .map { NSPredicate(format: "content contains[cd] %@", $0) }
 
         noteFetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-
     }
 
     private func fullTextRequest(with text: String) {

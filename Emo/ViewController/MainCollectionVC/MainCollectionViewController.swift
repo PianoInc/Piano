@@ -26,12 +26,13 @@ class MainCollectionViewController: UIViewController {
     var reminderManager: ReminderManager<ReminderCollectionViewCell>?
     var calendarManager: CalendarManager<CalendarCollectionViewCell>?
     var photoManager: PhotoManager<PhotoCollectionViewCell>?
-    
-    var typingCounter = 0
-    
+
+    internal var typingCounter = 0
+
     lazy var noteFetchRequest: NSFetchRequest<Note> = {
         let request:NSFetchRequest<Note> = Note.fetchRequest()
-        let sort = NSSortDescriptor(key: "modifiedDate", ascending: true)
+        let sort = NSSortDescriptor(key: "modifiedDate", ascending: false)
+        request.fetchLimit = 100
         request.sortDescriptors = [sort]
         return request
     }()
@@ -50,6 +51,7 @@ class MainCollectionViewController: UIViewController {
         resultsController = createNoteResultsController()
         setupCollectionViewLayout(for: .note)
         refreshCollectionView()
+        setupDummyNotes()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,9 +83,34 @@ extension MainCollectionViewController {
             let count = resultsController?.fetchedObjects?.count ?? 0
             titleView.label.text = (count <= 0) ? "메모없음" : "\(count)개의 메모"
             navigationItem.titleView = titleView
-            collectionView.reloadData()
+
+            collectionView.performBatchUpdates({
+                collectionView.reloadSections(IndexSet(integer: 0))
+            }, completion: nil)
         } catch {
             // TODO: 예외처리
+        }
+    }
+
+    // for test
+    private func setupDummyNotes() {
+        if resultsController?.fetchedObjects?.count ?? 0 < 100 {
+            for _ in 1...50000 {
+                let note = Note(context: managedContext)
+                note.content = "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo."
+            }
+            for _ in 1...5 {
+                let note = Note(context: managedContext)
+                note.content = "👻 apple Nullam id dolor id nibh ultricies vehicula ut id elit."
+            }
+
+            for _ in 1...5 {
+                let note = Note(context: managedContext)
+                note.content = "👻 bang Maecenas faucibus mollis interdum."
+            }
+
+            saveContext()
+            try? resultsController?.performFetch()
         }
     }
 }
