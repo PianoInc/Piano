@@ -16,6 +16,8 @@ extension BottomView {
         } else {
             switchContextInputView(isSelected: sender.isSelected)
         }
+        guard !textView.isFirstResponder else {return}
+        textView.becomeFirstResponder()
     }
     
     @IBAction func tapWrite(_ sender: Any) {
