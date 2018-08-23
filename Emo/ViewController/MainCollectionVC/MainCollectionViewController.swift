@@ -27,12 +27,12 @@ class MainCollectionViewController: UIViewController {
     var calendarManager: CalendarManager<CalendarCollectionViewCell>?
     var photoManager: PhotoManager<PhotoCollectionViewCell>?
 
-    var typingCounter = 0
+    internal var typingCounter = 0
 
     lazy var noteFetchRequest: NSFetchRequest<Note> = {
         let request:NSFetchRequest<Note> = Note.fetchRequest()
         let sort = NSSortDescriptor(key: "modifiedDate", ascending: false)
-//        request.fetchLimit = 20
+        request.fetchLimit = 100
         request.sortDescriptors = [sort]
         return request
     }()
@@ -75,12 +75,16 @@ extension MainCollectionViewController {
             let count = resultsController?.fetchedObjects?.count ?? 0
             titleView.label.text = (count <= 0) ? "메모없음" : "\(count)개의 메모"
             navigationItem.titleView = titleView
-            collectionView.reloadData()
+
+            collectionView.performBatchUpdates({
+                collectionView.reloadSections(IndexSet(integer: 0))
+            }, completion: nil)
         } catch {
             // TODO: 예외처리
         }
     }
 
+    // for test
     private func setupDummyNotes() {
         if resultsController?.fetchedObjects?.count ?? 0 < 100 {
             for _ in 1...50000 {
@@ -97,10 +101,8 @@ extension MainCollectionViewController {
                 note.content = "👻 bang Maecenas faucibus mollis interdum."
             }
 
-
             saveContext()
             try? resultsController?.performFetch()
         }
-
     }
 }
