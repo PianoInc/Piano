@@ -17,7 +17,17 @@ extension MainCollectionViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         changeState(for: textView)
-        filterNotes(with: textView.text)
+        typingCounter += 1
+        perform(#selector(requestQuery(_:)), with: textView.text, afterDelay: 0.2)
+    }
+
+    @objc func requestQuery(_ sender: Any?) {
+        typingCounter -= 1
+        guard let text = sender as? String, typingCounter == 0 else { return }
+
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.refreshFetchRequest(with: text)
+        }
     }
     
     private func changeState(for textView: TextView) {
@@ -35,7 +45,7 @@ extension MainCollectionViewController: UITextViewDelegate {
         
     }
 
-    private func filterNotes(with text: String) {
+    private func refreshFetchRequest(with text: String) {
         guard text.count > 0 else {
             noteFetchRequest.predicate = nil
             DispatchQueue.main.async { [weak self] in
@@ -43,42 +53,51 @@ extension MainCollectionViewController: UITextViewDelegate {
             }
             return
         }
-        // lexicalClass을 사용할 수 있으면
+
         if let language = NSLinguisticTagger.dominantLanguage(for: text),
             NSLinguisticTagger.availableTagSchemes(forLanguage: language).contains(.lexicalClass) {
 
-            let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
-            tagger.string = text
-
-            let range = NSRange(location: 0, length: text.utf16.count)
-            let options: NSLinguisticTagger.Options = [.omitWhitespace]
-            let tags: [NSLinguisticTag] = [.noun, .verb, .otherWord, .number]
-            var words = Array<String>()
-
-            tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange, stop in
-
-                if let tag = tag, tags.contains(tag) {
-                    let word = (text as NSString).substring(with: tokenRange)
-                    words.append(word)
-                }
-            }
-            let predicates = Set(words)
-                .map { $0.lowercased() }
-                .map { NSPredicate(format: "content contains[cd] %@", $0) }
-
-            noteFetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+            linguisticRequest(with: text)
 
         } else {
-            let trimmed = text.lowercased()
-                .trimmingCharacters(in: .illegalCharacters)
-                .trimmingCharacters(in: .punctuationCharacters)
-
-            let predicate = NSPredicate(format: "content contains[cd] %@", trimmed)
-            noteFetchRequest.predicate = predicate
+            fullTextRequest(with: text)
         }
 
         DispatchQueue.main.async { [weak self] in
             self?.refreshCollectionView()
         }
+    }
+
+    private func linguisticRequest(with text: String) {
+        let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
+        tagger.string = text
+
+        let range = NSRange(location: 0, length: text.utf16.count)
+        let options: NSLinguisticTagger.Options = [.omitWhitespace]
+        let tags: [NSLinguisticTag] = [.noun, .verb, .otherWord, .number]
+        var words = Array<String>()
+
+        tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange, stop in
+
+            if let tag = tag, tags.contains(tag) {
+                let word = (text as NSString).substring(with: tokenRange)
+                words.append(word)
+            }
+        }
+        let predicates = Set(words)
+            .map { $0.lowercased() }
+            .map { NSPredicate(format: "content contains[cd] %@", $0) }
+
+        noteFetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+
+    }
+
+    private func fullTextRequest(with text: String) {
+        let trimmed = text.lowercased()
+            .trimmingCharacters(in: .illegalCharacters)
+            .trimmingCharacters(in: .punctuationCharacters)
+
+        let predicate = NSPredicate(format: "content contains[cd] %@", trimmed)
+        noteFetchRequest.predicate = predicate
     }
 }
