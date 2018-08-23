@@ -26,13 +26,12 @@ class MainCollectionViewController: UIViewController {
     var reminderManager: ReminderManager<ReminderCollectionViewCell>?
     var calendarManager: CalendarManager<CalendarCollectionViewCell>?
     var photoManager: PhotoManager<PhotoCollectionViewCell>?
-
+    
     var typingCounter = 0
-
+    
     lazy var noteFetchRequest: NSFetchRequest<Note> = {
         let request:NSFetchRequest<Note> = Note.fetchRequest()
         let sort = NSSortDescriptor(key: "modifiedDate", ascending: true)
-//        request.fetchLimit = 20
         request.sortDescriptors = [sort]
         return request
     }()
@@ -51,7 +50,14 @@ class MainCollectionViewController: UIViewController {
         resultsController = createNoteResultsController()
         setupCollectionViewLayout(for: .note)
         refreshCollectionView()
-
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PhotoDetailViewController" {
+            guard let photoDetailVC = segue.destination as? PhotoDetailViewController else {return}
+            guard let image = sender as? UIImage else {return}
+            photoDetailVC.image = image
+        }
     }
     
 }
@@ -68,7 +74,7 @@ extension MainCollectionViewController {
             }
         }
     }
-
+    
     func refreshCollectionView() {
         do {
             try resultsController?.performFetch()

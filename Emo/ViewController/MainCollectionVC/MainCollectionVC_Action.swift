@@ -148,7 +148,7 @@ extension MainCollectionViewController {
             contactManager = ContactManager<ContactCollectionViewCell>(self, collectionView)
             contactManager?.fetchAll()
         case .photo:
-            photoManager = PhotoManager<PhotoCollectionViewCell>(collectionView)
+            photoManager = PhotoManager<PhotoCollectionViewCell>(self, collectionView)
             photoManager?.fetchAll()
         }
     }

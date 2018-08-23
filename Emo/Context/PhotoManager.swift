@@ -10,17 +10,19 @@ import UIKit
 import CoreData
 import Photos
 
-let PHImageManagerMinimumSize: CGFloat = 125
+let PHImageManagerMinimumSize = CGSize(width: 125, height: 125)
 
 class PhotoManager<Cell: PhotoCollectionViewCell>: NSObject, PHPhotoLibraryChangeObserver, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    private weak var viewController: UIViewController!
     private weak var collectionView: UICollectionView!
     
     private let imageManager = PHCachingImageManager()
     private var photoFetchResult = PHFetchResult<PHAsset>()
     private var photoAssets = [PHAsset]()
     
-    init(_ collectionView: UICollectionView) {
+    init(_ viewController: UIViewController, _ collectionView: UICollectionView) {
+        self.viewController = viewController
         self.collectionView = collectionView
         super.init()
         collectionView.dataSource = self
@@ -97,14 +99,24 @@ class PhotoManager<Cell: PhotoCollectionViewCell>: NSObject, PHPhotoLibraryChang
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.reuseIdentifier, for: indexPath) as! Cell
-        let photo = photoAssets[indexPath.row]
-        let size = CGSize(width: PHImageManagerMinimumSize, height: PHImageManagerMinimumSize)
-        let options = PHImageRequestOptions()
-        options.isSynchronous = true
-        imageManager.requestImage(for: photo, targetSize: size, contentMode: .aspectFit, options: options) { (image, _) in
+        requestImage(indexPath, size: PHImageManagerMinimumSize) { (image, _) in
             cell.configure(image)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        requestImage(indexPath, size: PHImageManagerMaximumSize) { (image, _) in
+            self.viewController.performSegue(withIdentifier: "PhotoDetailViewController", sender: image)
+        }
+    }
+    
+    private func requestImage(_ indexPath: IndexPath, size: CGSize, completion: @escaping (UIImage?, [AnyHashable : Any]?) -> ()) {
+        let photo = photoAssets[indexPath.row]
+        let options = PHImageRequestOptions()
+        options.isSynchronous = true
+        imageManager.requestImage(for: photo, targetSize: size, contentMode: .aspectFit, options: options, resultHandler: completion)
     }
     
 }
