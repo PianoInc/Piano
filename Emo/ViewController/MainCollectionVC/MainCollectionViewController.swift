@@ -31,7 +31,7 @@ class MainCollectionViewController: UIViewController {
 
     lazy var noteFetchRequest: NSFetchRequest<Note> = {
         let request:NSFetchRequest<Note> = Note.fetchRequest()
-        let sort = NSSortDescriptor(key: "modifiedDate", ascending: true)
+        let sort = NSSortDescriptor(key: "modifiedDate", ascending: false)
 //        request.fetchLimit = 20
         request.sortDescriptors = [sort]
         return request
@@ -51,7 +51,7 @@ class MainCollectionViewController: UIViewController {
         resultsController = createNoteResultsController()
         setupCollectionViewLayout(for: .note)
         refreshCollectionView()
-
+        setupDummyNotes()
     }
     
 }
@@ -79,5 +79,28 @@ extension MainCollectionViewController {
         } catch {
             // TODO: 예외처리
         }
+    }
+
+    private func setupDummyNotes() {
+        if resultsController?.fetchedObjects?.count ?? 0 < 100 {
+            for _ in 1...50000 {
+                let note = Note(context: managedContext)
+                note.content = "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo."
+            }
+            for _ in 1...5 {
+                let note = Note(context: managedContext)
+                note.content = "👻 apple Nullam id dolor id nibh ultricies vehicula ut id elit."
+            }
+
+            for _ in 1...5 {
+                let note = Note(context: managedContext)
+                note.content = "👻 bang Maecenas faucibus mollis interdum."
+            }
+
+
+            saveContext()
+            try? resultsController?.performFetch()
+        }
+
     }
 }
