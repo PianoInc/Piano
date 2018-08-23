@@ -26,7 +26,9 @@ class MainCollectionViewController: UIViewController {
     var reminderManager: ReminderManager<ReminderCollectionViewCell>?
     var calendarManager: CalendarManager<CalendarCollectionViewCell>?
     var photoManager: PhotoManager<PhotoCollectionViewCell>?
-    
+
+    var typingCounter = 0
+
     lazy var noteFetchRequest: NSFetchRequest<Note> = {
         let request:NSFetchRequest<Note> = Note.fetchRequest()
         let sort = NSSortDescriptor(key: "modifiedDate", ascending: true)
@@ -39,7 +41,9 @@ class MainCollectionViewController: UIViewController {
         bottomView.delegate = self
         resultsController = createNoteResultsController()
         setupCollectionViewLayout(for: .note)
-        refreshCollectionView()
+
+        try? resultsController?.performFetch()
+        collectionView.reloadData()
     }
     
 }
@@ -54,15 +58,6 @@ extension MainCollectionViewController {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
-        }
-    }
-
-    func refreshCollectionView() {
-        do {
-            try resultsController?.performFetch()
-            collectionView.reloadData()
-        } catch {
-            // TODO: 예외처리
         }
     }
 }
