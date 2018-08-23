@@ -250,27 +250,48 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoteCollectionViewCell" id="jwY-ZX-GKP" customClass="NoteCollectionViewCell" customModule="Emo" customModuleProvider="target">
-                                        <rect key="frame" x="4.5" y="306" width="366" height="79"/>
+                                        <rect key="frame" x="4.5" y="306" width="366" height="88"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HQD-7s-sex">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HQD-7s-sex">
                                                     <rect key="frame" x="0.0" y="0.0" width="345" height="79"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✈️🙊Lorem ipsum dolor sit er elit lamet, consectetaur c" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PS-Nu-8Xj">
-                                                            <rect key="frame" x="0.0" y="0.0" width="350" height="41"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="350" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="2018년 3월 16일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTo-82-Jdo">
-                                                            <rect key="frame" x="0.0" y="41" width="350" height="22"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Kfx-4A-RFg">
+                                                            <rect key="frame" x="0.0" y="42" width="350" height="30"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="2018년 3월 16일" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTo-82-Jdo">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="167" height="30"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-2w-tYY">
+                                                                    <rect key="frame" x="175" y="0.0" width="30" height="30"/>
+                                                                    <state key="normal" title="일정"/>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAv-zq-mjE">
+                                                                    <rect key="frame" x="213" y="0.0" width="52" height="30"/>
+                                                                    <state key="normal" title="미리알림"/>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yux-Ze-vIz">
+                                                                    <rect key="frame" x="273" y="0.0" width="30" height="30"/>
+                                                                    <state key="normal" title="사진"/>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmh-Vf-Uvv">
+                                                                    <rect key="frame" x="311" y="0.0" width="39" height="30"/>
+                                                                    <state key="normal" title="연락처"/>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -282,7 +303,7 @@
                                             <constraint firstItem="HQD-7s-sex" firstAttribute="top" secondItem="jwY-ZX-GKP" secondAttribute="topMargin" id="RZX-KS-DBR"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="HQD-7s-sex" secondAttribute="bottom" id="bjp-9a-X0A"/>
                                         </constraints>
-                                        <size key="customSize" width="366" height="79"/>
+                                        <size key="customSize" width="366" height="88"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="10"/>
@@ -294,14 +315,14 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="ec5-sQ-S21" customClass="PhotoCollectionViewCell" customModule="Emo" customModuleProvider="target">
-                                        <rect key="frame" x="114" y="395" width="147" height="92"/>
+                                        <rect key="frame" x="91" y="404" width="193" height="112"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="147" height="92"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="193" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bYk-do-6gD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="147" height="92"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="193" height="112"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -311,7 +332,7 @@
                                             <constraint firstAttribute="trailing" secondItem="bYk-do-6gD" secondAttribute="trailing" id="YmC-F8-fSL"/>
                                             <constraint firstAttribute="bottom" secondItem="bYk-do-6gD" secondAttribute="bottom" id="o1z-la-ve9"/>
                                         </constraints>
-                                        <size key="customSize" width="147" height="92"/>
+                                        <size key="customSize" width="193" height="112"/>
                                         <connections>
                                             <outlet property="imageView" destination="bYk-do-6gD" id="f66-PJ-CgU"/>
                                         </connections>
@@ -588,6 +609,9 @@
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="오늘 하루는 어땠나요?"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxHeight">
+                                                                        <real key="value" value="150"/>
+                                                                    </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="CXr-tG-QbL" id="8wk-2U-zyc"/>
@@ -621,15 +645,8 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ylr-vR-Dyg">
-                                                <rect key="frame" x="329" y="204" width="26" height="30"/>
-                                                <state key="normal" title="🕵️‍♀️"/>
-                                                <connections>
-                                                    <action selector="tapSearchEmoji:" destination="06l-Zz-6Qd" eventType="touchUpInside" id="YVo-5W-ldU"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjz-w0-FR0">
-                                                <rect key="frame" x="359" y="201" width="0.0" height="33"/>
+                                                <rect key="frame" x="329" y="201" width="30" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="✏️"/>
                                                 <connections>
@@ -652,7 +669,6 @@
                                     <outlet property="contextInputView" destination="x4P-A9-Xg4" id="Uz9-wf-f2H"/>
                                     <outlet property="emojiButton" destination="dOu-TD-dIx" id="ToN-zs-Kpu"/>
                                     <outlet property="emojiInputView" destination="WNw-gt-ma1" id="7Sx-cf-5nB"/>
-                                    <outlet property="emojiSearchButton" destination="Ylr-vR-Dyg" id="hvo-7X-vXx"/>
                                     <outlet property="tableView" destination="Wmz-cU-TOf" id="aaL-8n-NrL"/>
                                     <outlet property="textView" destination="yRc-Ro-xhc" id="zCD-sf-03B"/>
                                     <outlet property="writeButton" destination="Bjz-w0-FR0" id="p6p-Fx-sr1"/>
@@ -678,7 +694,11 @@
                                 <segue destination="S9V-4p-k1n" kind="presentation" id="ZaE-6u-Jve"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="👆" id="xhS-KX-pEv"/>
+                        <barButtonItem key="rightBarButtonItem" title="👆" id="xhS-KX-pEv">
+                            <connections>
+                                <segue destination="6Ne-mQ-DQU" kind="show" identifier="" id="TRl-AW-NCn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
@@ -914,7 +934,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqv-Ut-2oT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <barButtonItem title="✔️" id="V1c-py-uTH"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="305"/>
+            <point key="canvasLocation" x="2214" y="236"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="PfR-Lx-4g7">
@@ -991,4 +1011,7 @@
             <point key="canvasLocation" x="2634" y="-498"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TRl-AW-NCn"/>
+    </inferredMetricsTieBreakers>
 </document>
