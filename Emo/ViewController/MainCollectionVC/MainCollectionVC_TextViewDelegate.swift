@@ -18,7 +18,7 @@ extension MainCollectionViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         changeState(for: textView)
         typingCounter += 1
-        perform(#selector(requestQuery(_:)), with: textView.text, afterDelay: 0.2)
+        perform(#selector(requestQuery(_:)), with: textView.text, afterDelay: 0.3)
     }
 
     @objc func requestQuery(_ sender: Any?) {
@@ -46,7 +46,7 @@ extension MainCollectionViewController: UITextViewDelegate {
     }
 
     private func refreshFetchRequest(with text: String) {
-        guard text.count > 0 else {
+        guard 1...30 ~= text.count else {
             noteFetchRequest.predicate = nil
             DispatchQueue.main.async { [weak self] in
                 self?.refreshCollectionView()
@@ -89,7 +89,6 @@ extension MainCollectionViewController: UITextViewDelegate {
             .map { NSPredicate(format: "content contains[cd] %@", $0) }
 
         noteFetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-
     }
 
     private func fullTextRequest(with text: String) {
