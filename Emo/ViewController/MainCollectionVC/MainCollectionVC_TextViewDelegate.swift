@@ -20,7 +20,7 @@ extension MainCollectionViewController: UITextViewDelegate {
         filterNotes(with: textView.text)
         
         typingCounter += 1
-        perform(#selector(requestQuery(_:)), with: textView.text, afterDelay: 0.3)
+        perform(#selector(requestQuery(_:)), with: textView.text, afterDelay: searchRequestDelay)
         
         guard var bulletKey = BulletKey(text: textView.text, selectedRange: textView.selectedRange) else { return }
         
@@ -83,11 +83,10 @@ extension MainCollectionViewController: UITextViewDelegate {
             let textViewWidth = textView.bounds.width
             bottomView.emojiButton.isHidden = textViewWidth < 50 + caretOriginX
         }
-        
     }
 
     private func refreshFetchRequest(with text: String) {
-        guard 1...30 ~= text.count else {
+        guard text.count != 0 else {
             noteFetchRequest.predicate = nil
             DispatchQueue.main.async { [weak self] in
                 self?.refreshCollectionView()
