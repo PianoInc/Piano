@@ -6,7 +6,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -692,7 +691,7 @@
                         <barButtonItem key="leftBarButtonItem" title="⚙️" id="J5y-YQ-aYh"/>
                         <barButtonItem key="rightBarButtonItem" title="👆" id="xhS-KX-pEv">
                             <connections>
-                                <segue destination="6Ne-mQ-DQU" kind="show" identifier="" id="TRl-AW-NCn"/>
+                                <segue destination="6Ne-mQ-DQU" kind="show" id="QjU-JC-aYV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -701,7 +700,6 @@
                         <outlet property="collectionView" destination="bdl-rs-Xc7" id="Ps0-my-QHB"/>
                         <outlet property="segmentControl" destination="EC6-K9-BmW" id="MW0-dA-Gif"/>
                         <outlet property="titleView" destination="VFM-Q5-BET" id="7ti-Jh-VbI"/>
-                        <segue destination="6Ne-mQ-DQU" kind="show" identifier="NoteDetailViewController" id="ZNC-Q2-H8B"/>
                         <segue destination="vNI-te-gyx" kind="show" identifier="PhotoDetailViewController" id="Qtf-i2-cSh"/>
                     </connections>
                 </viewController>
@@ -885,7 +883,7 @@
             </objects>
             <point key="canvasLocation" x="1098" y="296"/>
         </scene>
-        <!--Title-->
+        <!--Note Detail View Controller-->
         <scene sceneID="Fsw-Jh-8Lx">
             <objects>
                 <viewController storyboardIdentifier="NoteDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Ne-mQ-DQU" customClass="NoteDetailViewController" customModule="Emo" customModuleProvider="target" sceneMemberID="viewController">
@@ -893,49 +891,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9J-Zi-R9e">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rqH-LY-evY" customClass="BlockTextView" customModule="Emo" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="8" width="359" height="587"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="6Ne-mQ-DQU" id="YyJ-0m-jx7"/>
-                                        </connections>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailingMargin" secondItem="rqH-LY-evY" secondAttribute="trailing" id="2ns-kB-DLO"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="rqH-LY-evY" secondAttribute="bottom" id="3vi-6k-oXr"/>
-                                    <constraint firstItem="rqH-LY-evY" firstAttribute="top" secondItem="d9J-Zi-R9e" secondAttribute="topMargin" id="DKZ-zz-q7Q"/>
-                                    <constraint firstItem="rqH-LY-evY" firstAttribute="leading" secondItem="d9J-Zi-R9e" secondAttribute="leadingMargin" id="ism-5E-l7q"/>
-                                </constraints>
-                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2x-TS-G52">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="📔" id="GUp-vg-kLr"/>
+                                    <barButtonItem title="Item" id="auP-1Y-Riv"/>
+                                    <barButtonItem title="Item" id="cQN-a6-bfq"/>
+                                    <barButtonItem title="Item" id="yon-fl-8pg"/>
+                                    <barButtonItem title="Item" id="Koi-bl-Ios"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="d9J-Zi-R9e" firstAttribute="top" secondItem="cIh-kc-keU" secondAttribute="top" id="bSn-xx-WLL"/>
-                            <constraint firstItem="cIh-kc-keU" firstAttribute="trailing" secondItem="d9J-Zi-R9e" secondAttribute="trailing" id="diH-hE-IYj"/>
-                            <constraint firstItem="d9J-Zi-R9e" firstAttribute="leading" secondItem="cIh-kc-keU" secondAttribute="leading" id="gMj-xW-rJy"/>
-                            <constraint firstItem="cIh-kc-keU" firstAttribute="bottom" secondItem="d9J-Zi-R9e" secondAttribute="bottom" id="t28-DP-1Sh"/>
+                            <constraint firstAttribute="trailing" secondItem="D2x-TS-G52" secondAttribute="trailing" id="4oK-GD-YrW"/>
+                            <constraint firstAttribute="bottom" secondItem="D2x-TS-G52" secondAttribute="bottom" id="Bbe-VI-66t"/>
+                            <constraint firstItem="D2x-TS-G52" firstAttribute="leading" secondItem="ASX-vN-0sA" secondAttribute="leading" id="gkw-6K-doQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cIh-kc-keU"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="lbT-Tz-tgW">
-                        <rightBarButtonItems>
-                            <barButtonItem title="🖍" id="jG0-Ko-bPl"/>
-                            <barButtonItem title="👨‍👩‍👦‍👦" id="QvT-TH-uHO"/>
-                        </rightBarButtonItems>
+                    <navigationItem key="navigationItem" id="lbT-Tz-tgW">
+                        <nil key="title"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqv-Ut-2oT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <barButtonItem title="✔️" id="V1c-py-uTH"/>
             </objects>
-            <point key="canvasLocation" x="2214" y="236"/>
+            <point key="canvasLocation" x="1968.8" y="-97.601199400299862"/>
         </scene>
         <!--Photo Detail View Controller-->
         <scene sceneID="afv-3K-eXC">
@@ -1055,7 +1037,4 @@
             <point key="canvasLocation" x="239" y="296"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="TRl-AW-NCn"/>
-    </inferredMetricsTieBreakers>
 </document>

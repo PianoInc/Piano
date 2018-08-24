@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class BlockTextView: UITextView {
+class PianoTextView: UITextView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -51,7 +51,7 @@ class BlockTextView: UITextView {
 
 }
 
-extension BlockTextView: NSLayoutManagerDelegate {
+extension PianoTextView: NSLayoutManagerDelegate {
     public func layoutManager(_ layoutManager: NSLayoutManager, lineSpacingAfterGlyphAt glyphIndex: Int, withProposedLineFragmentRect rect: CGRect) -> CGFloat {
         return 8
     }

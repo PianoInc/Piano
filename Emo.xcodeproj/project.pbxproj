@@ -13,8 +13,8 @@
 		14D4903118275D1CAA3A654496AB30B2 /* ReminderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF8EC11660663D75A1022BE5482A69D /* ReminderCollectionViewCell.swift */; };
 		15F28F5549D2599045A9506BD1CD38D7 /* MainCollectionVC_Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB04FAAAE18E2445431CA576292145 /* MainCollectionVC_Action.swift */; };
 		191BE7A7441787EB4E516DE4D9469CCD /* BottomView_Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1250B0B76832E1C509234AF97CAF482D /* BottomView_Action.swift */; };
-		21E8ACFA7D1BC87EAE241446E6919D4D /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EE7269669E16CE8DF879A0D90261EC /* Preference.swift */; };
 		1FE3E97537F9494FA60723F23B22A8C2 /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AF147E48FB884E1D58F35D80B02105 /* ReminderManager.swift */; };
+		21E8ACFA7D1BC87EAE241446E6919D4D /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EE7269669E16CE8DF879A0D90261EC /* Preference.swift */; };
 		2247D0E3EAC6A853B3B6382E4AB33B82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC2B9DC4F603DA17D67A9B33EA2EF786 /* Assets.xcassets */; };
 		227E0505B99C1A2E70DFC98523FF7AEB /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EDBB712A3719D056BE8787AFD4AA6F /* StoreService.swift */; };
 		23398153517B7231949E8FC3E92B6142 /* MainCollectionVC_BottomViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF41BE17C163BB3EEAAFE51A6363595 /* MainCollectionVC_BottomViewDelegate.swift */; };
@@ -45,7 +45,7 @@
 		72E6EB8071EE0720B974B9CF68DF8F89 /* BulletKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EFCAF0187EED2CA9FDEDF45FC68A4 /* BulletKey.swift */; };
 		781829494729FD3F5F29CF3A0CD6F95B /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD8AC056C9A6C26F970C3F8E314C970 /* NoteCollectionViewCell.swift */; };
 		85C5E978B088D777CEFFD61B5B2D60FD /* iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35011B421A261853BC56EA515393EC0 /* iOS.swift */; };
-		8A64EE4218C920331FB3ACF641CDFEB6 /* BlockTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53CE68D7B828048F5154C58D1711525 /* BlockTextView.swift */; };
+		8A64EE4218C920331FB3ACF641CDFEB6 /* PianoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53CE68D7B828048F5154C58D1711525 /* PianoTextView.swift */; };
 		924A5DFE9A0ECB0A3CDE7E2B5A331EEC /* PasteboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B38ECFC674DA7EB6B7CB38096589F0 /* PasteboardManager.swift */; };
 		94B20B95247422C4F5875571409CBFA2 /* MainCollectionVC_ScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46150393319B4DEB23C2111497ACDFAB /* MainCollectionVC_ScrollViewDelegate.swift */; };
 		9A09EF180199A5208A4286AFB438CEDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309D050B523DE66E1EF8FFD541330B98 /* LaunchScreen.storyboard */; };
@@ -114,9 +114,9 @@
 		4CCA6613AC92F38D1E765790B7216CAA /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		50DD8FDB1362F2791C9C435D3DF182F9 /* MainCollectionVC_TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionVC_TextFieldDelegate.swift; sourceTree = "<group>"; };
 		51DF42E787CA637979BA75A60FED0960 /* DateFormatter_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter_extension.swift; sourceTree = "<group>"; };
-		656A3B13737914A1C1BCC249B7F83A04 /* Bullet_UITextView_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullet_UITextView_Extension.swift; sourceTree = "<group>"; };
 		5AA82523DB02124F561CCCEDB13D4012 /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		5CB36ACC93E5BB550917731146C895C2 /* PhotoDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailHeaderView.swift; sourceTree = "<group>"; };
+		656A3B13737914A1C1BCC249B7F83A04 /* Bullet_UITextView_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullet_UITextView_Extension.swift; sourceTree = "<group>"; };
 		6E492AC0ADAAADDE5E69F9A1DAEBA51C /* BottomView_TableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomView_TableViewDelegate.swift; sourceTree = "<group>"; };
 		6EB2712B01A4D0B45339CD6BEEC8EAC1 /* BottomViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewTests.swift; sourceTree = "<group>"; };
 		71AF147E48FB884E1D58F35D80B02105 /* ReminderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		BFF41BE17C163BB3EEAAFE51A6363595 /* MainCollectionVC_BottomViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionVC_BottomViewDelegate.swift; sourceTree = "<group>"; };
 		C11E13907C453A90E713E28285FED0E5 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C4197A62CE2ABF8E4C0B04343820A981 /* UnicodeScalar_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicodeScalar_extension.swift; sourceTree = "<group>"; };
-		C53CE68D7B828048F5154C58D1711525 /* BlockTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTextView.swift; sourceTree = "<group>"; };
+		C53CE68D7B828048F5154C58D1711525 /* PianoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoTextView.swift; sourceTree = "<group>"; };
 		C56FEF53B0E6CC33EB66BDD31F57F392 /* BottomView_CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomView_CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		C63613650B3DE28B46CE75864D99F17E /* MainCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
 		CBF8EC11660663D75A1022BE5482A69D /* ReminderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -180,15 +180,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5FB2FF308DD9EF19EC2E21BC3DD99C1D /* Context */ = {
-			isa = PBXGroup;
-			children = (
-				5CB36ACC93E5BB550917731146C895C2 /* PhotoDetailHeaderView.swift */,
-				312139E00CA50AE54240325BAE0B02C8 /* PhotoDetailTableViewCell.swift */,
-			);
-			path = Context;
-			sourceTree = "<group>";
-		};
 		17EFBF8A279C822531AC15C5600DDF87 = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +281,15 @@
 			path = PlatformConvertible;
 			sourceTree = "<group>";
 		};
+		5FB2FF308DD9EF19EC2E21BC3DD99C1D /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				5CB36ACC93E5BB550917731146C895C2 /* PhotoDetailHeaderView.swift */,
+				312139E00CA50AE54240325BAE0B02C8 /* PhotoDetailTableViewCell.swift */,
+			);
+			path = Context;
+			sourceTree = "<group>";
+		};
 		615420A29808CD0A07ADDBA42239F29E /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,7 +316,7 @@
 				5FB2FF308DD9EF19EC2E21BC3DD99C1D /* Context */,
 				AEEF80E43DF7034AF74CACE5E44B4058 /* MainCollectionViewCell */,
 				8D5770FBA220DE192616EC85430A848E /* RecommendTableViewCell */,
-				C53CE68D7B828048F5154C58D1711525 /* BlockTextView.swift */,
+				C53CE68D7B828048F5154C58D1711525 /* PianoTextView.swift */,
 				A1D19CCD0C6CC2940A51467DA1025B4A /* ContextInputView.swift */,
 				AF057C86EEB95213D48E88E3632E0B54 /* EmojiInputView.swift */,
 				4289B5843B46F9627E21E044477E6001 /* GrowingTextView.swift */,
@@ -522,7 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC7C3499EC7013DBAFFD2ECA5B728E82 /* AppDelegate.swift in Sources */,
-				8A64EE4218C920331FB3ACF641CDFEB6 /* BlockTextView.swift in Sources */,
+				8A64EE4218C920331FB3ACF641CDFEB6 /* PianoTextView.swift in Sources */,
 				0F9E28EF6AE8A5EDA9B82A79B7493ABB /* BlockType.swift in Sources */,
 				4FE15F5E85B0A09F8CA90CB2A1307B8D /* BottomView.swift in Sources */,
 				191BE7A7441787EB4E516DE4D9469CCD /* BottomView_Action.swift in Sources */,

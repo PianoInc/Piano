@@ -17,21 +17,11 @@ extension MainCollectionViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         changeState(for: textView)
-        filterNotes(with: textView.text)
+        convertBulletIfNeeded(textView)
         
         typingCounter += 1
         perform(#selector(requestQuery(_:)), with: textView.text, afterDelay: searchRequestDelay)
         
-        guard var bulletKey = BulletKey(text: textView.text, selectedRange: textView.selectedRange) else { return }
-        
-        switch bulletKey.type {
-        case .orderedlist:
-            textView.adjust(&bulletKey)
-            textView.transform(bulletKey: bulletKey)
-            textView.adjustAfter(&bulletKey)
-        default:
-            textView.transform(bulletKey: bulletKey)
-        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -138,5 +128,18 @@ extension MainCollectionViewController: UITextViewDelegate {
 
         let predicate = NSPredicate(format: "content contains[cd] %@", trimmed)
         noteFetchRequest.predicate = predicate
+    }
+    
+    private func convertBulletIfNeeded(_ textView: UITextView) {
+        guard var bulletKey = BulletKey(text: textView.text, selectedRange: textView.selectedRange) else { return }
+        
+        switch bulletKey.type {
+        case .orderedlist:
+            textView.adjust(&bulletKey)
+            textView.transform(bulletKey: bulletKey)
+            textView.adjustAfter(&bulletKey)
+        default:
+            textView.transform(bulletKey: bulletKey)
+        }
     }
 }
