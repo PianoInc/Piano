@@ -28,6 +28,7 @@ class MainCollectionViewController: UIViewController {
     var photoManager: PhotoManager<PhotoCollectionViewCell>?
 
     internal var typingCounter = 0
+    internal var searchRequestDelay = 0.1
 
     lazy var noteFetchRequest: NSFetchRequest<Note> = {
         let request:NSFetchRequest<Note> = Note.fetchRequest()
@@ -39,6 +40,7 @@ class MainCollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setSearchRequestDelay()
         loadNote()
         bottomView.delegate = self
         bottomView.returnToNoteList = {
@@ -46,14 +48,12 @@ class MainCollectionViewController: UIViewController {
             self.loadNote()
         }
     }
-    
+
     private func loadNote() {
         resultsController = createNoteResultsController()
         setupCollectionViewLayout(for: .note)
         refreshCollectionView()
-
     }
-    
 }
 
 extension MainCollectionViewController {
@@ -81,6 +81,20 @@ extension MainCollectionViewController {
             }, completion: nil)
         } catch {
             // TODO: 예외처리
+        }
+    }
+
+    /// appDelegate applicationWillResignActive 에서 저장한 노트수에 따라서
+    /// 검색 요청 지연 시간을 설정하는 메서드
+    private func setSearchRequestDelay() {
+        let noteCount = UserDefaults.standard.integer(forKey: "NoteCount")
+        switch noteCount {
+        case 0..<500:
+            searchRequestDelay = 0.1
+        case 500...1000:
+            searchRequestDelay = 0.2
+        default:
+            searchRequestDelay = 0.3
         }
     }
 
