@@ -100,6 +100,29 @@ open class GrowingTextView: UITextView {
         layoutIfNeeded()
     }
     
+    //TODO: 이것은 무용지물..!
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        guard let point = touches.first?.location(in: self) else { return }
+        let index = layoutManager.glyphIndex(for: point, in: textContainer)
+        
+        if index < 0 {
+            print("에러!!! textView에서 touchesEnd에 음수이면 안되는 index가 입력되었다!")
+        }
+        
+        if attributedText.length != 0 && attributedText.attribute(.link, at: index, effectiveRange: nil) != nil {
+            return
+        } else if attributedText.length > index,
+            attributedText.attributedSubstring(from: NSMakeRange(index, 1)).string == Preference.checkOffValue || attributedText.attributedSubstring(from: NSMakeRange(index, 1)).string == Preference.checkOnValue  {
+            
+        }
+        else {
+            selectedRange.location = index + 1
+            isEditable = true
+            becomeFirstResponder()
+        }
+    }
+    
     private var shouldScrollAfterHeightChanged = false
     override open func layoutSubviews() {
         super.layoutSubviews()

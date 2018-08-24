@@ -20,7 +20,6 @@ class BottomView: UIView {
     /** 텍스트를 입력받는 뷰, 텍스트가 변화할 때마다 모델이 업데이트된다(역반응) */
     @IBOutlet weak var textView: GrowingTextView!
     @IBOutlet weak var emojiButton: UIButton!
-    @IBOutlet weak var emojiSearchButton: UIButton!
     
     /** 텍스트뷰에서 검출된 것 중에, 캘린더, 연락처, 미리알림으로 등록할 만한 요소가 있다면 표시 */
     @IBOutlet weak var tableView: UITableView!
@@ -46,6 +45,7 @@ class BottomView: UIView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        
         setup()
     }
     

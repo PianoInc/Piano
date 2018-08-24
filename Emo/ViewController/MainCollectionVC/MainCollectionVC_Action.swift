@@ -39,6 +39,7 @@ extension MainCollectionViewController {
         auth(check: .calendar) { [weak self] in
             self?.setup(for: .calendar)
         }
+        performSegue(withIdentifier: "앱의 성공적인 해외", sender: nil)
     }
     
     @IBAction func tapPhoto(_ sender: Any) {

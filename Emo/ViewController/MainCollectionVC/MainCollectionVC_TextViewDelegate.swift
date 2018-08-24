@@ -17,8 +17,43 @@ extension MainCollectionViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         changeState(for: textView)
+        filterNotes(with: textView.text)
+        
         typingCounter += 1
         perform(#selector(requestQuery(_:)), with: textView.text, afterDelay: searchRequestDelay)
+        
+        guard var bulletKey = BulletKey(text: textView.text, selectedRange: textView.selectedRange) else { return }
+        
+        switch bulletKey.type {
+        case .orderedlist:
+            textView.adjust(&bulletKey)
+            textView.transform(bulletKey: bulletKey)
+            textView.adjustAfter(&bulletKey)
+        default:
+            textView.transform(bulletKey: bulletKey)
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        guard let bulletValue = BulletValue(text: textView.text, selectedRange: textView.selectedRange) else { return true }
+        
+        if textView.shouldReset(bulletValue, shouldChangeTextIn: range, replacementText: text) {
+            textView.reset(bulletValue, range: range)
+            return true
+        }
+        
+        if textView.shouldAdd(bulletValue, replacementText: text) {
+            textView.add(bulletValue)
+            return false
+        }
+        
+        if textView.shouldDelete(bulletValue, replacementText: text) {
+            textView.delete(bulletValue)
+            return false
+        }
+        
+        return true
     }
 
     /// persistent store에 검색 요청하는 메서드.
@@ -40,7 +75,6 @@ extension MainCollectionViewController: UITextViewDelegate {
     private func changeState(for textView: TextView) {
         guard let textView = textView as? GrowingTextView else { return }
         
-        bottomView.emojiSearchButton.isHidden = textView.text.count != 0
         bottomView.writeButton.isHidden = textView.text.count == 0
         bottomView.writeButton.isEnabled = textView.text.count != 0
         

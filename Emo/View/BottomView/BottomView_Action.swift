@@ -26,10 +26,6 @@ extension BottomView {
         textView.delegate?.textViewDidChange!(textView)
     }
     
-    @IBAction func tapSearchEmoji(_ sender: Any) {
-        
-    }
-    
     @IBAction func tapEmoji(_ sender: UIButton) {
         let isSelected = !sender.isSelected
         sender.isSelected = isSelected

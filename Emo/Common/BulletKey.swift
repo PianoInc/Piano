@@ -1,25 +1,21 @@
 //
-//  PianoBullet.swift
-//  Block
+//  BulletKey.swift
+//  Emo
 //
-//  Created by Kevin Kim on 2018. 7. 18..
+//  Created by Kevin Kim on 2018. 8. 23..
 //  Copyright © 2018년 Piano. All rights reserved.
 //
+
 import Foundation
 
 //TODO: Copy-on-Write 방식 책 보고 구현하기
-public struct PianoBullet {
-    
-    public enum PianoBulletType: Int {
-        case orderedlist
-        case unOrderedlist
-        case checkist
-    }
+public struct BulletKey {
     
     private let regexs: [(type: PianoBulletType, regex: String)] = [
         (.orderedlist, "^\\s*(\\d+)(?=\\. )"),
         (.unOrderedlist, "^\\s*([*])(?= )"),
-        (.checkist, "^\\s*([-])(?= )")
+        (.checklist, "^\\s*([-])(?= )"),
+        (.idealist, "^\\s*([?])(?= )")
     ]
     
     public let type: PianoBulletType
@@ -29,6 +25,28 @@ public struct PianoBullet {
     public let paraRange: NSRange
     public let text: String
     
+    public var value: String {
+        switch type {
+        case .orderedlist:
+            return (text as NSString).substring(with: range)
+        case .checklist:
+            return Preference.checkOffValue
+        case .unOrderedlist:
+            return Preference.unOrderedlistValue
+        case .idealist:
+            return Preference.idealistValue
+        }
+    }
+    
+    public var paragraphStyle: MutableParagraphStyle {
+        let paragraphStyle = MutableParagraphStyle()
+        
+        let attrString = NSAttributedString(string: whitespaces.string + string + " ",
+                                            attributes: [.font: Preference.defaultFont])
+        paragraphStyle.headIndent = attrString.size().width + Preference.kern(form: string)
+        return paragraphStyle
+    }
+    
     
     public var baselineIndex: Int {
         return range.location + range.length + (type != .orderedlist ? 1 : 2)
@@ -36,6 +54,10 @@ public struct PianoBullet {
     
     public var isOverflow: Bool {
         return range.length > 19
+    }
+    
+    public var punctuationRange: NSRange {
+        return NSMakeRange(baselineIndex - 2, 1)
     }
     
     public init?(text: String, selectedRange: NSRange) {
@@ -84,14 +106,14 @@ public struct PianoBullet {
         return nil
     }
     
-    public func prevBullet(text: String) -> PianoBullet? {
+    public func prevBullet(text: String) -> BulletKey? {
         
         guard paraRange.location != 0 else { return nil }
-        return PianoBullet(text: text, selectedRange: NSMakeRange(paraRange.location - 1, 0))
+        return BulletKey(text: text, selectedRange: NSMakeRange(paraRange.location - 1, 0))
         
     }
     
-    public func isSequencial(next: PianoBullet) -> Bool {
+    public func isSequencial(next: BulletKey) -> Bool {
         
         guard let current = UInt(string),
             let next = UInt(next.string) else { return false }
@@ -99,25 +121,4 @@ public struct PianoBullet {
         
     }
     
-}
-
-extension PianoBullet {
-    
-}
-
-extension String {
-    func detect(searchRange: NSRange, regex: String) -> (String, NSRange)? {
-        
-        do {
-            let regularExpression = try NSRegularExpression(pattern: regex, options: .anchorsMatchLines)
-            guard let result = regularExpression.matches(in: self, options: .withTransparentBounds, range: searchRange).first else { return nil }
-            let range = result.range(at: 1)
-            let string = (self as NSString).substring(with: range)
-            return (string, range)
-        } catch {
-            print(error.localizedDescription)
-        }
-        return nil
-        
-    }
 }
