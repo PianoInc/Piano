@@ -17,8 +17,6 @@ extension MainCollectionViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         changeState(for: textView)
-        filterNotes(with: textView.text)
-        
         typingCounter += 1
         perform(#selector(requestQuery(_:)), with: textView.text, afterDelay: searchRequestDelay)
         
