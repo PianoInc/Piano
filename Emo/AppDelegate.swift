@@ -24,11 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        
+        saveNoteCount()
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        
+
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -64,5 +64,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
+}
+
+extension AppDelegate {
+    private func saveNoteCount() {
+        let request:NSFetchRequest<Note> = Note.fetchRequest()
+        if let fetched = try? persistentContainer.viewContext.fetch(request) {
+            UserDefaults.standard.set(fetched.count, forKey: "NoteCount")
+        }
+    }
 }
