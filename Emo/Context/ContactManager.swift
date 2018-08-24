@@ -10,9 +10,12 @@ import UIKit
 import CoreData
 import ContactsUI
 
-let CNContactKeysToFetch: [CNKeyDescriptor] = [CNContactGivenNameKey, CNContactFamilyNameKey,
-                                               CNContactPhoneNumbersKey, CNContactEmailAddressesKey,
-                                               CNContactUrlAddressesKey] as [CNKeyDescriptor]
+let CNContactKeysToFetch: [CNKeyDescriptor] = [CNContactGivenNameKey as CNKeyDescriptor,
+                                               CNContactFamilyNameKey as CNKeyDescriptor,
+                                               CNContactPhoneNumbersKey as CNKeyDescriptor,
+                                               CNContactEmailAddressesKey as CNKeyDescriptor,
+                                               CNContactUrlAddressesKey as CNKeyDescriptor,
+                                               CNContactViewController.descriptorForRequiredKeys()]
 
 enum ContactEditType {
     case add, modify
@@ -37,8 +40,10 @@ class ContactManager<Cell: ContactCollectionViewCell>: NSObject, NSFetchedResult
     
     func fetch() {
         fetchData = nil
+        collectionView.reloadData()
         let request = NSFetchRequest<Contact>(entityName: "Contact")
         request.fetchLimit = 20
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Contact.identifiers), ascending: true)]
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         fetchRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "Contact")
         fetchRC?.delegate = self
@@ -104,7 +109,7 @@ class ContactManager<Cell: ContactCollectionViewCell>: NSObject, NSFetchedResult
         contactVC.contactStore = contactStore
         contactVC.delegate = self
         contactVC.allowsActions = false
-        viewController.present(contactVC, animated: true)
+        viewController.navigationController?.pushViewController(contactVC, animated: true)
     }
     
     func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?) {

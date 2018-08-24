@@ -14,6 +14,8 @@ extension MainCollectionViewController: BottomViewDelegate {
         guard text.count > 0 else { return }
         let note = Note(context: managedContext)
         note.content = text
+        note.createdDate = Date()
+        note.modifiedDate = Date()
         detectEmojies(in: note)
         saveContext()
     }

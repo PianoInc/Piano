@@ -10,9 +10,14 @@ import UIKit
 
 extension BottomView {
     @IBAction func tapChangeContext(_ sender: UIButton) {
-        let isSelected = !sender.isSelected
-        sender.isSelected = isSelected
-        switchContextInputView(isSelected: isSelected)
+        sender.isSelected = !sender.isSelected
+        if !sender.isSelected {
+            returnToNoteList?()
+        } else {
+            switchContextInputView(isSelected: sender.isSelected)
+        }
+        guard !textView.isFirstResponder else {return}
+        textView.becomeFirstResponder()
     }
     
     @IBAction func tapWrite(_ sender: Any) {
