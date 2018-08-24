@@ -17,8 +17,15 @@ class MainCollectionViewController: UIViewController {
     @IBOutlet weak var bottomView: BottomView!
     
     weak var persistentContainer: NSPersistentContainer!
-    lazy var managedContext: NSManagedObjectContext = {
-        return persistentContainer.viewContext
+
+    lazy var mainContext: NSManagedObjectContext = {
+        let context = persistentContainer.viewContext
+        context.automaticallyMergesChangesFromParent = true
+        return context
+    }()
+
+    lazy var backgroundContext: NSManagedObjectContext = {
+        return persistentContainer.newBackgroundContext()
     }()
     
     var resultsController: NSFetchedResultsController<Note>?
@@ -67,26 +74,38 @@ class MainCollectionViewController: UIViewController {
 extension MainCollectionViewController {
     
     func saveContext() {
-        if managedContext.hasChanges {
+        if mainContext.hasChanges {
             do {
-                try managedContext.save()
+                try mainContext.save()
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
-    
+
     func refreshCollectionView() {
+        if resultsController?.managedObjectContext != backgroundContext {
+            resultsController = NSFetchedResultsController(
+                fetchRequest: noteFetchRequest,
+                managedObjectContext: backgroundContext,
+                sectionNameKeyPath: nil,
+                cacheName: "Note"
+            )
+        }
+
         do {
             try resultsController?.performFetch()
             let count = resultsController?.fetchedObjects?.count ?? 0
-            titleView.label.text = (count <= 0) ? "메모없음" : "\(count)개의 메모"
-            navigationItem.titleView = titleView
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
+                self.titleView.label.text = (count <= 0) ? "메모없음" : "\(count)개의 메모"
+                self.navigationItem.titleView = self.titleView
 
-            collectionView.performBatchUpdates({
-                collectionView.reloadSections(IndexSet(integer: 0))
-            }, completion: nil)
+                self.collectionView.performBatchUpdates({
+                    self.collectionView.reloadSections(IndexSet(integer: 0))
+                }, completion: nil)
+            }
         } catch {
             // TODO: 예외처리
         }
@@ -99,10 +118,14 @@ extension MainCollectionViewController {
         switch noteCount {
         case 0..<500:
             searchRequestDelay = 0.1
-        case 500...1000:
+        case 500..<1000:
             searchRequestDelay = 0.2
-        default:
+        case 1000..<5000:
             searchRequestDelay = 0.3
+        case 5000..<10000:
+            searchRequestDelay = 0.4
+        default:
+            searchRequestDelay = 0.5
         }
     }
 
@@ -110,16 +133,16 @@ extension MainCollectionViewController {
     private func setupDummyNotes() {
         if resultsController?.fetchedObjects?.count ?? 0 < 100 {
             for _ in 1...50000 {
-                let note = Note(context: managedContext)
+                let note = Note(context: mainContext)
                 note.content = "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo."
             }
             for _ in 1...5 {
-                let note = Note(context: managedContext)
+                let note = Note(context: mainContext)
                 note.content = "👻 apple Nullam id dolor id nibh ultricies vehicula ut id elit."
             }
 
             for _ in 1...5 {
-                let note = Note(context: managedContext)
+                let note = Note(context: mainContext)
                 note.content = "👻 bang Maecenas faucibus mollis interdum."
             }
 

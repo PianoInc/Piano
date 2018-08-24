@@ -161,7 +161,7 @@ extension MainCollectionViewController {
     internal func createNoteResultsController() -> NSFetchedResultsController<Note> {
         let controller = NSFetchedResultsController(
             fetchRequest: noteFetchRequest,
-            managedObjectContext: managedContext,
+            managedObjectContext: backgroundContext,
             sectionNameKeyPath: nil,
             cacheName: "Note"
         )

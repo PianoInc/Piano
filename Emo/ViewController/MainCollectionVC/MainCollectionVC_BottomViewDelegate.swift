@@ -12,7 +12,7 @@ import CoreData
 extension MainCollectionViewController: BottomViewDelegate {
     func didTapWriteButton(text: String) {
         guard text.count > 0 else { return }
-        let note = Note(context: managedContext)
+        let note = Note(context: mainContext)
         note.content = text
         note.createdDate = Date()
         note.modifiedDate = Date()
@@ -26,10 +26,10 @@ extension MainCollectionViewController: BottomViewDelegate {
         Set(text.emojis).forEach {
             request.predicate = NSPredicate(format: "%K == %lld", #keyPath(Emoji.emojiHash), $0.hashValue)
             do {
-                let results = try managedContext.fetch(request)
+                let results = try mainContext.fetch(request)
                 // 새로운 이모지일 경우
                 if results.count == 0 {
-                    let emoji = Emoji(context: managedContext)
+                    let emoji = Emoji(context: mainContext)
                     emoji.emojiHash = Int64($0.hashValue)
                     note.addToEmojies(emoji)
                 } else {
