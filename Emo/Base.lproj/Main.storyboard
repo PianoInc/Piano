@@ -321,10 +321,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="193" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bYk-do-6gD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="193" height="112"/>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bYk-do-6gD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="147" height="92"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="193" height="112"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -362,7 +360,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bzu-Ae-dkE">
-                                                <rect key="frame" x="34" y="50" width="291" height="184"/>
+                                                <rect key="frame" x="34" y="63" width="291" height="171"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-cU-TOf">
                                                         <rect key="frame" x="0.0" y="0.0" width="291" height="134"/>
@@ -602,10 +600,10 @@
                                                         </connections>
                                                     </tableView>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaH-c8-xut">
-                                                        <rect key="frame" x="0.0" y="134" width="291" height="50"/>
+                                                        <rect key="frame" x="0.0" y="134" width="291" height="37"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yRc-Ro-xhc" customClass="GrowingTextView" customModule="Emo" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="291" height="50"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="291" height="37"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -620,7 +618,7 @@
                                                                 </connections>
                                                             </textView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOu-TD-dIx">
-                                                                <rect key="frame" x="257" y="17" width="30" height="33"/>
+                                                                <rect key="frame" x="257" y="4" width="30" height="33"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <state key="normal" title="😁"/>
                                                                 <state key="selected" title="🤣"/>
@@ -691,11 +689,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="d5c-SL-S7Z">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="⚙️" id="J5y-YQ-aYh">
-                            <connections>
-                                <segue destination="S9V-4p-k1n" kind="presentation" id="ZaE-6u-Jve"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="⚙️" id="J5y-YQ-aYh"/>
                         <barButtonItem key="rightBarButtonItem" title="👆" id="xhS-KX-pEv">
                             <connections>
                                 <segue destination="6Ne-mQ-DQU" kind="show" identifier="" id="TRl-AW-NCn"/>
@@ -942,7 +936,6 @@
                 <barButtonItem title="✔️" id="V1c-py-uTH"/>
             </objects>
             <point key="canvasLocation" x="2214" y="236"/>
-            <point key="canvasLocation" x="1956" y="296"/>
         </scene>
         <!--Photo Detail View Controller-->
         <scene sceneID="afv-3K-eXC">
