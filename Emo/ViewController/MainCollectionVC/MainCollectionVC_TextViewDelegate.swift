@@ -54,9 +54,7 @@ extension MainCollectionViewController: UITextViewDelegate {
     private func refreshFetchRequest(with text: String) {
         guard text.count != 0 else {
             noteFetchRequest.predicate = nil
-            DispatchQueue.main.async { [weak self] in
-                self?.refreshCollectionView()
-            }
+            refreshCollectionView()
             return
         }
 
@@ -68,10 +66,7 @@ extension MainCollectionViewController: UITextViewDelegate {
         } else {
             fullTextRequest(with: text)
         }
-
-        DispatchQueue.main.async { [weak self] in
-            self?.refreshCollectionView()
-        }
+        refreshCollectionView()
     }
 
     private func linguisticRequest(with text: String) {
@@ -99,6 +94,7 @@ extension MainCollectionViewController: UITextViewDelegate {
 
     private func fullTextRequest(with text: String) {
         let trimmed = text.lowercased()
+            .trimmingCharacters(in: .whitespacesAndNewlines)
             .trimmingCharacters(in: .illegalCharacters)
             .trimmingCharacters(in: .punctuationCharacters)
 
