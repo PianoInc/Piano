@@ -9,7 +9,8 @@
 import UIKit
 
 protocol CalendarTypingViewDelegate: class {
-    func calendarTypingView(_ calendarTyingView: CalendarTypingView, didFinishTyping text: String)
+    func calendarTypingView(_ calendarTypingView: CalendarTypingView, didFinishTyping text: String)
+    func calendarTypingView(_ calendarTypingView: CalendarTypingView, didBeginTyping text: String)
 }
 
 class CalendarTypingView: UIStackView {

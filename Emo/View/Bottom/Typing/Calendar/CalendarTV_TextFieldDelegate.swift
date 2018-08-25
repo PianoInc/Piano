@@ -12,6 +12,7 @@ extension CalendarTypingView: TextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: TextField) {
         let isEnabled = textField.text?.count != 0
         setEnabled(button: writeButton, isEnabled: isEnabled)
+        delegate?.calendarTypingView(self, didBeginTyping: textField.text ?? "")
     }
     
     @IBAction func textFieldEditingChanged(_ textField: TextField) {
