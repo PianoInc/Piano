@@ -18,6 +18,9 @@ protocol BottomViewDelegate: class {
     func bottomView(_ bottomView: BottomView, didFinishTypingContact name: String?, num: String?, email: String?) -> Contact
     func bottomView(_ bottomView: BottomView, didFinishTypingPhoto text: String) -> Photo
     func bottomView(_ bottomView: BottomView, didFinishTypingEmail title: String?, body: String?) -> Email
+    
+    func bottomView(_ bottomView: BottomView, keyboardWillShow height: CGFloat)
+    func bottomView(_ bottomView: BottomView, keyboardWillHide height: CGFloat)
 }
 
 class BottomView: UIView {

@@ -21,6 +21,7 @@ extension BottomView {
     @objc func keyboardWillHide(_ notification: Notification) {
         keyboardToken?.invalidate()
         keyboardToken = nil
+        delegate?.bottomView(self, keyboardWillHide: 0)
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -40,6 +41,8 @@ extension BottomView {
             self.bottomConstraint.constant = max(superView.bounds.height - layer.frame.origin.y, 0)
             superView.layoutIfNeeded()
         })
+        
+        delegate?.bottomView(self, keyboardWillShow: kbHeight)
         
     }
 }

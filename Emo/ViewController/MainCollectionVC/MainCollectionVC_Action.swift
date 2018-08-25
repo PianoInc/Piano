@@ -27,78 +27,40 @@ extension MainCollectionViewController {
         }
     }
     
-    @IBAction func tapCalendar(_ sender: Any) {
+    @IBAction func tapNote() {
+        setup(typingState: .note)
+    }
+    
+    @IBAction func tapCalendar() {
         auth(check: .calendar) { [weak self] in
             self?.setup(typingState: .calendar)
         }
     }
     
-    @IBAction func tapPhoto(_ sender: Any) {
+    @IBAction func tapPhoto() {
         auth(check: .photo) { [weak self] in
             self?.setup(typingState: .photo)
         }
     }
     
-    @IBAction func tapReminder(_ sender: Any) {
+    @IBAction func tapReminder() {
         auth(check: .reminder) {  [weak self] in
             self?.setup(typingState: .reminder)
         }
     }
     
-    @IBAction func tapContact(_ sender: Any) {
+    @IBAction func tapContact() {
         auth(check: .contact) {  [weak self] in
             self?.setup(typingState: .contact)
         }
     }
     
-    private func auth(check type: TypingState, _ completion: @escaping (() -> ())) {
-        switch type {
-        case .calendar, .reminder:
-            let type: EKEntityType = (type == .calendar) ? .event : .reminder
-            let message = (type == .event) ? "달력 권한 주세요." : "미리알림 권한 주세요."
-            switch EKEventStore.authorizationStatus(for: type) {
-            case .notDetermined:
-                EKEventStore().requestAccess(to: type) { status, error in
-                    DispatchQueue.main.async {
-                        switch status {
-                        case true : completion()
-                        case false : self.eventAuth(alert: message)
-                        }
-                    }
-                }
-            case .authorized: completion()
-            case .restricted, .denied: eventAuth(alert: message)
-            }
-        case .photo:
-            PHPhotoLibrary.requestAuthorization { status in
-                DispatchQueue.main.async {
-                    switch status {
-                    case .authorized: completion()
-                    default: self.eventAuth(alert: "사진 권한 주세요.")
-                    }
-                }
-            }
-        default:
-            CNContactStore().requestAccess(for: .contacts) { status, error in
-                DispatchQueue.main.async {
-                    switch status {
-                    case true: completion()
-                    case false: self.eventAuth(alert: "연락처 권한 주세요.")
-                    }
-                }
-            }
-        }
+    @IBAction func tapEmail() {
+        
     }
     
-    private func eventAuth(alert message: String) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        let settingAction = UIAlertAction(title: "설정", style: .default) { _ in
-            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
-        }
-        alert.addAction(cancelAction)
-        alert.addAction(settingAction)
-        present(alert, animated: true)
+    @IBAction func done(_ sender: Any) {
+        view.endEditing(true)
     }
     
 }
@@ -168,6 +130,56 @@ extension MainCollectionViewController {
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 0
         
+    }
+    
+    private func auth(check type: TypingState, _ completion: @escaping (() -> ())) {
+        switch type {
+        case .calendar, .reminder:
+            let type: EKEntityType = (type == .calendar) ? .event : .reminder
+            let message = (type == .event) ? "달력 권한 주세요." : "미리알림 권한 주세요."
+            switch EKEventStore.authorizationStatus(for: type) {
+            case .notDetermined:
+                EKEventStore().requestAccess(to: type) { status, error in
+                    DispatchQueue.main.async {
+                        switch status {
+                        case true : completion()
+                        case false : self.eventAuth(alert: message)
+                        }
+                    }
+                }
+            case .authorized: completion()
+            case .restricted, .denied: eventAuth(alert: message)
+            }
+        case .photo:
+            PHPhotoLibrary.requestAuthorization { status in
+                DispatchQueue.main.async {
+                    switch status {
+                    case .authorized: completion()
+                    default: self.eventAuth(alert: "사진 권한 주세요.")
+                    }
+                }
+            }
+        default:
+            CNContactStore().requestAccess(for: .contacts) { status, error in
+                DispatchQueue.main.async {
+                    switch status {
+                    case true: completion()
+                    case false: self.eventAuth(alert: "연락처 권한 주세요.")
+                    }
+                }
+            }
+        }
+    }
+    
+    private func eventAuth(alert message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        let settingAction = UIAlertAction(title: "설정", style: .default) { _ in
+            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(settingAction)
+        present(alert, animated: true)
     }
     
 }
