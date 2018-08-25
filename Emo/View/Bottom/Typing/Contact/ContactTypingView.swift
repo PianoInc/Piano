@@ -19,10 +19,10 @@ class ContactTypingView: UIStackView {
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var writeButton: UIButton!
-    weak var delegate: ContactTypingViewDelegate?
+    weak var bottomView: ContactTypingViewDelegate?
     
     @IBAction func write(_ sender: Any) {
-        delegate?.contactTypingView(self, didFinishTyping: nameTextField.text, num: numberTextField.text, email: emailTextField.text)
+        bottomView?.contactTypingView(self, didFinishTyping: nameTextField.text, num: numberTextField.text, email: emailTextField.text)
     }
 
 }

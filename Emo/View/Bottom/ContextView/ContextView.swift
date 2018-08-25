@@ -34,12 +34,12 @@ class ContextView: UIStackView {
         updateEmojiButtons()
     }
     
-    weak var delegate: ContextViewDelegate?
+    weak var bottomView: ContextViewDelegate?
     
     @IBAction func tapContextButton(_ sender: UIButton) {
         guard let typingState = TypingState(rawValue: sender.tag) else { return }
         setAlpha(typingState: typingState)
-        delegate?.contextView(self, didChangeTypingState: typingState)
+        bottomView?.contextView(self, didChangeTypingState: typingState)
     }
     
     private func setAlpha(typingState: TypingState) {

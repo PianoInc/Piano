@@ -10,7 +10,7 @@ import Foundation
 
 extension BottomView: ContactTypingViewDelegate {
     func contactTypingView(_ contactTypingView: ContactTypingView, didFinishTyping name: String?, num: String?, email: String?) {
-        let contact = delegate?.bottomView(self, didFinishTypingContact: name, num: num, email: email)
+        let contact = mainViewController?.bottomView(self, didFinishTypingContact: name, num: num, email: email)
         contact?.detectEmojies()
         contact?.saveIfNeeded()
         resetContactTypingView()

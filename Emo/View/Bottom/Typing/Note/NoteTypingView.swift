@@ -19,7 +19,7 @@ class NoteTypingView: UIStackView {
     @IBOutlet weak var textView: GrowingTextView!
     @IBOutlet weak var writeButton: UIButton!
     
-    weak var delegate: NoteTypingViewDelegate?
+    weak var bottomView: NoteTypingViewDelegate?
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -27,7 +27,7 @@ class NoteTypingView: UIStackView {
     }
     
     @IBAction func write(_ sender: Any) {
-        delegate?.noteTypingView(self, didFinishTyping: textView.text)
+        bottomView?.noteTypingView(self, didFinishTyping: textView.text)
     }
     
 }

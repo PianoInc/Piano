@@ -16,10 +16,10 @@ class CalendarTypingView: UIStackView {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var writeButton: UIButton!
-    weak var delegate: CalendarTypingViewDelegate?
+    weak var bottomView: CalendarTypingViewDelegate?
     
     @IBAction func write(_ sender: Any) {
-        delegate?.calendarTypingView(self, didFinishTyping: textField.text ?? "")
+        bottomView?.calendarTypingView(self, didFinishTyping: textField.text ?? "")
     }
     
     

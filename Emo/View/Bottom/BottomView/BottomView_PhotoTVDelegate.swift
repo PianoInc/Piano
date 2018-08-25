@@ -10,7 +10,7 @@ import Foundation
 
 extension BottomView: PhotoTypingViewDelegate {
     func photoTypingView(_ photoTypingView: PhotoTypingView, didFinishTyping text: String) {
-        let photo = delegate?.bottomView(self, didFinishTypingPhoto: text)
+        let photo = mainViewController?.bottomView(self, didFinishTypingPhoto: text)
         photo?.detectEmojies()
         photo?.saveIfNeeded()
         resetPhotoTypingView()

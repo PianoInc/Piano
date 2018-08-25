@@ -21,7 +21,7 @@ extension BottomView {
     @objc func keyboardWillHide(_ notification: Notification) {
         keyboardToken?.invalidate()
         keyboardToken = nil
-        delegate?.bottomView(self, keyboardWillHide: 0)
+        mainViewController?.bottomView(self, keyboardWillHide: 0)
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -42,7 +42,7 @@ extension BottomView {
             superView.layoutIfNeeded()
         })
         
-        delegate?.bottomView(self, keyboardWillShow: kbHeight)
+        mainViewController?.bottomView(self, keyboardWillShow: kbHeight)
         
     }
 }

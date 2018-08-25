@@ -10,7 +10,7 @@ import Foundation
 
 extension BottomView: EmailTypingViewDelegate {
     func emailTypingView(_ emailTypingView: EmailTypingView, didFinishTyping title: String?, body: String?) {
-        let email = delegate?.bottomView(self, didFinishTypingEmail: title, body: body)
+        let email = mainViewController?.bottomView(self, didFinishTypingEmail: title, body: body)
         email?.detectEmojies()
         email?.saveIfNeeded()
         resetEmailTypingView()
