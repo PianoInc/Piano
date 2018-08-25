@@ -15,7 +15,9 @@ class MainCollectionViewController: UIViewController {
     @IBOutlet var titleView: TitleView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomView: BottomView!
-    @IBOutlet var emojiInputView: EmojiInputView!
+    @IBOutlet var doneBarButton: UIBarButtonItem!
+    @IBOutlet var editBarButton: UIBarButtonItem!
+    
     
     weak var persistentContainer: NSPersistentContainer!
 

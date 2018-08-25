@@ -8,8 +8,22 @@
 
 import Foundation
 import CoreData
+import CoreGraphics
 
 extension MainCollectionViewController: BottomViewDelegate {
+    
+    enum BarButtonType: Int {
+        case edit = 0
+        case done = 1
+    }
+    
+    func bottomView(_ bottomView: BottomView, keyboardWillShow height: CGFloat) {
+        setDoneButtonIfNeeded()
+    }
+    
+    func bottomView(_ bottomView: BottomView, keyboardWillHide height: CGFloat) {
+        setEditButtonIfNeeded()
+    }
     
     func bottomView(_ bottomView: BottomView, didFinishTypingNote text: String) -> Note {
         let note = Note(context: mainContext)
@@ -50,7 +64,20 @@ extension MainCollectionViewController: BottomViewDelegate {
     }
     
     func bottomView(_ bottomView: BottomView, didChangeTypingState state: TypingState) {
-        setup(typingState: state)
+        switch state {
+        case .note:
+            tapNote()
+        case .calendar:
+            tapCalendar()
+        case .reminder:
+            tapReminder()
+        case .contact:
+            tapContact()
+        case .photo:
+            tapPhoto()
+        case .email:
+            tapEmail()
+        }
     }
 
 }
@@ -127,5 +154,24 @@ extension MainCollectionViewController {
         
         let predicate = NSPredicate(format: "content contains[cd] %@", trimmed)
         noteFetchRequest.predicate = predicate
+    }
+    
+}
+
+extension MainCollectionViewController {
+    private func setDoneButtonIfNeeded() {
+        if let rightBarItem = navigationItem.rightBarButtonItem,
+            let type = BarButtonType(rawValue: rightBarItem.tag),
+            type != .done {
+            navigationItem.setRightBarButton(doneBarButton, animated: true)
+        }
+    }
+    
+    private func setEditButtonIfNeeded() {
+        if let rightBarItem = navigationItem.rightBarButtonItem,
+            let type = BarButtonType(rawValue: rightBarItem.tag),
+            type != .edit {
+            navigationItem.setRightBarButton(editBarButton, animated: true)
+        }
     }
 }

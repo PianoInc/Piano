@@ -14,7 +14,6 @@ extension BottomView: CalendarTypingViewDelegate {
         calendar?.detectEmojies()
         calendar?.saveIfNeeded()
         resetCalendarTypingView()
-        
     }
 }
 

@@ -14,7 +14,6 @@ extension BottomView: ReminderTypingViewDelegate {
         reminder?.detectEmojies()
         reminder?.saveIfNeeded()
         resetReminderTypingView()
-        
     }
 }
 
