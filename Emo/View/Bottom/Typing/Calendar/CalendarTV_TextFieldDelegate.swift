@@ -20,7 +20,7 @@ extension CalendarTypingView: TextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: TextField) -> Bool {
-        delegate?.calendarTypingView(self, didFinishTyping: textField.text ?? "")
+        bottomView?.calendarTypingView(self, didFinishTyping: textField.text ?? "")
         return true
     }
 }

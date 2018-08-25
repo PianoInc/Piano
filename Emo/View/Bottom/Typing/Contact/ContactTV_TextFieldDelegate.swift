@@ -31,7 +31,7 @@ extension ContactTypingView: TextFieldDelegate {
         } else if textField == numberTextField {
             emailTextField.becomeFirstResponder()
         } else {
-            delegate?.contactTypingView(self,
+            bottomView?.contactTypingView(self,
                                         didFinishTyping: nameTextField.text,
                                         num: numberTextField.text,
                                         email: emailTextField.text)

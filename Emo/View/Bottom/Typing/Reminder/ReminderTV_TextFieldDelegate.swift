@@ -20,7 +20,7 @@ extension ReminderTypingView: TextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: TextField) -> Bool {
-        delegate?.reminderTypingView(self, didFinishTyping: textField.text ?? "")
+        bottomView?.reminderTypingView(self, didFinishTyping: textField.text ?? "")
         return true
     }
 }

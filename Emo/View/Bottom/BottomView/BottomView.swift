@@ -41,7 +41,7 @@ class BottomView: UIView {
     internal var keyboardToken: NSKeyValueObservation?
     internal var keyboardHeight: CGFloat?
     
-    weak var delegate: BottomViewDelegate?
+    weak var mainViewController: BottomViewDelegate?
     var returnToNoteList: (() -> ())?
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,13 +62,13 @@ class BottomView: UIView {
 extension BottomView {
     private func setup() {
         setHidden(typingState: .note)
-        contextView.delegate = self
-        noteTypingView.delegate = self
-        calendarTypingView.delegate = self
-        reminderTypingView.delegate = self
-        contactTypingView.delegate = self
-        photoTypingView.delegate = self
-        emailTypingView.delegate = self
+        contextView.bottomView = self
+        noteTypingView.bottomView = self
+        calendarTypingView.bottomView = self
+        reminderTypingView.bottomView = self
+        contactTypingView.bottomView = self
+        photoTypingView.bottomView = self
+        emailTypingView.bottomView = self
     }
     
 }

@@ -27,7 +27,7 @@ extension EmailTypingView: TextFieldDelegate {
         if textField == titleTextField {
             bodyTextField.becomeFirstResponder()
         } else {
-            delegate?.emailTypingView(self, didFinishTyping: titleTextField.text, body: bodyTextField.text)
+            bottomView?.emailTypingView(self, didFinishTyping: titleTextField.text, body: bodyTextField.text)
         }
         
         return true

@@ -13,7 +13,7 @@ extension BottomView: ContextViewDelegate {
     func contextView(_ contextView: ContextView, didChangeTypingState state: TypingState) {
         setHidden(typingState: state)
         setBecomeFirstResponder(typingState: state)
-        delegate?.bottomView(self, didChangeTypingState: state)
+        mainViewController?.bottomView(self, didChangeTypingState: state)
     }
 
 }

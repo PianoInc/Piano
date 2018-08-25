@@ -19,9 +19,9 @@ class EmailTypingView: UIStackView {
     @IBOutlet weak var bodyTextField: UITextField!
     
     @IBOutlet weak var writeButton: UIButton!
-    weak var delegate: EmailTypingViewDelegate?
+    weak var bottomView: EmailTypingViewDelegate?
     
     @IBAction func write(_ sender: Any) {
-        delegate?.emailTypingView(self, didFinishTyping: titleTextField.text, body: bodyTextField.text)
+        bottomView?.emailTypingView(self, didFinishTyping: titleTextField.text, body: bodyTextField.text)
     }
 }

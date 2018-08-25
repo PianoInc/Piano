@@ -10,7 +10,7 @@ import Foundation
 
 extension BottomView: CalendarTypingViewDelegate {
     func calendarTypingView(_ calendarTyingView: CalendarTypingView, didFinishTyping text: String) {
-        let calendar = delegate?.bottomView(self, didFinishTypingCalendar: text)
+        let calendar = mainViewController?.bottomView(self, didFinishTypingCalendar: text)
         calendar?.detectEmojies()
         calendar?.saveIfNeeded()
         resetCalendarTypingView()

@@ -39,7 +39,7 @@ extension NoteTypingView: TextViewDelegate {
         let isEnabled = textView.text.count != 0
         setEnabled(button: writeButton, isEnabled: isEnabled)
         textView.convertBulletIfNeeded()
-        delegate?.noteTypingView(self, didChangeTextView: textView)
+        bottomView?.noteTypingView(self, didChangeTextView: textView)
         
     }
 }

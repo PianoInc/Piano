@@ -11,7 +11,7 @@ import Foundation
 extension BottomView: NoteTypingViewDelegate {
     
     func noteTypingView(_ noteTypingView: NoteTypingView, didFinishTyping text: String) {
-        let note = delegate?.bottomView(self, didFinishTypingNote: text)
+        let note = mainViewController?.bottomView(self, didFinishTypingNote: text)
         note?.detectEmojies()
         note?.saveIfNeeded()
         resetNoteTypingView()
@@ -19,7 +19,7 @@ extension BottomView: NoteTypingViewDelegate {
     
     func noteTypingView(_ noteTypingView: NoteTypingView, didChangeTextView textView: TextView) {
         
-        delegate?.bottomView(self, textViewDidChange: textView)
+        mainViewController?.bottomView(self, textViewDidChange: textView)
     }
     
 }

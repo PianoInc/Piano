@@ -52,7 +52,7 @@ class MainCollectionViewController: UIViewController {
         super.viewDidLoad()
         setSearchRequestDelay()
         loadNote()
-        bottomView.delegate = self
+        bottomView.mainViewController = self
         bottomView.returnToNoteList = {
             self.setup(typingState: .note)
             self.loadNote()

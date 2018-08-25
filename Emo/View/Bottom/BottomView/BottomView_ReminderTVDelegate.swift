@@ -10,7 +10,7 @@ import Foundation
 
 extension BottomView: ReminderTypingViewDelegate {
     func reminderTypingView(_ reminderTypingView: ReminderTypingView, didFinishTyping text: String) {
-        let reminder = delegate?.bottomView(self, didFinishTypingReminder: text)
+        let reminder = mainViewController?.bottomView(self, didFinishTypingReminder: text)
         reminder?.detectEmojies()
         reminder?.saveIfNeeded()
         resetReminderTypingView()

@@ -20,7 +20,7 @@ extension PhotoTypingView: TextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: TextField) -> Bool {
-        delegate?.photoTypingView(self, didFinishTyping: textField.text ?? "")
+        bottomView?.photoTypingView(self, didFinishTyping: textField.text ?? "")
         return true
     }
 }

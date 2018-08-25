@@ -16,10 +16,10 @@ class PhotoTypingView: UIStackView {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var writeButton: UIButton!
-    weak var delegate: PhotoTypingViewDelegate?
+    weak var bottomView: PhotoTypingViewDelegate?
     
     @IBAction func write(_ sender: Any) {
-        delegate?.photoTypingView(self, didFinishTyping: textField.text ?? "")
+        bottomView?.photoTypingView(self, didFinishTyping: textField.text ?? "")
     }
 
 }

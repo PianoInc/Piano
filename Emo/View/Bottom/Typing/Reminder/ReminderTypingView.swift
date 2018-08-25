@@ -17,9 +17,9 @@ class ReminderTypingView: UIStackView {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var writeButton: UIButton!
-    weak var delegate: ReminderTypingViewDelegate?
+    weak var bottomView: ReminderTypingViewDelegate?
     
     @IBAction func write(_ sender: Any) {
-        delegate?.reminderTypingView(self, didFinishTyping: textField.text ?? "")
+        bottomView?.reminderTypingView(self, didFinishTyping: textField.text ?? "")
     }
 }
