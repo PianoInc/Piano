@@ -9,20 +9,27 @@
 import UIKit
 
 protocol BottomViewDelegate: class {
-    func didTapWriteButton(text: String)
+    func bottomView(_ bottomView: BottomView, textViewDidChange textView: TextView)
+    func bottomView(_ bottomView: BottomView, didChangeTypingState state: TypingState)
+    
+    func bottomView(_ bottomView: BottomView, didFinishTypingNote text: String) -> Note
+    func bottomView(_ bottomView: BottomView, didFinishTypingReminder text: String) -> Reminder
+    func bottomView(_ bottomView: BottomView, didFinishTypingCalendar text: String) -> Calendar
+    func bottomView(_ bottomView: BottomView, didFinishTypingContact name: String?, num: String?, email: String?) -> Contact
+    func bottomView(_ bottomView: BottomView, didFinishTypingPhoto text: String) -> Photo
+    func bottomView(_ bottomView: BottomView, didFinishTypingEmail title: String?, body: String?) -> Email
 }
 
 class BottomView: UIView {
     
-    @IBOutlet weak var writeButton: UIButton!
-    @IBOutlet var contextInputView: ContextInputView!
-    @IBOutlet var emojiInputView: UICollectionView!
-    /** 텍스트를 입력받는 뷰, 텍스트가 변화할 때마다 모델이 업데이트된다(역반응) */
-    @IBOutlet weak var textView: GrowingTextView!
-    @IBOutlet weak var emojiButton: UIButton!
+    @IBOutlet weak var contextView: ContextView!
+    @IBOutlet weak var noteTypingView: NoteTypingView!
+    @IBOutlet weak var calendarTypingView: CalendarTypingView!
+    @IBOutlet weak var reminderTypingView: ReminderTypingView!
+    @IBOutlet weak var contactTypingView: ContactTypingView!
+    @IBOutlet weak var photoTypingView: PhotoTypingView!
+    @IBOutlet weak var emailTypingView: EmailTypingView!
     
-    /** 텍스트뷰에서 검출된 것 중에, 캘린더, 연락처, 미리알림으로 등록할 만한 요소가 있다면 표시 */
-    @IBOutlet weak var tableView: UITableView!
     
     /** 키보드에 따른 위치 변화를 위한 컨스트레인트 */
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -45,27 +52,21 @@ class BottomView: UIView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        
         setup()
     }
-    
 }
 
 extension BottomView {
     private func setup() {
-        let isEmpty = textView.text.count == 0
-        writeButton.isEnabled = !isEmpty
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.textView.becomeFirstResponder()
-        }
+        setHidden(typingState: .note)
+        contextView.delegate = self
+        noteTypingView.delegate = self
+        calendarTypingView.delegate = self
+        reminderTypingView.delegate = self
+        contactTypingView.delegate = self
+        photoTypingView.delegate = self
+        emailTypingView.delegate = self
     }
     
 }
 
-extension BottomView {
-    internal func resetInputView() {
-        textView.inputView = nil
-        textView.reloadInputViews()
-    }
-}

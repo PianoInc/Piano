@@ -14,14 +14,6 @@ import Contacts
 
 extension MainCollectionViewController {
     
-    enum VCType {
-        case note
-        case calendar
-        case reminder
-        case contact
-        case photo
-    }
-    
     @IBAction func tapSegment(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -37,30 +29,29 @@ extension MainCollectionViewController {
     
     @IBAction func tapCalendar(_ sender: Any) {
         auth(check: .calendar) { [weak self] in
-            self?.setup(for: .calendar)
+            self?.setup(typingState: .calendar)
         }
-        performSegue(withIdentifier: "앱의 성공적인 해외", sender: nil)
     }
     
     @IBAction func tapPhoto(_ sender: Any) {
         auth(check: .photo) { [weak self] in
-            self?.setup(for: .photo)
+            self?.setup(typingState: .photo)
         }
     }
     
     @IBAction func tapReminder(_ sender: Any) {
         auth(check: .reminder) {  [weak self] in
-            self?.setup(for: .reminder)
+            self?.setup(typingState: .reminder)
         }
     }
     
     @IBAction func tapContact(_ sender: Any) {
         auth(check: .contact) {  [weak self] in
-            self?.setup(for: .contact)
+            self?.setup(typingState: .contact)
         }
     }
     
-    private func auth(check type: VCType, _ completion: @escaping (() -> ())) {
+    private func auth(check type: TypingState, _ completion: @escaping (() -> ())) {
         switch type {
         case .calendar, .reminder:
             let type: EKEntityType = (type == .calendar) ? .event : .reminder
@@ -114,18 +105,17 @@ extension MainCollectionViewController {
 
 extension MainCollectionViewController {
     
-    func setup(for vcType: VCType) {
+    func setup(typingState: TypingState) {
         createSnapShotAndAnimate()
         DispatchQueue.main.async { [weak self] in
-            self?.bottomView.resetInputView()
-            self?.setupNavigationBar(for: vcType)
-            self?.setupDataSource(for: vcType)
+            self?.setupNavigationBar(typingState: typingState)
+            self?.setupDataSource(typingState: typingState)
             self?.collectionView.reloadData()
         }
     }
     
-    private func setupNavigationBar(for vcType: VCType) {
-        switch vcType {
+    private func setupNavigationBar(typingState: TypingState) {
+        switch typingState {
         case .note, .photo:
             navigationItem.titleView = titleView
         default:
@@ -134,8 +124,8 @@ extension MainCollectionViewController {
     }
     
     //TODO: 데이터 타입에 따른 데이터 소스 생성하기
-    private func setupDataSource(for vcType: VCType) {
-        switch vcType {
+    private func setupDataSource(typingState: TypingState) {
+        switch typingState {
         case .note:
             collectionView.dataSource = self
             collectionView.delegate = self
@@ -151,6 +141,9 @@ extension MainCollectionViewController {
         case .photo:
             photoManager = PhotoManager<PhotoCollectionViewCell>(self, collectionView)
             photoManager?.fetchAll()
+        case .email:
+            ()
+            //TODO: 이메일 연동
         }
     }
     
@@ -168,7 +161,7 @@ extension MainCollectionViewController {
         return controller
     }
     
-    internal func setupCollectionViewLayout(for type: VCType) {
+    internal func setupCollectionViewLayout(for type: TypingState) {
         //TODO: 임시로 해놓은 것이며 세팅해놓아야함
         guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 100)

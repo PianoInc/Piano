@@ -15,6 +15,7 @@ class MainCollectionViewController: UIViewController {
     @IBOutlet var titleView: TitleView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomView: BottomView!
+    @IBOutlet var emojiInputView: EmojiInputView!
     
     weak var persistentContainer: NSPersistentContainer!
 
@@ -51,7 +52,7 @@ class MainCollectionViewController: UIViewController {
         loadNote()
         bottomView.delegate = self
         bottomView.returnToNoteList = {
-            self.setup(for: .note)
+            self.setup(typingState: .note)
             self.loadNote()
         }
     }
@@ -73,17 +74,6 @@ class MainCollectionViewController: UIViewController {
 
 extension MainCollectionViewController {
     
-    func saveContext() {
-        if mainContext.hasChanges {
-            do {
-                try mainContext.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-
     func refreshCollectionView() {
         if resultsController?.managedObjectContext != backgroundContext {
             resultsController = NSFetchedResultsController(
@@ -148,6 +138,17 @@ extension MainCollectionViewController {
 
             saveContext()
             try? resultsController?.performFetch()
+        }
+    }
+    
+    private func saveContext() {
+        if managedContext.hasChanges {
+            do {
+                try managedContext.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
         }
     }
 }
