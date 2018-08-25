@@ -85,3 +85,12 @@ extension UIView {
     }
     
 }
+
+
+extension UIView {
+    internal func setEnabled(button: UIButton, isEnabled: Bool) {
+        button.isEnabled = isEnabled
+        button.alpha = isEnabled ? 1 : 0
+        
+    }
+}

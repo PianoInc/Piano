@@ -1,35 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Calendar" representedClassName="Calendar" syncable="YES" codeGenerationType="class">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556861320" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556861380" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="identifiers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556861380" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emojiCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emoji" inverseName="calendarCollection" inverseEntity="Emoji" syncable="YES"/>
     </entity>
     <entity name="Contact" representedClassName="Contact" syncable="YES" codeGenerationType="class">
+        <attribute name="createdDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556861320" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifiers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="num" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="emojiCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emoji" inverseName="contactCollection" inverseEntity="Emoji" syncable="YES"/>
+    </entity>
+    <entity name="Email" representedClassName="Email" syncable="YES" codeGenerationType="class">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556861260" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556861260" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="emojiCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emoji" inverseName="emailCollection" inverseEntity="Emoji" syncable="YES"/>
     </entity>
     <entity name="Emoji" representedClassName="Emoji" syncable="YES" codeGenerationType="class">
         <attribute name="emojiHash" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="emojies" inverseEntity="Note" syncable="YES"/>
+        <relationship name="calendarCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Calendar" inverseName="emojiCollection" inverseEntity="Calendar" syncable="YES"/>
+        <relationship name="contactCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="emojiCollection" inverseEntity="Contact" syncable="YES"/>
+        <relationship name="emailCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Email" inverseName="emojiCollection" inverseEntity="Email" syncable="YES"/>
+        <relationship name="noteCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="emojiCollection" inverseEntity="Note" syncable="YES"/>
+        <relationship name="photoCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="emojiCollection" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="reminderCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reminder" inverseName="emojiCollection" inverseEntity="Reminder" syncable="YES"/>
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556254960" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="modifiedDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556254960" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="emojies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emoji" inverseName="notes" inverseEntity="Emoji" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="emojiCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emoji" inverseName="noteCollection" inverseEntity="Emoji" syncable="YES"/>
     </entity>
     <entity name="Photo" representedClassName="Photo" syncable="YES" codeGenerationType="class">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556861260" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="identifiers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556861260" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="emojiCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emoji" inverseName="photoCollection" inverseEntity="Emoji" syncable="YES"/>
     </entity>
     <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556861200" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="eventDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="identifiers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isChecked" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="Date" defaultDateTimeInterval="556861260" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="emojiCollection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Emoji" inverseName="reminderCollection" inverseEntity="Emoji" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Calendar" positionX="295" positionY="-288" width="128" height="60"/>
-        <element name="Contact" positionX="322" positionY="-126" width="128" height="60"/>
-        <element name="Emoji" positionX="-83" positionY="-162" width="128" height="73"/>
-        <element name="Note" positionX="-299" positionY="-108" width="128" height="133"/>
-        <element name="Photo" positionX="142" positionY="-144" width="128" height="60"/>
-        <element name="Reminder" positionX="277" positionY="54" width="128" height="60"/>
+        <element name="Calendar" positionX="295" positionY="-288" width="128" height="165"/>
+        <element name="Contact" positionX="322" positionY="-126" width="128" height="165"/>
+        <element name="Emoji" positionX="-83" positionY="-162" width="128" height="150"/>
+        <element name="Note" positionX="-299" positionY="-108" width="128" height="135"/>
+        <element name="Photo" positionX="142" positionY="-144" width="128" height="135"/>
+        <element name="Reminder" positionX="277" positionY="54" width="128" height="165"/>
+        <element name="Email" positionX="-90" positionY="-135" width="128" height="150"/>
     </elements>
 </model>

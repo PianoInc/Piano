@@ -10,19 +10,19 @@ import UIKit
 
 extension MainCollectionViewController: CollectionViewDataSource {
     
-    var type: VCType {
-        if reminderManager != nil {
-            return .reminder
-        } else if calendarManager != nil {
-            return .calendar
-        } else if contactManager != nil {
-            return .contact
-        } else if photoManager != nil {
-            return .photo
-        } else {
-            return .note
-        }
-    }
+//    var typingState: TypingState {
+//        if reminderManager != nil {
+//            return .reminder
+//        } else if calendarManager != nil {
+//            return .calendar
+//        } else if contactManager != nil {
+//            return .contact
+//        } else if photoManager != nil {
+//            return .photo
+//        } else {
+//            return .note
+//        }
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return resultsController?.sections?[section].numberOfObjects ?? 0

@@ -9,6 +9,18 @@
 import Foundation
 
 extension TextView {
+    internal func convertBulletIfNeeded() {
+        guard var bulletKey = BulletKey(text: text, selectedRange: selectedRange) else { return }
+        
+        switch bulletKey.type {
+        case .orderedlist:
+            adjust(&bulletKey)
+            transform(bulletKey: bulletKey)
+            adjustAfter(&bulletKey)
+        default:
+            transform(bulletKey: bulletKey)
+        }
+    }
 //    func splitTextByCursor() -> (String, String) {
 //        let location = selectedRange.location
 //        let frontText = (text as NSString).substring(to: location)

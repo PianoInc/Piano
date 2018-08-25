@@ -48,3 +48,6 @@ public typealias TableViewController = UITableViewController
 public typealias FontTextStyle = UIFontTextStyle
 public typealias Pasteboard = UIPasteboard
 public typealias TextFieldDelegate = UITextFieldDelegate
+public typealias TextField = UITextField
+public typealias StackView = UIStackView
+public typealias TextViewDelegate = UITextViewDelegate
