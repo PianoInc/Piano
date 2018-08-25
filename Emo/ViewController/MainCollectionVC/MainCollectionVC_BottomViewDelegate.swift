@@ -12,7 +12,7 @@ import CoreData
 extension MainCollectionViewController: BottomViewDelegate {
     
     func bottomView(_ bottomView: BottomView, didFinishTypingNote text: String) -> Note {
-        let note = Note(context: managedContext)
+        let note = Note(context: mainContext)
         note.content = text
         note.createdDate = Date()
         note.modifiedDate = Date()

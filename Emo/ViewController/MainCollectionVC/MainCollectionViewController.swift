@@ -142,9 +142,9 @@ extension MainCollectionViewController {
     }
     
     private func saveContext() {
-        if managedContext.hasChanges {
+        if mainContext.hasChanges {
             do {
-                try managedContext.save()
+                try mainContext.save()
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
