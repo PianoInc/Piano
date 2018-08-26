@@ -12,19 +12,10 @@ import Contacts
 class ContactCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var urlLabel: UILabel!
-    
-    @IBOutlet weak var numberStackView: UIStackView!
-    @IBOutlet weak var emailStackView: UIStackView!
-    @IBOutlet weak var urlStackView: UIStackView!
     
     func configure(_ contact: CNContact) {
+        //TODO: firstName, nameName에 대한 결합 순서는 국가마다 다르게 하기 -> NSLinguisticTagger로 해당 string의 국가를 파악 후에 처리하기. 이를테면 미국은 아래의 순서, 한국은 반대의 순서
         nameLabel.text = contact.givenName + contact.familyName
-        numberLabel.text = contact.phoneNumbers.first(where: {$0.value.stringValue != ""})?.value.stringValue.replacingOccurrences(of: "//", with: "")
-        emailLabel.text = contact.emailAddresses.first(where: {$0.value != ""})?.value as String?
-        urlLabel.text = contact.urlAddresses.first(where: {$0.value != ""})?.value as String?
     }
     
 }

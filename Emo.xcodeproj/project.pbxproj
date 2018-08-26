@@ -404,13 +404,21 @@
 				652B14790357D64B5B2110EC574388D6 /* PhotoDetail */,
 				D2E3F48558FC863BB345A8566076F8BD /* PianoTextView.swift */,
 				F2B44C8677A8185112030D2B0A2A2892 /* TitleView.swift */,
+				7CEC112621336E440032E223 /* RecommandCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7CEC112621336E440032E223 /* RecommandCell */ = {
+			isa = PBXGroup;
+			children = (
 				7C2CADCE21314DDD009D9DBA /* CalendarRecommandTableViewCell.swift */,
 				7C2CADD021314DE9009D9DBA /* ReminderRecommandTableViewCell.swift */,
 				7C2CADD221314DF1009D9DBA /* ContactRecommandTableViewCell.swift */,
 				7C2CADD421314E00009D9DBA /* EmailRecommandTableViewCell.swift */,
 				7C2CADD621314E17009D9DBA /* PhotoRecommandCollectionViewCell.swift */,
 			);
-			path = View;
+			path = RecommandCell;
 			sourceTree = "<group>";
 		};
 		7F24748DCCE2DE723B3A83A664659D8E /* ContextView */ = {

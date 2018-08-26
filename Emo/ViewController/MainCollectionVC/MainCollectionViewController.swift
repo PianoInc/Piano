@@ -11,8 +11,8 @@ import CoreData
 
 class MainCollectionViewController: UIViewController {
     
-    @IBOutlet var segmentControl: UISegmentedControl!
-    @IBOutlet var titleView: TitleView!
+    @IBOutlet var reminderSegmentControl: UISegmentedControl!
+    @IBOutlet var emailSegmentControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomView: BottomView!
     @IBOutlet var doneBarButton: UIBarButtonItem!
@@ -91,8 +91,7 @@ extension MainCollectionViewController {
             let count = resultsController?.fetchedObjects?.count ?? 0
             DispatchQueue.main.async { [weak self] in
                 guard let `self` = self else { return }
-                self.titleView.label.text = (count <= 0) ? "메모없음" : "\(count)개의 메모"
-                self.navigationItem.titleView = self.titleView
+                self.title = (count <= 0) ? "메모없음" : "\(count)개의 메모"
 
                 self.collectionView.performBatchUpdates({
                     self.collectionView.reloadSections(IndexSet(integer: 0))
