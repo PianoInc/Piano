@@ -14,16 +14,22 @@ import Contacts
 
 extension MainCollectionViewController {
     
-    @IBAction func tapSegment(_ sender: UISegmentedControl) {
+    @IBAction func tapReminderSegment(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            contactManager?.fetchAll()
-            reminderManager?.fetchAll()
-            calendarManager?.fetchAll()
+            ()
+            //TODO: 0일 때에는 시간이 없는 완료되지 않은 미리알림
+//            contactManager?.fetchAll()
+//            reminderManager?.fetchAll()
+//            calendarManager?.fetchAll()
+        case 1:
+        //TODO: 1일 때에는 예정되어있고 완료되지 않은 미리알림
+            ()
         default:
-            contactManager?.fetch()
-            reminderManager?.fetch()
-            calendarManager?.fetch()
+            ()
+//            contactManager?.fetch()
+//            reminderManager?.fetch()
+//            calendarManager?.fetch()
         }
     }
     
@@ -78,10 +84,12 @@ extension MainCollectionViewController {
     
     private func setupNavigationBar(typingState: TypingState) {
         switch typingState {
-        case .note, .photo:
-            navigationItem.titleView = titleView
+        case .reminder:
+            navigationItem.titleView = reminderSegmentControl
+        case .email:
+            navigationItem.titleView = emailSegmentControl
         default:
-            navigationItem.titleView = segmentControl
+            navigationItem.titleView = nil
         }
     }
     
