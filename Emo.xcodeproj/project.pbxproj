@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		052D288EBFDC8675B35F1DC70DA32127 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBAC207592DC7FF4E58848A1AE5602F /* ContactManager.swift */; };
 		0848AAEF0DDCDB0BF13F1A4C14D79C71 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1BC1BA0DAF6F7AF76D7D76423FF94 /* PhotoDetailViewController.swift */; };
+		0C622F21EEDF27031287BA6D183310B9 /* ContactRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64489289B8931A57BFA520F072A905EF /* ContactRecommandTableViewCell.swift */; };
+		0DC161589FBE5DAA4BD8F3B2A0B528FD /* CalendarCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAF8FA45D474AE4DA936A827DE2B691 /* CalendarCollectionReusableView.swift */; };
 		0F9E28EF6AE8A5EDA9B82A79B7493ABB /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F7A84E872ABA79CDCAF02E8EEE356 /* BlockType.swift */; };
 		105026CD53E15DCBFE85A9DDDEE27EE2 /* NoteTV_TextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDD3A75CC52A4475C15C02B93238B7F /* NoteTV_TextViewDelegate.swift */; };
 		136CBB56C7497BDAE1F11B4E41548A86 /* PhotoDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD3704B44365485027C5E63CA0B058 /* PhotoDetailHeaderView.swift */; };
@@ -22,7 +24,9 @@
 		2247D0E3EAC6A853B3B6382E4AB33B82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC2B9DC4F603DA17D67A9B33EA2EF786 /* Assets.xcassets */; };
 		227E0505B99C1A2E70DFC98523FF7AEB /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EDBB712A3719D056BE8787AFD4AA6F /* StoreService.swift */; };
 		23398153517B7231949E8FC3E92B6142 /* MainCollectionVC_BottomViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF41BE17C163BB3EEAAFE51A6363595 /* MainCollectionVC_BottomViewDelegate.swift */; };
+		2422AAF257383C26EAB25B0B47B268EB /* CalendarRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50E939F76101E87D75A49C8B3050F5C /* CalendarRecommandTableViewCell.swift */; };
 		26C6730AEBB04CC27B10D11D457A3F22 /* PhotoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30204DBA2E4F8E182E6DCFDD0D0C71C0 /* PhotoDetailTableViewCell.swift */; };
+		28A24B63AF29A5665F43CDE7B7042D63 /* PhotoRecommandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4122CEF3653A6172D530712766B8B3A7 /* PhotoRecommandCollectionViewCell.swift */; };
 		292291FC48978AE22450754C2116A7F4 /* BottomView_ContactTVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43A7ECB50A222FD12DD297E26F34E70 /* BottomView_ContactTVDelegate.swift */; };
 		2D1F7FB0462A746AD58FE53C2441E3E0 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B468F779AAD68589A0C12232E95DA474 /* PhotoManager.swift */; };
 		311A485696241F2621CDE6C36A8F495F /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC49C28E6DF7CE43378FF6E1A72837E /* LoadingView.xib */; };
@@ -33,6 +37,7 @@
 		3F0467F7E62F949B208BB7F4602D394B /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC02138ABD92DE12E1C7765D3AB247CB /* NoteDetailViewController.swift */; };
 		425116209A5D8DE0A0A0BA7F43BDAB96 /* HighlightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A48B20C358B44E017833D897E25CD20 /* HighlightData.swift */; };
 		44FC8597B5798A1DC1B3A3EE686365CA /* View_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3773487C367A475A8DB66F3BD209C656 /* View_extension.swift */; };
+		45D8FE24D4F8811B5A930198AA2AB953 /* EMailRecommandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527403E0F1316358E8C27EB0FF58A46 /* EMailRecommandTableViewController.swift */; };
 		4CA61BE67E3A4F257644306236236149 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA6613AC92F38D1E765790B7216CAA /* ThemeManager.swift */; };
 		4F9A17730D7F7D5EDF5E80AA6628BCBE /* Emo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDE1E686450B01BAFCD099305ADDD471 /* Emo.xcdatamodeld */; };
 		54C3FAF733CF44237C543B7440649EF2 /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF910A321F8BFE9E5EBAEF97BC4FA8 /* GrowingTextView.swift */; };
@@ -52,16 +57,6 @@
 		717B1A63C1C97761E7FD43ECAF89415A /* NSRange_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D6D881B98B96559AB1A53D0C11E299 /* NSRange_extension.swift */; };
 		72E6EB8071EE0720B974B9CF68DF8F89 /* BulletKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EFCAF0187EED2CA9FDEDF45FC68A4 /* BulletKey.swift */; };
 		781829494729FD3F5F29CF3A0CD6F95B /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD8AC056C9A6C26F970C3F8E314C970 /* NoteCollectionViewCell.swift */; };
-		7C2CADC521314D0D009D9DBA /* EMailRecommandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CADC421314D0D009D9DBA /* EMailRecommandTableViewController.swift */; };
-		7C2CADC721314D31009D9DBA /* PhotoRecommandCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CADC621314D31009D9DBA /* PhotoRecommandCollectionViewController.swift */; };
-		7C2CADC921314D41009D9DBA /* ContactRecommandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CADC821314D41009D9DBA /* ContactRecommandTableViewController.swift */; };
-		7C2CADCB21314D4F009D9DBA /* ReminderRecommandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CADCA21314D4F009D9DBA /* ReminderRecommandTableViewController.swift */; };
-		7C2CADCD21314D5A009D9DBA /* CalendarRecommandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CADCC21314D5A009D9DBA /* CalendarRecommandTableViewController.swift */; };
-		7C2CADCF21314DDD009D9DBA /* CalendarRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CADCE21314DDD009D9DBA /* CalendarRecommandTableViewCell.swift */; };
-		7C2CADD121314DE9009D9DBA /* ReminderRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CADD021314DE9009D9DBA /* ReminderRecommandTableViewCell.swift */; };
-		7C2CADD321314DF1009D9DBA /* ContactRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CADD221314DF1009D9DBA /* ContactRecommandTableViewCell.swift */; };
-		7C2CADD521314E00009D9DBA /* EmailRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CADD421314E00009D9DBA /* EmailRecommandTableViewCell.swift */; };
-		7C2CADD721314E17009D9DBA /* PhotoRecommandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CADD621314E17009D9DBA /* PhotoRecommandCollectionViewCell.swift */; };
 		7C690BCE15742AD91A6DFED19C93DDA5 /* BottomView_EmailTVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F1F4E23BBB37C082378F5C092E3AEE /* BottomView_EmailTVDelegate.swift */; };
 		7D6278233CA01DBBE8F86D6C55C18936 /* BottomView_NoteTVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101F922062C3B84CC2EF9FF638252CE4 /* BottomView_NoteTVDelegate.swift */; };
 		85C5E978B088D777CEFFD61B5B2D60FD /* iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35011B421A261853BC56EA515393EC0 /* iOS.swift */; };
@@ -72,9 +67,11 @@
 		9EE8074E8B036748A086C3C6B4603106 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7907FABB81235CCB3D804F39B38808BB /* NotificationView.xib */; };
 		9F828DE084F92F5F3A7AD3C7F5DB5DB2 /* Color_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B4A0C8857C728C508C251C61C24DC9 /* Color_extension.swift */; };
 		B583CF596B1268306E3B4EF91A6519BD /* BottomView_ContextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A45464A56F63959BE059339F307A7 /* BottomView_ContextViewDelegate.swift */; };
+		BEAA699E6E9BA261DE5F6F50A09A61AD /* ReminderRecommandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD60FF02C09C32D1164AC64ED2C3E2 /* ReminderRecommandTableViewController.swift */; };
 		BECF23FE1F841D595036B2CD19A8C606 /* BottomViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB2712B01A4D0B45339CD6BEEC8EAC1 /* BottomViewTests.swift */; };
 		C2B8D816C9352CE2F26797736CF57F0A /* Detection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25960829C9F7A92F71CBD06D9A9830EE /* Detection.swift */; };
 		C9FB6C8CE6FEA1CAE677C3A7C3AB4368 /* Email_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F6E928B154227350142320FEAE5206 /* Email_Extension.swift */; };
+		CDF4F997DC67AA35618909F521A36FFB /* PhotoRecommandCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1BFFDA5A93D3671E034BADBEFD4987 /* PhotoRecommandCollectionViewController.swift */; };
 		D00BAE30298D0C4FDF3D0A9EA99CAC4A /* PianoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3F48558FC863BB345A8566076F8BD /* PianoTextView.swift */; };
 		D03981E773CFD36C2741E1C15598810E /* MainCollectionVC_CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7274918C101E745C6DB989A65880FC76 /* MainCollectionVC_CollectionViewDataSource.swift */; };
 		D32AAAFA7D91C789D04FBEC0CF524B8A /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA82523DB02124F561CCCEDB13D4012 /* CalendarManager.swift */; };
@@ -83,14 +80,18 @@
 		D57B1E5CA74F39152C8C315700CA8099 /* Note_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA07FE29F1DF543AE3A5F4743120BD8 /* Note_Extension.swift */; };
 		D59E548394CA528DEB3B7ED89376C5AD /* ReminderTypingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A07AE8766BBD88B8AE6136228E65D58 /* ReminderTypingView.swift */; };
 		DAE5F941C3769C1E81F92105B3771FA1 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAD6A6DC17FBBDAC15170D9926007DF /* NotificationView.swift */; };
+		DC72154D957C38767A0675985635F7A1 /* EmailRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409BDD85BE33DAD86987F1300F3DD6B6 /* EmailRecommandTableViewCell.swift */; };
 		DC7C3499EC7013DBAFFD2ECA5B728E82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136D798788A863B74AD713B4C81D5C5 /* AppDelegate.swift */; };
+		E006FBAC16C23D88BE8AC2BFEE932F38 /* ContactRecommandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FAC6EC17C5C2938CF1A29344A72B60 /* ContactRecommandTableViewController.swift */; };
 		E1553066DC4A8948B5E9CB03D2EF53C6 /* Calendar_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF0C655C2F9ADA527D9368803F3888D /* Calendar_Extension.swift */; };
 		E1D9368EEED886EFA3E2615952267423 /* ContactTypingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6467BAC1A3158FAC826F6A6D184F6A6 /* ContactTypingView.swift */; };
+		E64021C5C1CA70CA1AAF3116D1400BD9 /* ReminderRecommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED182C270FD9BDE63A97B610148C1F /* ReminderRecommandTableViewCell.swift */; };
 		E879896B48506C702A9393464E9E6FBB /* Reminder_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2FD6D531FC3F4D755EB10CD8283CAD /* Reminder_Extension.swift */; };
 		EC152687704B43F9B7F6640CC29F9F37 /* NoteTypingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE79958AB85DD9223DC7A49B18B6ACD /* NoteTypingView.swift */; };
 		EDA9C90074010043C46ADB921BEA1431 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B9D6ED903EF6BBDC8069D10BEEF73 /* PhotoCollectionViewCell.swift */; };
 		F0AF5597B062017A954F80A82289D14C /* UINavigationController_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B7C07906D0EBA85FEF289037A5C02A /* UINavigationController_extension.swift */; };
 		F51AFCAF70500FF8B1E3E8BA66742AD9 /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B897AAE2AFB8FAE704FD37BFE1D4EE /* String_extension.swift */; };
+		F71EA39BB30C48348C39352875F95035 /* CalendarRecommandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516C5216F425914F4760FE7F1275259E /* CalendarRecommandTableViewController.swift */; };
 		FC553641D84BCFB65AE6642AD2D6524F /* Bullet_UITextView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A3B13737914A1C1BCC249B7F83A04 /* Bullet_UITextView_Extension.swift */; };
 		FCCAB6583AB935EEF0EA95ABA88AC0B7 /* CalendarTV_TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D44CB73ABD2A9E2E7BBDC4C7A855F60 /* CalendarTV_TextFieldDelegate.swift */; };
 		FCF2EEC7CD3A3BDA6596D0058B3B3E6D /* NSPersistentContainer_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D112529D22A5FA64061D28D1961EF2F /* NSPersistentContainer_extension.swift */; };
@@ -134,34 +135,30 @@
 		309D050B523DE66E1EF8FFD541330B98 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30EF65E24D1A693C6FBE4F4E1A83B518 /* ContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextView.swift; sourceTree = "<group>"; };
 		32F99C3F8398D2614CA78F0911420E75 /* EmailTypingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTypingView.swift; sourceTree = "<group>"; };
+		33FD60FF02C09C32D1164AC64ED2C3E2 /* ReminderRecommandTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRecommandTableViewController.swift; sourceTree = "<group>"; };
 		3773487C367A475A8DB66F3BD209C656 /* View_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View_extension.swift; sourceTree = "<group>"; };
 		3A48B20C358B44E017833D897E25CD20 /* HighlightData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightData.swift; sourceTree = "<group>"; };
 		3BBAC207592DC7FF4E58848A1AE5602F /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		3CF0C655C2F9ADA527D9368803F3888D /* Calendar_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar_Extension.swift; sourceTree = "<group>"; };
 		3D7DA3D2D8F77187F49B83A7C2568CDA /* EmoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA07FE29F1DF543AE3A5F4743120BD8 /* Note_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note_Extension.swift; sourceTree = "<group>"; };
+		3FED182C270FD9BDE63A97B610148C1F /* ReminderRecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRecommandTableViewCell.swift; sourceTree = "<group>"; };
+		409BDD85BE33DAD86987F1300F3DD6B6 /* EmailRecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRecommandTableViewCell.swift; sourceTree = "<group>"; };
+		4122CEF3653A6172D530712766B8B3A7 /* PhotoRecommandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRecommandCollectionViewCell.swift; sourceTree = "<group>"; };
 		46150393319B4DEB23C2111497ACDFAB /* MainCollectionVC_ScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionVC_ScrollViewDelegate.swift; sourceTree = "<group>"; };
 		4CCA6613AC92F38D1E765790B7216CAA /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		516C5216F425914F4760FE7F1275259E /* CalendarRecommandTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRecommandTableViewController.swift; sourceTree = "<group>"; };
 		51DF42E787CA637979BA75A60FED0960 /* DateFormatter_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter_extension.swift; sourceTree = "<group>"; };
 		5884B662C76ABEC3E601268DA53A36C9 /* Photo_TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo_TextFieldDelegate.swift; sourceTree = "<group>"; };
 		58F6E928B154227350142320FEAE5206 /* Email_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email_Extension.swift; sourceTree = "<group>"; };
 		5AA82523DB02124F561CCCEDB13D4012 /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		64489289B8931A57BFA520F072A905EF /* ContactRecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRecommandTableViewCell.swift; sourceTree = "<group>"; };
 		656A3B13737914A1C1BCC249B7F83A04 /* Bullet_UITextView_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullet_UITextView_Extension.swift; sourceTree = "<group>"; };
 		6EB2712B01A4D0B45339CD6BEEC8EAC1 /* BottomViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewTests.swift; sourceTree = "<group>"; };
 		71AF147E48FB884E1D58F35D80B02105 /* ReminderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
 		7274918C101E745C6DB989A65880FC76 /* MainCollectionVC_CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionVC_CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		7907FABB81235CCB3D804F39B38808BB /* NotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
 		79F8B8FAEFEF8B6E616687526E275929 /* BottomView_ReminderTVDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView_ReminderTVDelegate.swift; sourceTree = "<group>"; };
-		7C2CADC421314D0D009D9DBA /* EMailRecommandTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMailRecommandTableViewController.swift; sourceTree = "<group>"; };
-		7C2CADC621314D31009D9DBA /* PhotoRecommandCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRecommandCollectionViewController.swift; sourceTree = "<group>"; };
-		7C2CADC821314D41009D9DBA /* ContactRecommandTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRecommandTableViewController.swift; sourceTree = "<group>"; };
-		7C2CADCA21314D4F009D9DBA /* ReminderRecommandTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRecommandTableViewController.swift; sourceTree = "<group>"; };
-		7C2CADCC21314D5A009D9DBA /* CalendarRecommandTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRecommandTableViewController.swift; sourceTree = "<group>"; };
-		7C2CADCE21314DDD009D9DBA /* CalendarRecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRecommandTableViewCell.swift; sourceTree = "<group>"; };
-		7C2CADD021314DE9009D9DBA /* ReminderRecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRecommandTableViewCell.swift; sourceTree = "<group>"; };
-		7C2CADD221314DF1009D9DBA /* ContactRecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRecommandTableViewCell.swift; sourceTree = "<group>"; };
-		7C2CADD421314E00009D9DBA /* EmailRecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRecommandTableViewCell.swift; sourceTree = "<group>"; };
-		7C2CADD621314E17009D9DBA /* PhotoRecommandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRecommandCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DEED8E5A1C28EBE9A947D1930323B93 /* BottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		85EE7269669E16CE8DF879A0D90261EC /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		89BF910A321F8BFE9E5EBAEF97BC4FA8 /* GrowingTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrowingTextView.swift; sourceTree = "<group>"; };
@@ -171,12 +168,15 @@
 		A31387A98CFB40FDEBEBF63150151EAF /* BulletValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletValue.swift; sourceTree = "<group>"; };
 		A3A0BCFA927EFB11B32019F67C18491E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A43A7ECB50A222FD12DD297E26F34E70 /* BottomView_ContactTVDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView_ContactTVDelegate.swift; sourceTree = "<group>"; };
+		A527403E0F1316358E8C27EB0FF58A46 /* EMailRecommandTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMailRecommandTableViewController.swift; sourceTree = "<group>"; };
+		A5FAC6EC17C5C2938CF1A29344A72B60 /* ContactRecommandTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRecommandTableViewController.swift; sourceTree = "<group>"; };
 		A7C158FAFB35A339BA55DB2DFDBD3212 /* PhotoTypingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTypingView.swift; sourceTree = "<group>"; };
 		A7D6D881B98B96559AB1A53D0C11E299 /* NSRange_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRange_extension.swift; sourceTree = "<group>"; };
 		A88B9D6ED903EF6BBDC8069D10BEEF73 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9B4A0C8857C728C508C251C61C24DC9 /* Color_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color_extension.swift; sourceTree = "<group>"; };
 		A9CB04FAAAE18E2445431CA576292145 /* MainCollectionVC_Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionVC_Action.swift; sourceTree = "<group>"; };
 		AAC49C28E6DF7CE43378FF6E1A72837E /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		ADAF8FA45D474AE4DA936A827DE2B691 /* CalendarCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionReusableView.swift; sourceTree = "<group>"; };
 		AE2FD6D531FC3F4D755EB10CD8283CAD /* Reminder_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder_Extension.swift; sourceTree = "<group>"; };
 		AE803494A3BA4D3032F567E27027C2B7 /* ReminderTV_TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTV_TextFieldDelegate.swift; sourceTree = "<group>"; };
 		B468F779AAD68589A0C12232E95DA474 /* PhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
@@ -193,6 +193,7 @@
 		C5BAC1CB376B025D0E286EAC46B2449B /* BottomView_CalendarTVDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView_CalendarTVDelegate.swift; sourceTree = "<group>"; };
 		C63613650B3DE28B46CE75864D99F17E /* MainCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
 		CBF8EC11660663D75A1022BE5482A69D /* ReminderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderCollectionViewCell.swift; sourceTree = "<group>"; };
+		CC1BFFDA5A93D3671E034BADBEFD4987 /* PhotoRecommandCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRecommandCollectionViewController.swift; sourceTree = "<group>"; };
 		D2E3F48558FC863BB345A8566076F8BD /* PianoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PianoTextView.swift; sourceTree = "<group>"; };
 		D7EDBB712A3719D056BE8787AFD4AA6F /* StoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
 		DBD8AC056C9A6C26F970C3F8E314C970 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -202,6 +203,7 @@
 		E6467BAC1A3158FAC826F6A6D184F6A6 /* ContactTypingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTypingView.swift; sourceTree = "<group>"; };
 		ED1DC83147EB5473B7B48E1BC73C6A7E /* Emo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Emo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29983934E73CF441103BCBE0625711B /* BottomView_Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomView_Keyboard.swift; sourceTree = "<group>"; };
+		F50E939F76101E87D75A49C8B3050F5C /* CalendarRecommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRecommandTableViewCell.swift; sourceTree = "<group>"; };
 		FAE79958AB85DD9223DC7A49B18B6ACD /* NoteTypingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTypingView.swift; sourceTree = "<group>"; };
 		FC2B9DC4F603DA17D67A9B33EA2EF786 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -400,20 +402,20 @@
 				AFD210E1A32E867C16EAB49BC47E3C1E /* Common */,
 				AEEF80E43DF7034AF74CACE5E44B4058 /* MainCollectionViewCell */,
 				652B14790357D64B5B2110EC574388D6 /* PhotoDetail */,
+				9B5FFD8EA68589661E1453558609720E /* RecommandCell */,
 				D2E3F48558FC863BB345A8566076F8BD /* PianoTextView.swift */,
-				7CEC112621336E440032E223 /* RecommandCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		7CEC112621336E440032E223 /* RecommandCell */ = {
+		9B5FFD8EA68589661E1453558609720E /* RecommandCell */ = {
 			isa = PBXGroup;
 			children = (
-				7C2CADCE21314DDD009D9DBA /* CalendarRecommandTableViewCell.swift */,
-				7C2CADD021314DE9009D9DBA /* ReminderRecommandTableViewCell.swift */,
-				7C2CADD221314DF1009D9DBA /* ContactRecommandTableViewCell.swift */,
-				7C2CADD421314E00009D9DBA /* EmailRecommandTableViewCell.swift */,
-				7C2CADD621314E17009D9DBA /* PhotoRecommandCollectionViewCell.swift */,
+				F50E939F76101E87D75A49C8B3050F5C /* CalendarRecommandTableViewCell.swift */,
+				64489289B8931A57BFA520F072A905EF /* ContactRecommandTableViewCell.swift */,
+				409BDD85BE33DAD86987F1300F3DD6B6 /* EmailRecommandTableViewCell.swift */,
+				4122CEF3653A6172D530712766B8B3A7 /* PhotoRecommandCollectionViewCell.swift */,
+				3FED182C270FD9BDE63A97B610148C1F /* ReminderRecommandTableViewCell.swift */,
 			);
 			path = RecommandCell;
 			sourceTree = "<group>";
@@ -456,13 +458,13 @@
 			isa = PBXGroup;
 			children = (
 				42658F8427A6D49E28ECCD55CDE78B03 /* MainCollectionVC */,
+				516C5216F425914F4760FE7F1275259E /* CalendarRecommandTableViewController.swift */,
+				A5FAC6EC17C5C2938CF1A29344A72B60 /* ContactRecommandTableViewController.swift */,
+				A527403E0F1316358E8C27EB0FF58A46 /* EMailRecommandTableViewController.swift */,
 				BC02138ABD92DE12E1C7765D3AB247CB /* NoteDetailViewController.swift */,
 				1FC1BC1BA0DAF6F7AF76D7D76423FF94 /* PhotoDetailViewController.swift */,
-				7C2CADC421314D0D009D9DBA /* EMailRecommandTableViewController.swift */,
-				7C2CADC621314D31009D9DBA /* PhotoRecommandCollectionViewController.swift */,
-				7C2CADC821314D41009D9DBA /* ContactRecommandTableViewController.swift */,
-				7C2CADCA21314D4F009D9DBA /* ReminderRecommandTableViewController.swift */,
-				7C2CADCC21314D5A009D9DBA /* CalendarRecommandTableViewController.swift */,
+				CC1BFFDA5A93D3671E034BADBEFD4987 /* PhotoRecommandCollectionViewController.swift */,
+				33FD60FF02C09C32D1164AC64ED2C3E2 /* ReminderRecommandTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -470,6 +472,7 @@
 		AEEF80E43DF7034AF74CACE5E44B4058 /* MainCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				ADAF8FA45D474AE4DA936A827DE2B691 /* CalendarCollectionReusableView.swift */,
 				07AC3DFB3ADEB243524248FE7C4D5F03 /* CalendarCollectionViewCell.swift */,
 				B7F7E8E5100D3B1446A97FF3E3F08DCA /* ContactCollectionViewCell.swift */,
 				DBD8AC056C9A6C26F970C3F8E314C970 /* NoteCollectionViewCell.swift */,
@@ -661,7 +664,6 @@
 			files = (
 				DC7C3499EC7013DBAFFD2ECA5B728E82 /* AppDelegate.swift in Sources */,
 				0F9E28EF6AE8A5EDA9B82A79B7493ABB /* BlockType.swift in Sources */,
-				7C2CADC721314D31009D9DBA /* PhotoRecommandCollectionViewController.swift in Sources */,
 				6900C91E74C3329685E37884792EA9EB /* BottomView.swift in Sources */,
 				570604405425203CF4284D3D881C4D2A /* BottomView_CalendarTVDelegate.swift in Sources */,
 				292291FC48978AE22450754C2116A7F4 /* BottomView_ContactTVDelegate.swift in Sources */,
@@ -674,24 +676,27 @@
 				72E6EB8071EE0720B974B9CF68DF8F89 /* BulletKey.swift in Sources */,
 				37B93661BB397C3686ABDCC71A421204 /* BulletValue.swift in Sources */,
 				FC553641D84BCFB65AE6642AD2D6524F /* Bullet_UITextView_Extension.swift in Sources */,
+				0DC161589FBE5DAA4BD8F3B2A0B528FD /* CalendarCollectionReusableView.swift in Sources */,
 				57D8F4B2E0DADD88BB48AF95D44AB8A7 /* CalendarCollectionViewCell.swift in Sources */,
 				D32AAAFA7D91C789D04FBEC0CF524B8A /* CalendarManager.swift in Sources */,
-				7C2CADCD21314D5A009D9DBA /* CalendarRecommandTableViewController.swift in Sources */,
-				7C2CADC921314D41009D9DBA /* ContactRecommandTableViewController.swift in Sources */,
+				2422AAF257383C26EAB25B0B47B268EB /* CalendarRecommandTableViewCell.swift in Sources */,
+				F71EA39BB30C48348C39352875F95035 /* CalendarRecommandTableViewController.swift in Sources */,
 				FCCAB6583AB935EEF0EA95ABA88AC0B7 /* CalendarTV_TextFieldDelegate.swift in Sources */,
 				1A877DD4101B0B75F01F4CDED2BEB1B0 /* CalendarTypingView.swift in Sources */,
 				E1553066DC4A8948B5E9CB03D2EF53C6 /* Calendar_Extension.swift in Sources */,
-				7C2CADCB21314D4F009D9DBA /* ReminderRecommandTableViewController.swift in Sources */,
 				9F828DE084F92F5F3A7AD3C7F5DB5DB2 /* Color_extension.swift in Sources */,
 				56CCDF3572EA9242776B9D3E4639CCA3 /* ContactCollectionViewCell.swift in Sources */,
 				052D288EBFDC8675B35F1DC70DA32127 /* ContactManager.swift in Sources */,
+				0C622F21EEDF27031287BA6D183310B9 /* ContactRecommandTableViewCell.swift in Sources */,
+				E006FBAC16C23D88BE8AC2BFEE932F38 /* ContactRecommandTableViewController.swift in Sources */,
 				5E816E0FB54D94F7CADB779F54933813 /* ContactTV_TextFieldDelegate.swift in Sources */,
 				E1D9368EEED886EFA3E2615952267423 /* ContactTypingView.swift in Sources */,
 				56424D46BFE1310A5714F5FADEE63F47 /* Contact_Extension.swift in Sources */,
 				FDF02B55E2B620B67CAE9FDEB62137EB /* ContextView.swift in Sources */,
 				60E4523AE77CBAA3D7CBFAC18B96AFA0 /* DateFormatter_extension.swift in Sources */,
 				C2B8D816C9352CE2F26797736CF57F0A /* Detection.swift in Sources */,
-				7C2CADC521314D0D009D9DBA /* EMailRecommandTableViewController.swift in Sources */,
+				45D8FE24D4F8811B5A930198AA2AB953 /* EMailRecommandTableViewController.swift in Sources */,
+				DC72154D957C38767A0675985635F7A1 /* EmailRecommandTableViewCell.swift in Sources */,
 				3D71D65E918C43D67B70CFE926D74A08 /* EmailTV_TextFieldDelegate.swift in Sources */,
 				D445797E68F0EC1FE56E0B14B4994993 /* EmailTypingView.swift in Sources */,
 				C9FB6C8CE6FEA1CAE677C3A7C3AB4368 /* Email_Extension.swift in Sources */,
@@ -710,7 +715,6 @@
 				FCF2EEC7CD3A3BDA6596D0058B3B3E6D /* NSPersistentContainer_extension.swift in Sources */,
 				717B1A63C1C97761E7FD43ECAF89415A /* NSRange_extension.swift in Sources */,
 				781829494729FD3F5F29CF3A0CD6F95B /* NoteCollectionViewCell.swift in Sources */,
-				7C2CADD521314E00009D9DBA /* EmailRecommandTableViewCell.swift in Sources */,
 				3F0467F7E62F949B208BB7F4602D394B /* NoteDetailViewController.swift in Sources */,
 				105026CD53E15DCBFE85A9DDDEE27EE2 /* NoteTV_TextViewDelegate.swift in Sources */,
 				EC152687704B43F9B7F6640CC29F9F37 /* NoteTypingView.swift in Sources */,
@@ -721,22 +725,22 @@
 				26C6730AEBB04CC27B10D11D457A3F22 /* PhotoDetailTableViewCell.swift in Sources */,
 				0848AAEF0DDCDB0BF13F1A4C14D79C71 /* PhotoDetailViewController.swift in Sources */,
 				2D1F7FB0462A746AD58FE53C2441E3E0 /* PhotoManager.swift in Sources */,
+				28A24B63AF29A5665F43CDE7B7042D63 /* PhotoRecommandCollectionViewCell.swift in Sources */,
+				CDF4F997DC67AA35618909F521A36FFB /* PhotoRecommandCollectionViewController.swift in Sources */,
 				FE047B273BC7870E39F19E68F23654AF /* PhotoTypingView.swift in Sources */,
-				7C2CADD721314E17009D9DBA /* PhotoRecommandCollectionViewCell.swift in Sources */,
 				1482EC3CD7BD18E983F40BDE5A6C3263 /* Photo_Extension.swift in Sources */,
 				9A85D68EE441E6943D596BF5550324C3 /* Photo_TextFieldDelegate.swift in Sources */,
 				D00BAE30298D0C4FDF3D0A9EA99CAC4A /* PianoTextView.swift in Sources */,
 				21E8ACFA7D1BC87EAE241446E6919D4D /* Preference.swift in Sources */,
 				14D4903118275D1CAA3A654496AB30B2 /* ReminderCollectionViewCell.swift in Sources */,
 				1FE3E97537F9494FA60723F23B22A8C2 /* ReminderManager.swift in Sources */,
+				E64021C5C1CA70CA1AAF3116D1400BD9 /* ReminderRecommandTableViewCell.swift in Sources */,
+				BEAA699E6E9BA261DE5F6F50A09A61AD /* ReminderRecommandTableViewController.swift in Sources */,
 				36D8BE150280FF631404DA7562E70273 /* ReminderTV_TextFieldDelegate.swift in Sources */,
 				D59E548394CA528DEB3B7ED89376C5AD /* ReminderTypingView.swift in Sources */,
-				7C2CADCF21314DDD009D9DBA /* CalendarRecommandTableViewCell.swift in Sources */,
 				E879896B48506C702A9393464E9E6FBB /* Reminder_Extension.swift in Sources */,
 				227E0505B99C1A2E70DFC98523FF7AEB /* StoreService.swift in Sources */,
 				F51AFCAF70500FF8B1E3E8BA66742AD9 /* String_extension.swift in Sources */,
-				7C2CADD321314DF1009D9DBA /* ContactRecommandTableViewCell.swift in Sources */,
-				7C2CADD121314DE9009D9DBA /* ReminderRecommandTableViewCell.swift in Sources */,
 				5B78CA842F60EF9215F34EA571B7D3FE /* TableViewAutoSystemProtocol.swift in Sources */,
 				4CA61BE67E3A4F257644306236236149 /* ThemeManager.swift in Sources */,
 				F0AF5597B062017A954F80A82289D14C /* UINavigationController_extension.swift in Sources */,

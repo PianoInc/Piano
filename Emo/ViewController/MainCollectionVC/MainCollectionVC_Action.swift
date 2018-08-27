@@ -100,7 +100,7 @@ extension MainCollectionViewController {
             collectionView.dataSource = self
             collectionView.delegate = self
         case .calendar:
-            calendarManager = CalendarManager<CalendarCollectionViewCell>(self, collectionView)
+            calendarManager = CalendarManager<CalendarCollectionReusableView, CalendarCollectionViewCell>(self, collectionView)
             calendarManager?.fetchAll()
         case .reminder:
             reminderManager = ReminderManager<ReminderCollectionViewCell>(self, collectionView)

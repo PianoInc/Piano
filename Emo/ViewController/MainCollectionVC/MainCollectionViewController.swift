@@ -34,7 +34,7 @@ class MainCollectionViewController: UIViewController {
     var resultsController: NSFetchedResultsController<Note>?
     var contactManager: ContactManager<ContactCollectionViewCell>?
     var reminderManager: ReminderManager<ReminderCollectionViewCell>?
-    var calendarManager: CalendarManager<CalendarCollectionViewCell>?
+    var calendarManager: CalendarManager<CalendarCollectionReusableView, CalendarCollectionViewCell>?
     var photoManager: PhotoManager<PhotoCollectionViewCell>?
 
     internal var typingCounter = 0

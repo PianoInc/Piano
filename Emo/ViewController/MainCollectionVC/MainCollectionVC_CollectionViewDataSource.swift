@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MainCollectionViewController: CollectionViewDataSource {
+extension MainCollectionViewController: CollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
 //    var typingState: TypingState {
 //        if reminderManager != nil {
@@ -26,6 +26,15 @@ extension MainCollectionViewController: CollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return resultsController?.sections?[section].numberOfObjects ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let section = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CalendarCollectionReusableView", for: indexPath) as! CalendarCollectionReusableView
+        return section
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
