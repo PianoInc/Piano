@@ -1,6 +1,6 @@
 
 //
-//  ContextStackView.swift
+//  ContextView.swift
 //  Emo
 //
 //  Created by Kevin Kim on 2018. 8. 24..
@@ -19,9 +19,9 @@ enum TypingState: Int {
 }
 
 protocol ContextViewDelegate: class {
-    
+    func currentState(_ contextView: ContextView) -> TypingState?
     func contextView(_ contextView: ContextView, didChangeTypingState state: TypingState)
-    func contextView(_ contextView: ContextView, didTapEmoji emoji: String)
+    func contextView(_ contextView: ContextView, didTapEmoji emoji: String, state: TypingState)
     func emojies(_ contextView: ContextView) -> [Emoji]
 }
 
@@ -68,9 +68,10 @@ extension ContextView {
         if let bottomView = bottomView,
             let button = button,
             let label = button.titleLabel,
-            let emoji = label.text {
+            let emoji = label.text,
+            let state = bottomView.currentState(self) {
 
-            bottomView.contextView(self, didTapEmoji: emoji)
+            bottomView.contextView(self, didTapEmoji: emoji, state: state)
         }
     }
 }
