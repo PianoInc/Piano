@@ -252,14 +252,8 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dVt-dO-Cvt">
                                             <rect key="frame" x="8" y="8" width="359" height="34"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaA-ob-RzM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="34"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <color key="textColor" red="1" green="0.42469308039999998" blue="0.1567560036" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="8월 27일 월요일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELl-ON-Roq">
-                                                    <rect key="frame" x="46" y="0.0" width="313" height="34"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="34"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -365,7 +359,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="56"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yRc-Ro-xhc" customClass="GrowingTextView" customModule="Emo" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="6" width="329" height="50"/>
+                                                                <rect key="frame" x="0.0" y="20" width="329" height="36"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -616,22 +610,12 @@
                         <outlet property="doneBarButton" destination="Zbk-yf-XuY" id="Gar-jb-cQx"/>
                         <outlet property="editBarButton" destination="ZPI-xf-tj5" id="e0Z-9f-o1d"/>
                         <outlet property="emailSegmentControl" destination="wv8-af-51g" id="DGr-87-98O"/>
-                        <outlet property="reminderSegmentControl" destination="EC6-K9-BmW" id="B0E-Jd-dMY"/>
                         <segue destination="vNI-te-gyx" kind="show" identifier="PhotoDetailViewController" id="Qtf-i2-cSh"/>
                         <segue destination="K39-1d-cIz" kind="presentation" id="ThN-A6-ynx"/>
                         <segue destination="6Ne-mQ-DQU" kind="show" id="j7I-M8-vmQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRJ-wq-wfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="EC6-K9-BmW">
-                    <rect key="frame" x="0.0" y="0.0" width="121" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <viewLayoutGuide key="safeArea" id="GiC-ki-Z5d"/>
-                    <segments>
-                        <segment title="할 일"/>
-                        <segment title="예정"/>
-                    </segments>
-                </segmentedControl>
                 <barButtonItem systemItem="edit" id="ZPI-xf-tj5"/>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="wv8-af-51g">
                     <rect key="frame" x="0.0" y="0.0" width="121" height="30"/>
@@ -646,51 +630,6 @@
                         <action selector="done:" destination="CXr-tG-QbL" id="5de-sE-c5C"/>
                     </connections>
                 </barButtonItem>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="WVY-rg-e7K">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <viewLayoutGuide key="safeArea" id="dAc-AI-GJq"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NQC-uZ-480">
-                        <size key="itemSize" width="78" height="74"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                    <cells>
-                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GPV-a5-aV2">
-                            <rect key="frame" x="0.0" y="0.0" width="78" height="74"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                <rect key="frame" x="0.0" y="0.0" width="78" height="74"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kjk-Jr-mZv">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFX-Eq-nyJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="23" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잠금" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdD-Me-ReB">
-                                                <rect key="frame" x="1" y="24.5" width="21" height="14.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </view>
-                            <constraints>
-                                <constraint firstItem="kjk-Jr-mZv" firstAttribute="centerY" secondItem="GPV-a5-aV2" secondAttribute="centerY" id="I1I-IP-3xP"/>
-                                <constraint firstItem="kjk-Jr-mZv" firstAttribute="centerX" secondItem="GPV-a5-aV2" secondAttribute="centerX" id="Y9m-OL-qDs"/>
-                            </constraints>
-                        </collectionViewCell>
-                    </cells>
-                </collectionView>
             </objects>
             <point key="canvasLocation" x="1096.8" y="295.50224887556226"/>
         </scene>
@@ -996,14 +935,6 @@
                     <navigationItem key="navigationItem" id="8Xh-cW-F9N">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="s5u-fL-Xk6"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="hlO-dZ-QjP">
-                            <rect key="frame" x="125" y="7" width="125" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="할 일"/>
-                                <segment title="예정"/>
-                            </segments>
-                        </segmentedControl>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBZ-n2-qNp" userLabel="First Responder" sceneMemberID="firstResponder"/>
