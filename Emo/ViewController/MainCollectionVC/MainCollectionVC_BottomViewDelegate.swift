@@ -89,6 +89,11 @@ extension MainCollectionViewController: BottomViewDelegate {
         return []
     }
 
+    func bottomView(_ bottomView: BottomView, textFieldDidChange textField: TextField, typingView: StackView) {
+        if typingView is CalendarTypingView {
+            
+        }
+    }
 }
 
 extension MainCollectionViewController {

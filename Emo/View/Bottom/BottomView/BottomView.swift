@@ -23,6 +23,8 @@ protocol BottomViewDelegate: class {
     func bottomView(_ bottomView: BottomView, keyboardWillHide height: CGFloat)
 
     func emojies(_ bottomView: BottomView) -> [Emoji]
+
+    func bottomView(_ bottomView: BottomView, textFieldDidChange textField: TextField, typingView: UIStackView)
 }
 
 class BottomView: UIView {

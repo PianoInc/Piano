@@ -10,6 +10,7 @@ import UIKit
 
 protocol CalendarTypingViewDelegate: class {
     func calendarTypingView(_ calendarTypingView: CalendarTypingView, didFinishTyping text: String)
+    func calendarTypingView(_ calendarTypingView: CalendarTypingView, didChangeTextField textField: TextField)
 }
 
 class CalendarTypingView: UIStackView {

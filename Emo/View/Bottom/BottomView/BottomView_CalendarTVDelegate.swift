@@ -15,6 +15,10 @@ extension BottomView: CalendarTypingViewDelegate {
         calendar?.saveIfNeeded()
         resetCalendarTypingView()
     }
+
+    func calendarTypingView(_ calendarTypingView: CalendarTypingView, didChangeTextField textField: TextField) {
+        mainViewController?.bottomView(self, textFieldDidChange: textField, typingView: calendarTypingView)
+    }
 }
 
 extension BottomView {
