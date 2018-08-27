@@ -21,6 +21,8 @@ protocol BottomViewDelegate: class {
     
     func bottomView(_ bottomView: BottomView, keyboardWillShow height: CGFloat)
     func bottomView(_ bottomView: BottomView, keyboardWillHide height: CGFloat)
+
+    func emojies(_ bottomView: BottomView) -> [Emoji]
 }
 
 class BottomView: UIView {

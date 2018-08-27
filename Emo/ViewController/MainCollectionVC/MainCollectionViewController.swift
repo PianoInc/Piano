@@ -77,15 +77,6 @@ class MainCollectionViewController: UIViewController {
 extension MainCollectionViewController {
     
     func refreshCollectionView() {
-        if resultsController?.managedObjectContext != backgroundContext {
-            resultsController = NSFetchedResultsController(
-                fetchRequest: noteFetchRequest,
-                managedObjectContext: backgroundContext,
-                sectionNameKeyPath: nil,
-                cacheName: "Note"
-            )
-        }
-
         do {
             try resultsController?.performFetch()
             let count = resultsController?.fetchedObjects?.count ?? 0

@@ -245,6 +245,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+<<<<<<< HEAD
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCollectionReusableView" id="TXN-6e-wg5" customClass="CalendarCollectionReusableView" customModule="Emo" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -271,6 +272,8 @@
                                         <outlet property="titleLabel" destination="ELl-ON-Roq" id="hZA-bD-4O7"/>
                                     </connections>
                                 </collectionReusableView>
+=======
+>>>>>>> develop
                                 <connections>
                                     <outlet property="dataSource" destination="CXr-tG-QbL" id="SBR-yj-ITE"/>
                                     <outlet property="delegate" destination="CXr-tG-QbL" id="LQB-Wp-Wg2"/>
