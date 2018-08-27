@@ -130,3 +130,52 @@ extension String {
     }
     
 }
+
+extension String {
+    var searchPredicate: NSPredicate? {
+        if let language = NSLinguisticTagger.dominantLanguage(for: self),
+            NSLinguisticTagger.availableTagSchemes(forLanguage: language).contains(.lexicalClass) {
+            return linguistic(text: self)
+        } else {
+            return nonLinguistic(text: self)
+        }
+    }
+
+    private func linguistic(text: String) -> NSPredicate? {
+        let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
+        tagger.string = text
+
+        let range = NSRange(location: 0, length: text.utf16.count)
+        let options: NSLinguisticTagger.Options = [.omitWhitespace]
+        let tags: [NSLinguisticTag] = [.noun, .verb, .otherWord, .number]
+        var words = Array<String>()
+
+        tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange, stop in
+
+            if let tag = tag, tags.contains(tag) {
+                let word = (text as NSString).substring(with: tokenRange)
+                words.append(word)
+            }
+        }
+        let predicates = Set(words)
+            .map { $0.lowercased() }
+            .map { NSPredicate(format: "content contains[cd] %@", $0) }
+
+         return NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+    }
+
+    private func nonLinguistic(text: String) -> NSPredicate? {
+        let trimmed = text.components(separatedBy: CharacterSet.whitespacesAndNewlines)
+            .map { $0.lowercased()
+                .trimmingCharacters(in: .illegalCharacters)
+                .trimmingCharacters(in: .punctuationCharacters)
+            }
+            .filter { $0.count > 0 }
+
+        let predicates = Set(trimmed)
+            .map { NSPredicate(format: "content contains[cd] %@", $0) }
+
+        return NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+    }
+
+}

@@ -38,7 +38,7 @@ class MainCollectionViewController: UIViewController {
     var photoManager: PhotoManager<PhotoCollectionViewCell>?
 
     internal var typingCounter = 0
-    internal var searchRequestDelay = 0.1
+    internal var searchRequestDelay = 0.3
 
     lazy var noteFetchRequest: NSFetchRequest<Note> = {
         let request:NSFetchRequest<Note> = Note.fetchRequest()
