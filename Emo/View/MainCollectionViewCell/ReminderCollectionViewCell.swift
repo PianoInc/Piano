@@ -18,9 +18,12 @@ class ReminderCollectionViewCell: UICollectionViewCell {
     func configure(_ reminder: EKReminder) {
         checkButton.setTitle("\(reminder.isCompleted ? "🙆‍♂️" : "🙅‍♂️")", for: .normal)
         label.text = reminder.title
-        let format = DateFormatter()
-        format.dateFormat = "yyyy. MM. dd. hh:mm aa"
-        eventDateLabel.text = format.string(from: reminder.alarms?.first?.absoluteDate ?? Date())
+        eventDateLabel.text = ""
+        if let date = reminder.alarms?.first?.absoluteDate {
+            let format = DateFormatter()
+            format.dateFormat = "yyyy. MM. dd. hh:mm aa"
+            eventDateLabel.text = format.string(from: date)
+        }
     }
     
 }

@@ -21,7 +21,7 @@ enum ContactEditType {
     case add, modify
 }
 
-class ContactManager<Cell: ContactCollectionViewCell>: NSObject, NSFetchedResultsControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CNContactViewControllerDelegate {
+class ContactManager<Cell: ContactCollectionViewCell>: NSObject, NSFetchedResultsControllerDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, CNContactViewControllerDelegate {
     
     private weak var viewController: UIViewController!
     private weak var collectionView: UICollectionView!
@@ -55,9 +55,7 @@ class ContactManager<Cell: ContactCollectionViewCell>: NSObject, NSFetchedResult
         let request = CNContactFetchRequest(keysToFetch: CNContactKeysToFetch)
         try? contactStore.enumerateContacts(with: request) { contact, error in
             self.fetchData?.append(contact)
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
+            DispatchQueue.main.async {self.collectionView.reloadData()}
         }
     }
     
@@ -71,6 +69,10 @@ class ContactManager<Cell: ContactCollectionViewCell>: NSObject, NSFetchedResult
         case true: return fetchRC?.sections?.count ?? 0
         case false: return fetchData?.count ?? 0
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

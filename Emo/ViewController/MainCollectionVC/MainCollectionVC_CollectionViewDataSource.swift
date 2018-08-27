@@ -8,33 +8,24 @@
 
 import UIKit
 
-extension MainCollectionViewController: CollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MainCollectionViewController: CollectionViewDataSource {
     
-//    var typingState: TypingState {
-//        if reminderManager != nil {
-//            return .reminder
-//        } else if calendarManager != nil {
-//            return .calendar
-//        } else if contactManager != nil {
-//            return .contact
-//        } else if photoManager != nil {
-//            return .photo
-//        } else {
-//            return .note
-//        }
-//    }
+    //    var typingState: TypingState {
+    //        if reminderManager != nil {
+    //            return .reminder
+    //        } else if calendarManager != nil {
+    //            return .calendar
+    //        } else if contactManager != nil {
+    //            return .contact
+    //        } else if photoManager != nil {
+    //            return .photo
+    //        } else {
+    //            return .note
+    //        }
+    //    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return resultsController?.sections?[section].numberOfObjects ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let section = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CalendarCollectionReusableView", for: indexPath) as! CalendarCollectionReusableView
-        return section
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,4 +41,5 @@ extension MainCollectionViewController: CollectionViewDataSource, UICollectionVi
             noteCell.dateLabel.text = DateFormatter.sharedInstance.string(from: date)
         }
     }
+    
 }

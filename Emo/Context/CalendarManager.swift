@@ -40,17 +40,18 @@ class CalendarManager<Section: CalendarCollectionReusableView, Cell: CalendarCol
     
     func fetchAll() {
         fetchRC = nil
+        collectionView.reloadData()
         let cal = Foundation.Calendar.current
-        guard let startDate = cal.date(byAdding: .month, value: -6, to: Date()) else {return}
-        guard let endDate = cal.date(byAdding: .month, value: 6, to: Date()) else {return}
+        let com = cal.dateComponents([.year, .month, .day], from: Date())
+        let today = cal.date(from: com) ?? Date()
+        guard let endDate = cal.date(byAdding: .year, value: 1, to: today) else {return}
         guard let eventCal = eventStore.defaultCalendarForNewEvents else {return}
-        let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: [eventCal])
+        let predicate = eventStore.predicateForEvents(withStart: today, end: endDate, calendars: [eventCal])
         let events = eventStore.events(matching: predicate)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일 EEEE"
         for event in events {
             let sectionTitle = dateFormatter.string(from: event.startDate)
-            print(sectionTitle)
             if let sectionIndex = fetchData.index(where: {$0.keys.first == sectionTitle}) {
                 fetchData[sectionIndex][sectionTitle]?.append(event)
             } else {
@@ -68,7 +69,7 @@ class CalendarManager<Section: CalendarCollectionReusableView, Cell: CalendarCol
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         switch fetchRC != nil {
         case true: return 1
-        case false: return fetchData.count ?? 1
+        case false: return fetchData.count
         }
     }
     

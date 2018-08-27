@@ -10,14 +10,14 @@ import UIKit
 import CoreData
 import EventKit
 
-class ReminderManager<Cell: ReminderCollectionViewCell>: NSObject, NSFetchedResultsControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class ReminderManager<Section: CalendarCollectionReusableView, Cell: ReminderCollectionViewCell>: NSObject, NSFetchedResultsControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     private weak var viewController: UIViewController!
     private weak var collectionView: UICollectionView!
     
     private let eventStore = EKEventStore()
     private var fetchRC: NSFetchedResultsController<Reminder>?
-    private var fetchData: [EKReminder]?
+    private var fetchData = [[String : [EKReminder]]]()
     
     init(_ viewController: UIViewController, _ collectionView: UICollectionView) {
         self.viewController = viewController
@@ -28,7 +28,7 @@ class ReminderManager<Cell: ReminderCollectionViewCell>: NSObject, NSFetchedResu
     }
     
     func fetch() {
-        fetchData = nil
+        fetchData.removeAll()
         collectionView.reloadData()
         let request = NSFetchRequest<Reminder>(entityName: "Reminder")
         request.fetchLimit = 20
@@ -40,12 +40,33 @@ class ReminderManager<Cell: ReminderCollectionViewCell>: NSObject, NSFetchedResu
     
     func fetchAll() {
         fetchRC = nil
+        collectionView.reloadData()
+        let cal = Foundation.Calendar.current
+        let com = cal.dateComponents([.year, .month, .day], from: Date())
+        let today = cal.date(from: com) ?? Date()
         let predicate = eventStore.predicateForReminders(in: nil)
         eventStore.fetchReminders(matching: predicate) { reminders in
-            self.fetchData = reminders
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+            guard let reminders = reminders else {return}
+            for reminder in reminders {
+                func addData(with key: String) {
+                    if let sectionIndex = self.fetchData.index(where: {$0.keys.first == key}) {
+                        self.fetchData[sectionIndex][key]?.append(reminder)
+                    } else {
+                        self.fetchData.append([key : [reminder]])
+                    }
+                }
+                if let date = reminder.alarms?.first?.absoluteDate, !reminder.isCompleted && today < date {
+                    addData(with: "Scheduled")
+                    continue
+                }
+                if !reminder.isCompleted {addData(with: "Todo")}
             }
+            if let sectionIndex = self.fetchData.index(where: {$0.keys.first == "Scheduled"}) {
+                self.fetchData[sectionIndex]["Scheduled"]?.sort(by: {
+                    $0.alarms!.first!.absoluteDate! < $1.alarms!.first!.absoluteDate!
+                })
+            }
+            DispatchQueue.main.async {self.collectionView.reloadData()}
         }
     }
     
@@ -54,11 +75,25 @@ class ReminderManager<Cell: ReminderCollectionViewCell>: NSObject, NSFetchedResu
         collectionView.insertItems(at: [newIndexPath])
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        switch fetchRC != nil {
+        case true: return 1
+        case false: return fetchData.count
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch fetchRC != nil {
         case true: return fetchRC?.sections?.count ?? 0
-        case false: return fetchData?.count ?? 0
+        case false: return fetchData[section].values.first?.count ?? 0
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let section = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Section.reuseIdentifier, for: indexPath) as! CalendarCollectionReusableView
+        guard let title = fetchData[indexPath.section].keys.first else {return UICollectionReusableView()}
+        section.configure(title)
+        return section
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,7 +104,7 @@ class ReminderManager<Cell: ReminderCollectionViewCell>: NSObject, NSFetchedResu
             guard let reminder = eventStore.calendarItem(withIdentifier: id) as? EKReminder else {return UICollectionViewCell()}
             cell.configure(reminder)
         case false:
-            guard let reminder = fetchData?[indexPath.row] else {return UICollectionViewCell()}
+            guard let reminder = fetchData[indexPath.section].values.first?[indexPath.row] else {return UICollectionViewCell()}
             cell.configure(reminder)
         }
         return cell
@@ -83,7 +118,7 @@ class ReminderManager<Cell: ReminderCollectionViewCell>: NSObject, NSFetchedResu
             guard let reminder = eventStore.calendarItem(withIdentifier: id) as? EKReminder else {return}
             edit(reminder)
         case false:
-            guard let reminder = fetchData?[indexPath.row] else {return}
+            guard let reminder = fetchData[indexPath.section].values.first?[indexPath.row] else {return}
             edit(reminder)
         }
     }

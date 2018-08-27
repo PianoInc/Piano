@@ -20,26 +20,26 @@ class MainCollectionViewController: UIViewController {
     
     
     weak var persistentContainer: NSPersistentContainer!
-
+    
     lazy var mainContext: NSManagedObjectContext = {
         let context = persistentContainer.viewContext
         context.automaticallyMergesChangesFromParent = true
         return context
     }()
-
+    
     lazy var backgroundContext: NSManagedObjectContext = {
         return persistentContainer.newBackgroundContext()
     }()
     
     var resultsController: NSFetchedResultsController<Note>?
     var contactManager: ContactManager<ContactCollectionViewCell>?
-    var reminderManager: ReminderManager<ReminderCollectionViewCell>?
+    var reminderManager: ReminderManager<CalendarCollectionReusableView, ReminderCollectionViewCell>?
     var calendarManager: CalendarManager<CalendarCollectionReusableView, CalendarCollectionViewCell>?
     var photoManager: PhotoManager<PhotoCollectionViewCell>?
-
+    
     internal var typingCounter = 0
     internal var searchRequestDelay = 0.1
-
+    
     lazy var noteFetchRequest: NSFetchRequest<Note> = {
         let request:NSFetchRequest<Note> = Note.fetchRequest()
         let sort = NSSortDescriptor(key: "modifiedDate", ascending: false)
@@ -58,7 +58,7 @@ class MainCollectionViewController: UIViewController {
             self.loadNote()
         }
     }
-
+    
     private func loadNote() {
         resultsController = createNoteResultsController()
         setupCollectionViewLayout(for: .note)
@@ -83,7 +83,7 @@ extension MainCollectionViewController {
             DispatchQueue.main.async { [weak self] in
                 guard let `self` = self else { return }
                 self.title = (count <= 0) ? "메모없음" : "\(count)개의 메모"
-
+                
                 self.collectionView.performBatchUpdates({
                     self.collectionView.reloadSections(IndexSet(integer: 0))
                 }, completion: nil)
@@ -92,7 +92,7 @@ extension MainCollectionViewController {
             // TODO: 예외처리
         }
     }
-
+    
     /// appDelegate applicationWillResignActive 에서 저장한 노트수에 따라서
     /// 검색 요청 지연 시간을 설정하는 메서드
     private func setSearchRequestDelay() {
@@ -110,7 +110,7 @@ extension MainCollectionViewController {
             searchRequestDelay = 0.5
         }
     }
-
+    
     // for test
     private func setupDummyNotes() {
         if resultsController?.fetchedObjects?.count ?? 0 < 100 {
@@ -122,12 +122,12 @@ extension MainCollectionViewController {
                 let note = Note(context: mainContext)
                 note.content = "👻 apple Nullam id dolor id nibh ultricies vehicula ut id elit."
             }
-
+            
             for _ in 1...5 {
                 let note = Note(context: mainContext)
                 note.content = "👻 bang Maecenas faucibus mollis interdum."
             }
-
+            
             saveContext()
             try? resultsController?.performFetch()
         }

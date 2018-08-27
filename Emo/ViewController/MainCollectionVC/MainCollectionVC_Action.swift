@@ -19,17 +19,17 @@ extension MainCollectionViewController {
         case 0:
             ()
             //TODO: 0일 때에는 시간이 없는 완료되지 않은 미리알림
-//            contactManager?.fetchAll()
-//            reminderManager?.fetchAll()
-//            calendarManager?.fetchAll()
+            //            contactManager?.fetchAll()
+            //            reminderManager?.fetchAll()
+        //            calendarManager?.fetchAll()
         case 1:
-        //TODO: 1일 때에는 예정되어있고 완료되지 않은 미리알림
+            //TODO: 1일 때에는 예정되어있고 완료되지 않은 미리알림
             ()
         default:
             ()
-//            contactManager?.fetch()
-//            reminderManager?.fetch()
-//            calendarManager?.fetch()
+            //            contactManager?.fetch()
+            //            reminderManager?.fetch()
+            //            calendarManager?.fetch()
         }
     }
     
@@ -103,7 +103,7 @@ extension MainCollectionViewController {
             calendarManager = CalendarManager<CalendarCollectionReusableView, CalendarCollectionViewCell>(self, collectionView)
             calendarManager?.fetchAll()
         case .reminder:
-            reminderManager = ReminderManager<ReminderCollectionViewCell>(self, collectionView)
+            reminderManager = ReminderManager<CalendarCollectionReusableView, ReminderCollectionViewCell>(self, collectionView)
             reminderManager?.fetchAll()
         case .contact:
             contactManager = ContactManager<ContactCollectionViewCell>(self, collectionView)

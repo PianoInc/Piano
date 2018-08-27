@@ -68,6 +68,10 @@ class PhotoManager<Cell: PhotoCollectionViewCell>: NSObject, PHPhotoLibraryChang
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .zero
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
             return CGSize(width: collectionView.bounds.height, height: collectionView.bounds.height)
