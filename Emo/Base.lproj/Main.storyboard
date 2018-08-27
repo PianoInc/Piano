@@ -245,7 +245,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TXN-6e-wg5">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCollectionReusableView" id="TXN-6e-wg5" customClass="CalendarCollectionReusableView" customModule="Emo" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -267,6 +267,9 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="dVt-dO-Cvt" secondAttribute="bottom" id="vv0-tx-u5j"/>
                                         <constraint firstItem="dVt-dO-Cvt" firstAttribute="leading" secondItem="TXN-6e-wg5" secondAttribute="leadingMargin" id="zRH-4m-Oha"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="ELl-ON-Roq" id="hZA-bD-4O7"/>
+                                    </connections>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="CXr-tG-QbL" id="SBR-yj-ITE"/>
@@ -618,7 +621,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRJ-wq-wfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <barButtonItem systemItem="edit" id="ZPI-xf-tj5"/>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="wv8-af-51g">
-                    <rect key="frame" x="0.0" y="0.0" width="121" height="30"/>
+                    <rect key="frame" x="0.0" y="-1" width="121" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="받은 메일"/>

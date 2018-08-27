@@ -10,14 +10,14 @@ import UIKit
 import CoreData
 import EventKitUI
 
-class CalendarManager<Cell: CalendarCollectionViewCell>: NSObject, NSFetchedResultsControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, EKEventEditViewDelegate {
+class CalendarManager<Section: CalendarCollectionReusableView, Cell: CalendarCollectionViewCell>: NSObject, NSFetchedResultsControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     private weak var viewController: UIViewController!
     private weak var collectionView: UICollectionView!
     
     private let eventStore = EKEventStore()
     private var fetchRC: NSFetchedResultsController<Calendar>?
-    private var fetchData: [EKEvent]?
+    private var fetchData = [[String : [EKEvent]]]()
     
     init(_ viewController: UIViewController, _ collectionView: UICollectionView) {
         self.viewController = viewController
@@ -28,7 +28,7 @@ class CalendarManager<Cell: CalendarCollectionViewCell>: NSObject, NSFetchedResu
     }
     
     func fetch() {
-        fetchData = nil
+        fetchData.removeAll()
         collectionView.reloadData()
         let request = NSFetchRequest<Calendar>(entityName: "Calendar")
         request.fetchLimit = 20
@@ -45,7 +45,18 @@ class CalendarManager<Cell: CalendarCollectionViewCell>: NSObject, NSFetchedResu
         guard let endDate = cal.date(byAdding: .month, value: 6, to: Date()) else {return}
         guard let eventCal = eventStore.defaultCalendarForNewEvents else {return}
         let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: [eventCal])
-        fetchData = eventStore.events(matching: predicate)
+        let events = eventStore.events(matching: predicate)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        for event in events {
+            let sectionTitle = dateFormatter.string(from: event.startDate)
+            print(sectionTitle)
+            if let sectionIndex = fetchData.index(where: {$0.keys.first == sectionTitle}) {
+                fetchData[sectionIndex][sectionTitle]?.append(event)
+            } else {
+                fetchData.append([sectionTitle : [event]])
+            }
+        }
         collectionView.reloadData()
     }
     
@@ -54,11 +65,25 @@ class CalendarManager<Cell: CalendarCollectionViewCell>: NSObject, NSFetchedResu
         collectionView.insertItems(at: [newIndexPath])
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        switch fetchRC != nil {
+        case true: return 1
+        case false: return fetchData.count ?? 1
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch fetchRC != nil {
         case true: return fetchRC?.sections?.count ?? 0
-        case false: return fetchData?.count ?? 0
+        case false: return fetchData[section].values.first?.count ?? 0
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let section = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Section.reuseIdentifier, for: indexPath) as! CalendarCollectionReusableView
+        guard let title = fetchData[indexPath.section].keys.first else {return UICollectionReusableView()}
+        section.configure(title)
+        return section
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,7 +94,7 @@ class CalendarManager<Cell: CalendarCollectionViewCell>: NSObject, NSFetchedResu
             guard let event = eventStore.event(withIdentifier: id) else {return UICollectionViewCell()}
             cell.configure(event)
         case false:
-            guard let event = fetchData?[indexPath.row] else {return UICollectionViewCell()}
+            guard let event = fetchData[indexPath.section].values.first?[indexPath.item] else {return UICollectionViewCell()}
             cell.configure(event)
         }
         return cell
@@ -83,22 +108,17 @@ class CalendarManager<Cell: CalendarCollectionViewCell>: NSObject, NSFetchedResu
             guard let event = eventStore.event(withIdentifier: id) else {return}
             edit(event)
         case false:
-            guard let event = fetchData?[indexPath.row] else {return}
+            guard let event = fetchData[indexPath.section].values.first?[indexPath.item] else {return}
             edit(event)
         }
     }
     
     func edit(_ event: EKEvent) {
-        let eventController = EKEventEditViewController()
-        eventController.eventStore = eventStore
-        eventController.event = event
-        eventController.editViewDelegate = self
-        viewController.present(eventController, animated: true)
-    }
-    
-    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
-        guard action == .canceled else {return}
-        controller.dismiss(animated: true)
+        let eventVC = EKEventViewController()
+        eventVC.allowsEditing = true
+        eventVC.event = event
+        viewController.navigationController?.view.backgroundColor = UIColor(hex6: "F9F9F9")
+        viewController.navigationController?.pushViewController(eventVC, animated: true)
     }
     
 }
