@@ -16,6 +16,13 @@ extension BottomView: ContextViewDelegate {
         mainViewController?.bottomView(self, didChangeTypingState: state)
     }
 
+    func contextView(_ contextView: ContextView, didTapEmoji emoji: String) {
+        noteTypingView.textView.text.append(emoji)
+    }
+
+    func emojies(_ contextView: ContextView) -> [Emoji] {
+        return mainViewController?.emojies(self) ?? []
+    }
 }
 
 extension BottomView {

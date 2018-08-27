@@ -25,17 +25,18 @@ extension Email {
         }
     }
     
-    private func add(emoji: String) {
+    private func add(emoji text: String) {
         guard let managedContext = managedObjectContext else { return }
         let request:NSFetchRequest<Emoji> = Emoji.fetchRequest()
         
         do {
-            request.predicate = NSPredicate(format: "%K == %lld", #keyPath(Emoji.emojiHash), emoji.hashValue)
+            request.predicate = NSPredicate(format: "%K == %lld", #keyPath(Emoji.emojiHash), text.hashValue)
             let results = try managedContext.fetch(request)
             // 새로운 이모지일 경우
             if results.count == 0 {
                 let emoji = Emoji(context: managedContext)
                 emoji.emojiHash = Int64(emoji.hashValue)
+                emoji.string = text
                 self.addToEmojiCollection(emoji)
             } else {
                 // 이미 있는 이모지일 경우

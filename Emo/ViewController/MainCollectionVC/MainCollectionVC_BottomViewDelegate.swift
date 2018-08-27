@@ -80,6 +80,15 @@ extension MainCollectionViewController: BottomViewDelegate {
         }
     }
 
+    func emojies(_ bottomView: BottomView) -> [Emoji] {
+        let request: NSFetchRequest<Emoji> = Emoji.fetchRequest()
+        request.sortDescriptors = []
+        if let emojies = try? backgroundContext.fetch(request) {
+            return emojies
+        }
+        return []
+    }
+
 }
 
 extension MainCollectionViewController {

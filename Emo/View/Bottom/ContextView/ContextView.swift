@@ -21,6 +21,8 @@ enum TypingState: Int {
 protocol ContextViewDelegate: class {
     
     func contextView(_ contextView: ContextView, didChangeTypingState state: TypingState)
+    func contextView(_ contextView: ContextView, didTapEmoji emoji: String)
+    func emojies(_ contextView: ContextView) -> [Emoji]
 }
 
 
@@ -52,6 +54,23 @@ class ContextView: UIStackView {
 
 extension ContextView {
     internal func updateEmojiButtons() {
-        //TODO: 코어데이터에서 이모지 삽입하기
+        guard let bottomView = bottomView else { return }
+        for emoji in bottomView.emojies(self) {
+            let button = UIButton()
+            button.setTitle(emoji.string, for: UIControlState.normal)
+            button.addTarget(self, action: #selector(tapEmoji(_:)), for: .touchUpInside)
+            emojiButtons.append(button)
+            addArrangedSubview(button)
+        }
+    }
+
+    @objc func tapEmoji(_ button: UIButton?) {
+        if let bottomView = bottomView,
+            let button = button,
+            let label = button.titleLabel,
+            let emoji = label.text {
+
+            bottomView.contextView(self, didTapEmoji: emoji)
+        }
     }
 }
