@@ -66,7 +66,7 @@
 		9D89D20E5990816A82030846C9167DDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8155EF4BE7AAE5948C1B98B54456C9A2 /* Main.storyboard */; };
 		9EE8074E8B036748A086C3C6B4603106 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7907FABB81235CCB3D804F39B38808BB /* NotificationView.xib */; };
 		9F828DE084F92F5F3A7AD3C7F5DB5DB2 /* Color_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B4A0C8857C728C508C251C61C24DC9 /* Color_extension.swift */; };
-		AE53A201AAC812FE80C669E560312ED8 /* MainTableVC_CollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561E07B554D5AD19CF2C486B27A55652 /* MainTableVC_CollectionViewDelegateFlowLayout.swift */; };
+		AE53A201AAC812FE80C669E560312ED8 /* MainCollectionVC_CollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561E07B554D5AD19CF2C486B27A55652 /* MainCollectionVC_CollectionViewDelegateFlowLayout.swift */; };
 		B583CF596B1268306E3B4EF91A6519BD /* BottomView_ContextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153A45464A56F63959BE059339F307A7 /* BottomView_ContextViewDelegate.swift */; };
 		BEAA699E6E9BA261DE5F6F50A09A61AD /* ReminderRecommandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FD60FF02C09C32D1164AC64ED2C3E2 /* ReminderRecommandTableViewController.swift */; };
 		BECF23FE1F841D595036B2CD19A8C606 /* BottomViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB2712B01A4D0B45339CD6BEEC8EAC1 /* BottomViewTests.swift */; };
@@ -150,7 +150,7 @@
 		4CCA6613AC92F38D1E765790B7216CAA /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		516C5216F425914F4760FE7F1275259E /* CalendarRecommandTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRecommandTableViewController.swift; sourceTree = "<group>"; };
 		51DF42E787CA637979BA75A60FED0960 /* DateFormatter_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter_extension.swift; sourceTree = "<group>"; };
-		561E07B554D5AD19CF2C486B27A55652 /* MainTableVC_CollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableVC_CollectionViewDelegateFlowLayout.swift; sourceTree = "<group>"; };
+		561E07B554D5AD19CF2C486B27A55652 /* MainCollectionVC_CollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionVC_CollectionViewDelegateFlowLayout.swift; sourceTree = "<group>"; };
 		5884B662C76ABEC3E601268DA53A36C9 /* Photo_TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo_TextFieldDelegate.swift; sourceTree = "<group>"; };
 		58F6E928B154227350142320FEAE5206 /* Email_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email_Extension.swift; sourceTree = "<group>"; };
 		5AA82523DB02124F561CCCEDB13D4012 /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
@@ -328,7 +328,7 @@
 				07D7488DDE0CA5198C9270C6C7A33FD4 /* MainCollectionVC_CollectionViewDelegate.swift */,
 				46150393319B4DEB23C2111497ACDFAB /* MainCollectionVC_ScrollViewDelegate.swift */,
 				C63613650B3DE28B46CE75864D99F17E /* MainCollectionViewController.swift */,
-				561E07B554D5AD19CF2C486B27A55652 /* MainTableVC_CollectionViewDelegateFlowLayout.swift */,
+				561E07B554D5AD19CF2C486B27A55652 /* MainCollectionVC_CollectionViewDelegateFlowLayout.swift */,
 			);
 			path = MainCollectionVC;
 			sourceTree = "<group>";
@@ -714,7 +714,7 @@
 				FF43CFD00C49CCA57C6625D2876D7E8B /* MainCollectionVC_CollectionViewDelegate.swift in Sources */,
 				94B20B95247422C4F5875571409CBFA2 /* MainCollectionVC_ScrollViewDelegate.swift in Sources */,
 				5704FD8BF41BA5E04D8EA6069BF0D41F /* MainCollectionViewController.swift in Sources */,
-				AE53A201AAC812FE80C669E560312ED8 /* MainTableVC_CollectionViewDelegateFlowLayout.swift in Sources */,
+				AE53A201AAC812FE80C669E560312ED8 /* MainCollectionVC_CollectionViewDelegateFlowLayout.swift in Sources */,
 				14073BBBAF7225C0B5108606401FBC68 /* NSManagedObject_Extension.swift in Sources */,
 				FCF2EEC7CD3A3BDA6596D0058B3B3E6D /* NSPersistentContainer_extension.swift in Sources */,
 				717B1A63C1C97761E7FD43ECAF89415A /* NSRange_extension.swift in Sources */,
