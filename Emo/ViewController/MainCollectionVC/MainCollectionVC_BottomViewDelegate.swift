@@ -113,7 +113,7 @@ extension MainCollectionViewController {
 
         if let text = sender as? String, text.count < 30 {
             DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-                self?.refreshNoteFetchRequest(with: text)
+                self?.refreshFetchRequest(with: text)
             }
         }
 
@@ -125,23 +125,17 @@ extension MainCollectionViewController {
                 print()
             }
         }
-
     }
     
-    private func refreshNoteFetchRequest(with text: String) {
+    private func refreshFetchRequest(with text: String) {
         guard text.count != 0 else {
             noteFetchRequest.predicate = nil
-            DispatchQueue.main.async { [weak self] in
-                self?.refreshCollectionView()
-            }
+            refreshCollectionView()
             return
         }
 
-        noteFetchRequest.predicate = text.searchPredicate
-
-        DispatchQueue.main.async { [weak self] in
-            self?.refreshCollectionView()
-        }
+        noteFetchRequest.predicate = text.predicate(fieldName: "content")
+        refreshCollectionView()
     }
 }
 

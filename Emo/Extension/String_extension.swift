@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreText
+import CoreData
 
 extension String {
    
@@ -132,16 +133,16 @@ extension String {
 }
 
 extension String {
-    var searchPredicate: NSPredicate? {
+    func predicate(fieldName: String) -> NSPredicate? {
         if let language = NSLinguisticTagger.dominantLanguage(for: self),
             NSLinguisticTagger.availableTagSchemes(forLanguage: language).contains(.lexicalClass) {
-            return linguistic(text: self)
+            return linguistic(text: self, field: fieldName)
         } else {
-            return nonLinguistic(text: self)
+            return nonLinguistic(text: self, field: fieldName)
         }
     }
 
-    private func linguistic(text: String) -> NSPredicate? {
+    private func linguistic(text: String, field: String) -> NSPredicate? {
         let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
         tagger.string = text
 
@@ -159,12 +160,12 @@ extension String {
         }
         let predicates = Set(words)
             .map { $0.lowercased() }
-            .map { NSPredicate(format: "content contains[cd] %@", $0) }
+            .map { NSPredicate(format: "\(field) contains[cd] %@", $0) }
 
          return NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
     }
 
-    private func nonLinguistic(text: String) -> NSPredicate? {
+    private func nonLinguistic(text: String, field: String) -> NSPredicate? {
         let trimmed = text.components(separatedBy: CharacterSet.whitespacesAndNewlines)
             .map { $0.lowercased()
                 .trimmingCharacters(in: .illegalCharacters)
@@ -173,7 +174,7 @@ extension String {
             .filter { $0.count > 0 }
 
         let predicates = Set(trimmed)
-            .map { NSPredicate(format: "content contains[cd] %@", $0) }
+            .map { NSPredicate(format: "\(field) contains[cd] %@", $0) }
 
         return NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
     }

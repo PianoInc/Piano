@@ -57,6 +57,7 @@ class MainCollectionViewController: UIViewController {
             self.setup(typingState: .note)
             self.loadNote()
         }
+        setupDummyNotes()
     }
 
     private func loadNote() {
@@ -90,6 +91,8 @@ extension MainCollectionViewController {
             }
         } catch {
             // TODO: 예외처리
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
     }
 

@@ -16,10 +16,10 @@ class CalendarManager<Section: CalendarCollectionReusableView, Cell: CalendarCol
     private weak var collectionView: UICollectionView!
     
     private let eventStore = EKEventStore()
-    private lazy var request: NSFetchRequest<Calendar> = {
+    private lazy var fetchRequest: NSFetchRequest<Calendar> = {
         let request: NSFetchRequest<Calendar> = Calendar.fetchRequest()
         request.fetchLimit = 20
-        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Calendar.identifiers), ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: #keyPath(Calendar.content), ascending: true)]
         return request
     }()
     private var fetchRC: NSFetchedResultsController<Calendar>?
@@ -37,7 +37,7 @@ class CalendarManager<Section: CalendarCollectionReusableView, Cell: CalendarCol
         fetchData.removeAll()
         collectionView.reloadData()
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        fetchRC = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "Calendar")
+        fetchRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "Calendar")
         fetchRC?.delegate = self
     }
     
@@ -128,6 +128,27 @@ class CalendarManager<Section: CalendarCollectionReusableView, Cell: CalendarCol
 
 extension CalendarManager {
     func refreshFetchRequest(with text: String) {
-        
+        guard text.count != 0 else {
+            fetchRequest.predicate = nil
+            refreshCollectionView()
+            return
+        }
+        fetchRequest.predicate = text.predicate(fieldName: "content")
+        refreshCollectionView()
+    }
+
+    private func refreshCollectionView() {
+        do {
+            try fetchRC?.performFetch()
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.performBatchUpdates({
+                    self?.collectionView.reloadSections(IndexSet(integer: 0))
+                }, completion: nil)
+            }
+        } catch {
+            // TODO: 예외처리
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
     }
 }
