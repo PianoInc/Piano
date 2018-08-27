@@ -12,11 +12,6 @@ import CoreGraphics
 
 extension MainCollectionViewController: BottomViewDelegate {
     
-    enum BarButtonType: Int {
-        case edit = 0
-        case done = 1
-    }
-    
     func bottomView(_ bottomView: BottomView, keyboardWillShow height: CGFloat) {
         setDoneButtonIfNeeded()
     }
@@ -168,6 +163,12 @@ extension MainCollectionViewController {
 }
 
 extension MainCollectionViewController {
+    
+    enum BarButtonType: Int {
+        case edit = 0
+        case done = 1
+    }
+    
     private func setDoneButtonIfNeeded() {
         if let rightBarItem = navigationItem.rightBarButtonItem,
             let type = BarButtonType(rawValue: rightBarItem.tag),

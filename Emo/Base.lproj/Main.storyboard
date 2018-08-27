@@ -20,7 +20,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bdl-rs-Xc7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FQe-PY-3cB">
                                     <size key="itemSize" width="226" height="92"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
@@ -35,24 +35,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zlJ-Ql-DZL">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zlJ-Ql-DZL">
                                                     <rect key="frame" x="15" y="11" width="343" height="65"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMZ-Qh-TBJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="76"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="76"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="igU-Tx-MuC"/>
+                                                            </constraints>
                                                             <state key="normal" image="unCheck"/>
+                                                            <state key="selected" image="check"/>
+                                                            <connections>
+                                                                <action selector="check:" destination="czY-tu-uUw" eventType="touchUpInside" id="a5Q-w1-5Fn"/>
+                                                            </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o1K-W7-p7L">
-                                                            <rect key="frame" x="36" y="0.0" width="291" height="76"/>
+                                                            <rect key="frame" x="50" y="0.0" width="277" height="76"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="각각의 셀에 prepareForReuse 구현하기 그리고 또 무언가를 구현해야한다" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mz7-ju-phr">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="291" height="42.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="277" height="42.5"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="2018. 7. 10. 오후 10:40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2l-ND-oRu">
-                                                                    <rect key="frame" x="0.0" y="42.5" width="291" height="33.5"/>
+                                                                    <rect key="frame" x="0.0" y="42.5" width="277" height="33.5"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                     <color key="textColor" red="1" green="0.42469308039999998" blue="0.1567560036" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
@@ -109,7 +116,7 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="iYf-Kz-nZB">
+                                                        <view contentMode="scaleToFill" horizontalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="iYf-Kz-nZB">
                                                             <rect key="frame" x="57.5" y="0.0" width="2" height="51"/>
                                                             <color key="backgroundColor" red="0.14241071429999999" green="0.94369419639999996" blue="0.4926339388" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
@@ -288,86 +295,45 @@
                                         <rect key="frame" x="8" y="8" width="359" height="104"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0h3-5R-lZc">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Fdx-Pt-QJA" customClass="ContextView" customModule="Emo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="260" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="311" height="28"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOR-Zn-MOp">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="33"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                <state key="normal" title="📝"/>
+                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hCR-GG-d44">
+                                                                <rect key="frame" x="0.0" y="0.0" width="311" height="29"/>
+                                                                <segments>
+                                                                    <segment title="✍️     "/>
+                                                                    <segment title="📅"/>
+                                                                    <segment title="✅"/>
+                                                                    <segment title="👤"/>
+                                                                    <segment title="🌇"/>
+                                                                    <segment title="✉️"/>
+                                                                </segments>
                                                                 <connections>
-                                                                    <action selector="tapContextButton:" destination="Fdx-Pt-QJA" eventType="touchUpInside" id="9ig-dZ-jF8"/>
+                                                                    <action selector="switchContext:" destination="Fdx-Pt-QJA" eventType="valueChanged" id="laV-DU-FVi"/>
+                                                                    <action selector="switchSegmentControl:" destination="6Ne-mQ-DQU" eventType="valueChanged" id="RTM-bn-udz"/>
                                                                 </connections>
-                                                            </button>
-                                                            <button opaque="NO" alpha="0.20000000000000001" tag="1" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syS-Ji-O7a">
-                                                                <rect key="frame" x="46" y="0.0" width="30" height="33"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                <state key="normal" title="📅"/>
-                                                                <connections>
-                                                                    <action selector="tapContextButton:" destination="Fdx-Pt-QJA" eventType="touchUpInside" id="Xqt-W2-3s3"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" alpha="0.20000000000000001" tag="2" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZs-aP-NV6">
-                                                                <rect key="frame" x="92" y="0.0" width="30" height="33"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                <state key="normal" title="✅"/>
-                                                                <connections>
-                                                                    <action selector="tapContextButton:" destination="Fdx-Pt-QJA" eventType="touchUpInside" id="NMf-Ua-Tfl"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" alpha="0.20000000000000001" tag="3" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgF-kn-tN0">
-                                                                <rect key="frame" x="138" y="0.0" width="30" height="33"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                <state key="normal" title="📞"/>
-                                                                <connections>
-                                                                    <action selector="tapContextButton:" destination="Fdx-Pt-QJA" eventType="touchUpInside" id="LIH-LA-Eii"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" alpha="0.20000000000000001" tag="4" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qca-TK-d0x">
-                                                                <rect key="frame" x="184" y="0.0" width="30" height="33"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                <state key="normal" title="🌇"/>
-                                                                <connections>
-                                                                    <action selector="tapContextButton:" destination="Fdx-Pt-QJA" eventType="touchUpInside" id="MoT-c6-Xwn"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" alpha="0.20000000000000001" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ig-9n-oq4">
-                                                                <rect key="frame" x="230" y="0.0" width="30" height="33"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                <state key="normal" title="✉️"/>
-                                                                <connections>
-                                                                    <action selector="tapContextButton:" destination="Fdx-Pt-QJA" eventType="touchUpInside" id="but-4E-R5V"/>
-                                                                </connections>
-                                                            </button>
+                                                            </segmentedControl>
                                                         </subviews>
-                                                        <connections>
-                                                            <outletCollection property="contextButtons" destination="bOR-Zn-MOp" collectionClass="NSMutableArray" id="rzt-rx-MEH"/>
-                                                            <outletCollection property="contextButtons" destination="syS-Ji-O7a" collectionClass="NSMutableArray" id="VPh-s6-gz6"/>
-                                                            <outletCollection property="contextButtons" destination="aZs-aP-NV6" collectionClass="NSMutableArray" id="0AD-MZ-b5V"/>
-                                                            <outletCollection property="contextButtons" destination="wgF-kn-tN0" collectionClass="NSMutableArray" id="PUP-xX-7fV"/>
-                                                            <outletCollection property="contextButtons" destination="qca-TK-d0x" collectionClass="NSMutableArray" id="lfA-TE-ubW"/>
-                                                            <outletCollection property="contextButtons" destination="1ig-9n-oq4" collectionClass="NSMutableArray" id="U5w-8f-L2o"/>
-                                                        </connections>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="Fdx-Pt-QJA" firstAttribute="top" secondItem="0h3-5R-lZc" secondAttribute="top" id="0Kn-KD-B3F"/>
                                                     <constraint firstAttribute="trailing" secondItem="Fdx-Pt-QJA" secondAttribute="trailing" id="3qk-NQ-Gdl"/>
-                                                    <constraint firstAttribute="height" constant="40" id="Oi2-ge-15j"/>
+                                                    <constraint firstAttribute="height" constant="30" id="Oi2-ge-15j"/>
                                                     <constraint firstItem="Fdx-Pt-QJA" firstAttribute="leading" secondItem="0h3-5R-lZc" secondAttribute="leading" id="hxo-Dp-6tb"/>
                                                     <constraint firstAttribute="bottom" secondItem="Fdx-Pt-QJA" secondAttribute="bottom" id="qGr-1D-hI6"/>
                                                 </constraints>
                                             </scrollView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bzu-Ae-dkE">
-                                                <rect key="frame" x="0.0" y="48" width="359" height="56"/>
+                                                <rect key="frame" x="0.0" y="38" width="359" height="66"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="fD3-ZM-n4I" customClass="NoteTypingView" customModule="Emo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="56"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="66"/>
                                                         <subviews>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yRc-Ro-xhc" customClass="GrowingTextView" customModule="Emo" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="6" width="329" height="50"/>
+                                                                <rect key="frame" x="0.0" y="16" width="329" height="50"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -385,7 +351,7 @@
                                                                 </connections>
                                                             </textView>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9U2-vR-sZk">
-                                                                <rect key="frame" x="329" y="26" width="30" height="30"/>
+                                                                <rect key="frame" x="329" y="36" width="30" height="30"/>
                                                                 <state key="normal" title="✏️"/>
                                                                 <connections>
                                                                     <action selector="write:" destination="fD3-ZM-n4I" eventType="touchUpInside" id="8oL-Qu-QVk"/>
@@ -398,7 +364,7 @@
                                                         </connections>
                                                     </stackView>
                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="51w-PE-009" customClass="CalendarTypingView" customModule="Emo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="-603" width="359" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="-593" width="359" height="0.0"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="예) 오늘 오후 세시 코코아와 미팅" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="CnD-jR-HIm">
                                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="0.0"/>
@@ -424,7 +390,7 @@
                                                         </connections>
                                                     </stackView>
                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vl1-YU-HIv" customClass="ReminderTypingView" customModule="Emo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="-603" width="359" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="-593" width="359" height="0.0"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="해야할 일을 적어주세요." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0jn-7Y-kkg">
                                                                 <rect key="frame" x="0.0" y="0.0" width="321" height="0.0"/>
@@ -450,7 +416,7 @@
                                                         </connections>
                                                     </stackView>
                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HMl-Ra-gDE" customClass="ContactTypingView" customModule="Emo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="-603" width="359" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="-593" width="359" height="0.0"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yGt-A6-s3e">
                                                                 <rect key="frame" x="0.0" y="0.0" width="325" height="0.0"/>
@@ -503,7 +469,7 @@
                                                         </connections>
                                                     </stackView>
                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MK2-CB-Iaw" customClass="PhotoTypingView" customModule="Emo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="-603" width="359" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="-593" width="359" height="0.0"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="사진에 태그를 달아보세요." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gU3-Zk-8T9">
                                                                 <rect key="frame" x="0.0" y="0.0" width="325" height="0.0"/>
@@ -529,7 +495,7 @@
                                                         </connections>
                                                     </stackView>
                                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HZe-LA-R2A" customClass="EmailTypingView" customModule="Emo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="-603" width="359" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="-593" width="359" height="0.0"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1xm-AP-dwv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="321" height="0.0"/>
@@ -609,7 +575,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="d5c-SL-S7Z">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="⚙️" id="J5y-YQ-aYh"/>
+                        <barButtonItem key="leftBarButtonItem" title="⚙️" id="J5y-YQ-aYh">
+                            <connections>
+                                <segue destination="6Ne-mQ-DQU" kind="show" id="9rI-tr-cOg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="v5K-Yw-IOe"/>
                     </navigationItem>
                     <connections>
@@ -626,7 +596,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRJ-wq-wfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <barButtonItem systemItem="edit" id="ZPI-xf-tj5"/>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="wv8-af-51g">
-                    <rect key="frame" x="0.0" y="-1" width="121" height="30"/>
+                    <rect key="frame" x="0.0" y="0.0" width="121" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="받은 메일"/>
@@ -678,56 +648,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2x-TS-G52">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem title="📅" id="auP-1Y-Riv">
-                                        <connections>
-                                            <segue destination="Lki-yE-PYe" kind="popoverPresentation" popoverAnchorBarButtonItem="auP-1Y-Riv" id="obZ-55-bY5">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="30Q-EA-axF"/>
-                                    <barButtonItem title="✅" id="cQN-a6-bfq">
-                                        <connections>
-                                            <segue destination="ajm-38-kop" kind="popoverPresentation" popoverAnchorBarButtonItem="cQN-a6-bfq" id="aNX-QP-PGj">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Oe7-RD-kzX"/>
-                                    <barButtonItem title="📞" id="yon-fl-8pg">
-                                        <connections>
-                                            <segue destination="vku-o9-tR0" kind="popoverPresentation" popoverAnchorBarButtonItem="yon-fl-8pg" id="sLC-f8-OJD">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rL3-ki-Afl"/>
-                                    <barButtonItem title="🌇" id="GUp-vg-kLr">
-                                        <connections>
-                                            <segue destination="xvO-WI-yh3" kind="popoverPresentation" popoverAnchorBarButtonItem="GUp-vg-kLr" id="Tok-JH-dXp">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="11B-EF-XAe"/>
-                                    <barButtonItem title="✉️" id="koh-ON-bJa">
-                                        <connections>
-                                            <segue destination="YjT-mR-jXN" kind="popoverPresentation" popoverAnchorBarButtonItem="koh-ON-bJa" id="gCW-Cu-FKH">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" text="차세대 대학생 융합 보고서 제출해야함" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bs0-9t-m3z" customClass="PianoTextView" customModule="Emo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgS-GL-tpZ" customClass="DetailBottomView" customModule="Emo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBQ-Dm-ELT">
+                                        <rect key="frame" x="0.0" y="8" width="375" height="34"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wf1-jl-hrR">
+                                                <rect key="frame" x="8" y="0.0" width="407" height="30"/>
+                                                <subviews>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="l14-Ge-UCb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="293" height="31"/>
+                                                        <segments>
+                                                            <segment title="  ✍️  "/>
+                                                            <segment title="📅"/>
+                                                            <segment title="✅"/>
+                                                            <segment title="👤"/>
+                                                            <segment title="🌇"/>
+                                                            <segment title="✉️"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="switchControl:" destination="tgS-GL-tpZ" eventType="valueChanged" id="FyV-IL-LlW"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhQ-lZ-Fo9">
+                                                        <rect key="frame" x="301" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" title="🙆‍♀️"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CqW-6F-b1m">
+                                                        <rect key="frame" x="339" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" title="❤️"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFU-A9-rMF">
+                                                        <rect key="frame" x="377" y="0.0" width="30" height="30"/>
+                                                        <state key="normal" title="💡"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Wf1-jl-hrR" firstAttribute="top" secondItem="NBQ-Dm-ELT" secondAttribute="top" id="GDx-Lr-5Rz"/>
+                                            <constraint firstItem="Wf1-jl-hrR" firstAttribute="leading" secondItem="NBQ-Dm-ELT" secondAttribute="leading" constant="8" id="Tc2-aa-L4v"/>
+                                            <constraint firstAttribute="height" constant="34" id="Yfa-qz-hAw"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wf1-jl-hrR" secondAttribute="trailing" constant="8" id="rxp-PT-h6a"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wf1-jl-hrR" secondAttribute="bottom" id="uPA-Aa-eaF"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NBQ-Dm-ELT" secondAttribute="trailing" id="BTw-it-efk"/>
+                                    <constraint firstItem="NBQ-Dm-ELT" firstAttribute="leading" secondItem="tgS-GL-tpZ" secondAttribute="leading" id="blX-oS-pFG"/>
+                                    <constraint firstItem="NBQ-Dm-ELT" firstAttribute="top" secondItem="tgS-GL-tpZ" secondAttribute="topMargin" id="c87-MS-YfX"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="NBQ-Dm-ELT" secondAttribute="bottom" id="iqf-lM-NNZ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="bottomConstraint" destination="O3Z-hc-eOB" id="guV-VC-9Bm"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="D2x-TS-G52" secondAttribute="trailing" id="4oK-GD-YrW"/>
-                            <constraint firstAttribute="bottom" secondItem="D2x-TS-G52" secondAttribute="bottom" id="Bbe-VI-66t"/>
-                            <constraint firstItem="D2x-TS-G52" firstAttribute="leading" secondItem="ASX-vN-0sA" secondAttribute="leading" id="gkw-6K-doQ"/>
+                            <constraint firstItem="bs0-9t-m3z" firstAttribute="leading" secondItem="ASX-vN-0sA" secondAttribute="leading" id="1tF-8x-hxZ"/>
+                            <constraint firstAttribute="trailing" secondItem="tgS-GL-tpZ" secondAttribute="trailing" id="GrT-4u-qAL"/>
+                            <constraint firstAttribute="trailing" secondItem="bs0-9t-m3z" secondAttribute="trailing" id="NSy-Bq-NhA"/>
+                            <constraint firstAttribute="bottom" secondItem="tgS-GL-tpZ" secondAttribute="bottom" id="O3Z-hc-eOB"/>
+                            <constraint firstItem="bs0-9t-m3z" firstAttribute="top" secondItem="cIh-kc-keU" secondAttribute="top" id="ZOM-jG-WUz"/>
+                            <constraint firstItem="tgS-GL-tpZ" firstAttribute="leading" secondItem="ASX-vN-0sA" secondAttribute="leading" id="g1k-ID-Nhe"/>
+                            <constraint firstItem="tgS-GL-tpZ" firstAttribute="top" secondItem="bs0-9t-m3z" secondAttribute="bottom" id="iRc-zM-ObK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cIh-kc-keU"/>
                     </view>
@@ -735,11 +729,17 @@
                         <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" title="🖍" id="Fu2-wO-LXx"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="detailBottomView" destination="tgS-GL-tpZ" id="Vlj-fz-uaF"/>
+                        <outlet property="doneBarButton" destination="V1c-py-uTH" id="ijy-r0-v23"/>
+                        <outlet property="highlightBarButton" destination="hrU-bb-Z87" id="Vre-2A-bO7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqv-Ut-2oT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem title="✔️" id="V1c-py-uTH"/>
+                <barButtonItem title="🖍" id="hrU-bb-Z87"/>
+                <barButtonItem tag="1" systemItem="done" id="V1c-py-uTH"/>
             </objects>
-            <point key="canvasLocation" x="1969" y="-104"/>
+            <point key="canvasLocation" x="1968.8" y="-104.7976011994003"/>
         </scene>
         <!--Photo Detail View Controller-->
         <scene sceneID="afv-3K-eXC">
@@ -1310,6 +1310,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="check" width="20" height="21"/>
         <image name="unCheck" width="20" height="21"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="j7I-M8-vmQ"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -28,7 +28,6 @@ protocol ContextViewDelegate: class {
 
 class ContextView: UIStackView {
 
-    @IBOutlet var contextButtons: [UIButton]!
     private var emojiButtons: [UIButton] = []
     
     override func draw(_ rect: CGRect) {
@@ -38,16 +37,10 @@ class ContextView: UIStackView {
     
     weak var bottomView: ContextViewDelegate?
     
-    @IBAction func tapContextButton(_ sender: UIButton) {
-        guard let typingState = TypingState(rawValue: sender.tag) else { return }
-        setAlpha(typingState: typingState)
-        bottomView?.contextView(self, didChangeTypingState: typingState)
-    }
     
-    private func setAlpha(typingState: TypingState) {
-        contextButtons.forEach{
-            $0.alpha = typingState.rawValue != $0.tag ? 0.2 : 1
-        }
+    @IBAction func switchContext(_ sender: UISegmentedControl) {
+        guard let typingState = TypingState(rawValue: sender.selectedSegmentIndex) else { return }
+        bottomView?.contextView(self, didChangeTypingState: typingState)
     }
 
 }

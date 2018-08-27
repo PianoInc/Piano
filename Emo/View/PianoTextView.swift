@@ -14,6 +14,8 @@ class PianoTextView: UITextView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         layoutManager.delegate = self
+        textContainerInset.left = 10
+        textContainerInset.right = 10
 //        textContainerInset = UIEdgeInsets.zero
 //        textContainer.lineFragmentPadding = 0
 //        inputAssistantItem.leadingBarButtonGroups = []

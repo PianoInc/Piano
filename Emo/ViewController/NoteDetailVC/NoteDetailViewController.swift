@@ -10,10 +10,14 @@ import UIKit
 
 class NoteDetailViewController: UIViewController {
 
+    @IBOutlet var doneBarButton: UIBarButtonItem!
+    @IBOutlet var highlightBarButton: UIBarButtonItem!
+    
+    @IBOutlet weak var detailBottomView: DetailBottomView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        detailBottomView.noteDetailViewController = self
     }
 
 

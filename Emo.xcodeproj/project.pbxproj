@@ -58,6 +58,10 @@
 		72E6EB8071EE0720B974B9CF68DF8F89 /* BulletKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EFCAF0187EED2CA9FDEDF45FC68A4 /* BulletKey.swift */; };
 		781829494729FD3F5F29CF3A0CD6F95B /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD8AC056C9A6C26F970C3F8E314C970 /* NoteCollectionViewCell.swift */; };
 		7C690BCE15742AD91A6DFED19C93DDA5 /* BottomView_EmailTVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F1F4E23BBB37C082378F5C092E3AEE /* BottomView_EmailTVDelegate.swift */; };
+		7CEC1128213416D20032E223 /* NoteDetailVC_Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC1127213416D20032E223 /* NoteDetailVC_Action.swift */; };
+		7CEC112A21341D560032E223 /* DetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC112921341D560032E223 /* DetailBottomView.swift */; };
+		7CEC112E21341EB90032E223 /* DetailBottomView_Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC112D21341EB90032E223 /* DetailBottomView_Keyboard.swift */; };
+		7CEFFF04213432BC0001F2E6 /* NoteDetailVC_DetailBottomViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFFF03213432BC0001F2E6 /* NoteDetailVC_DetailBottomViewDelegate.swift */; };
 		7D6278233CA01DBBE8F86D6C55C18936 /* BottomView_NoteTVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101F922062C3B84CC2EF9FF638252CE4 /* BottomView_NoteTVDelegate.swift */; };
 		85C5E978B088D777CEFFD61B5B2D60FD /* iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35011B421A261853BC56EA515393EC0 /* iOS.swift */; };
 		94B20B95247422C4F5875571409CBFA2 /* MainCollectionVC_ScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46150393319B4DEB23C2111497ACDFAB /* MainCollectionVC_ScrollViewDelegate.swift */; };
@@ -161,6 +165,10 @@
 		7274918C101E745C6DB989A65880FC76 /* MainCollectionVC_CollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionVC_CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		7907FABB81235CCB3D804F39B38808BB /* NotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
 		79F8B8FAEFEF8B6E616687526E275929 /* BottomView_ReminderTVDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView_ReminderTVDelegate.swift; sourceTree = "<group>"; };
+		7CEC1127213416D20032E223 /* NoteDetailVC_Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailVC_Action.swift; sourceTree = "<group>"; };
+		7CEC112921341D560032E223 /* DetailBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBottomView.swift; sourceTree = "<group>"; };
+		7CEC112D21341EB90032E223 /* DetailBottomView_Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBottomView_Keyboard.swift; sourceTree = "<group>"; };
+		7CEFFF03213432BC0001F2E6 /* NoteDetailVC_DetailBottomViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailVC_DetailBottomViewDelegate.swift; sourceTree = "<group>"; };
 		7DEED8E5A1C28EBE9A947D1930323B93 /* BottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		85EE7269669E16CE8DF879A0D90261EC /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		89BF910A321F8BFE9E5EBAEF97BC4FA8 /* GrowingTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrowingTextView.swift; sourceTree = "<group>"; };
@@ -284,14 +292,14 @@
 			path = Emo;
 			sourceTree = "<group>";
 		};
-		2C92423F4A5347E27AB9A5A0DE627C50 /* Bottom */ = {
+		2C92423F4A5347E27AB9A5A0DE627C50 /* MainBottom */ = {
 			isa = PBXGroup;
 			children = (
 				D2AA6C8AAAE344122141EA9655084660 /* BottomView */,
 				7F24748DCCE2DE723B3A83A664659D8E /* ContextView */,
 				212CE81A264D2F9D2E5F5ACCA7866CB2 /* Typing */,
 			);
-			path = Bottom;
+			path = MainBottom;
 			sourceTree = "<group>";
 		};
 		314A07BB31849AE95E79389C15AB0507 /* Photo */ = {
@@ -401,7 +409,8 @@
 		7A3036E1EFFF674A08A19CCBF53C095C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2C92423F4A5347E27AB9A5A0DE627C50 /* Bottom */,
+				7CEC112C21341DAD0032E223 /* DetailBottom */,
+				2C92423F4A5347E27AB9A5A0DE627C50 /* MainBottom */,
 				AFD210E1A32E867C16EAB49BC47E3C1E /* Common */,
 				AEEF80E43DF7034AF74CACE5E44B4058 /* MainCollectionViewCell */,
 				652B14790357D64B5B2110EC574388D6 /* PhotoDetail */,
@@ -409,6 +418,25 @@
 				D2E3F48558FC863BB345A8566076F8BD /* PianoTextView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7CEC112B21341D620032E223 /* NoteDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				BC02138ABD92DE12E1C7765D3AB247CB /* NoteDetailViewController.swift */,
+				7CEC1127213416D20032E223 /* NoteDetailVC_Action.swift */,
+				7CEFFF03213432BC0001F2E6 /* NoteDetailVC_DetailBottomViewDelegate.swift */,
+			);
+			path = NoteDetailVC;
+			sourceTree = "<group>";
+		};
+		7CEC112C21341DAD0032E223 /* DetailBottom */ = {
+			isa = PBXGroup;
+			children = (
+				7CEC112921341D560032E223 /* DetailBottomView.swift */,
+				7CEC112D21341EB90032E223 /* DetailBottomView_Keyboard.swift */,
+			);
+			path = DetailBottom;
 			sourceTree = "<group>";
 		};
 		7F24748DCCE2DE723B3A83A664659D8E /* ContextView */ = {
@@ -464,7 +492,7 @@
 				516C5216F425914F4760FE7F1275259E /* CalendarRecommandTableViewController.swift */,
 				A5FAC6EC17C5C2938CF1A29344A72B60 /* ContactRecommandTableViewController.swift */,
 				A527403E0F1316358E8C27EB0FF58A46 /* EMailRecommandTableViewController.swift */,
-				BC02138ABD92DE12E1C7765D3AB247CB /* NoteDetailViewController.swift */,
+				7CEC112B21341D620032E223 /* NoteDetailVC */,
 				1FC1BC1BA0DAF6F7AF76D7D76423FF94 /* PhotoDetailViewController.swift */,
 				CC1BFFDA5A93D3671E034BADBEFD4987 /* PhotoRecommandCollectionViewController.swift */,
 				33FD60FF02C09C32D1164AC64ED2C3E2 /* ReminderRecommandTableViewController.swift */,
@@ -671,6 +699,7 @@
 				570604405425203CF4284D3D881C4D2A /* BottomView_CalendarTVDelegate.swift in Sources */,
 				292291FC48978AE22450754C2116A7F4 /* BottomView_ContactTVDelegate.swift in Sources */,
 				B583CF596B1268306E3B4EF91A6519BD /* BottomView_ContextViewDelegate.swift in Sources */,
+				7CEC1128213416D20032E223 /* NoteDetailVC_Action.swift in Sources */,
 				7C690BCE15742AD91A6DFED19C93DDA5 /* BottomView_EmailTVDelegate.swift in Sources */,
 				62F5DE46FE47B8441A4856B7E9CDBA8D /* BottomView_Keyboard.swift in Sources */,
 				7D6278233CA01DBBE8F86D6C55C18936 /* BottomView_NoteTVDelegate.swift in Sources */,
@@ -733,6 +762,8 @@
 				CDF4F997DC67AA35618909F521A36FFB /* PhotoRecommandCollectionViewController.swift in Sources */,
 				FE047B273BC7870E39F19E68F23654AF /* PhotoTypingView.swift in Sources */,
 				1482EC3CD7BD18E983F40BDE5A6C3263 /* Photo_Extension.swift in Sources */,
+				7CEFFF04213432BC0001F2E6 /* NoteDetailVC_DetailBottomViewDelegate.swift in Sources */,
+				7CEC112E21341EB90032E223 /* DetailBottomView_Keyboard.swift in Sources */,
 				9A85D68EE441E6943D596BF5550324C3 /* Photo_TextFieldDelegate.swift in Sources */,
 				D00BAE30298D0C4FDF3D0A9EA99CAC4A /* PianoTextView.swift in Sources */,
 				21E8ACFA7D1BC87EAE241446E6919D4D /* Preference.swift in Sources */,
@@ -750,6 +781,7 @@
 				F0AF5597B062017A954F80A82289D14C /* UINavigationController_extension.swift in Sources */,
 				D3946496D3976DD501B118F8D8A90587 /* UnicodeScalar_extension.swift in Sources */,
 				44FC8597B5798A1DC1B3A3EE686365CA /* View_extension.swift in Sources */,
+				7CEC112A21341D560032E223 /* DetailBottomView.swift in Sources */,
 				85C5E978B088D777CEFFD61B5B2D60FD /* iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
