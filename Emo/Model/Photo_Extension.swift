@@ -11,13 +11,11 @@ import CoreData
 
 extension Photo {
     internal func detectEmojies() {
-        
         if let content = self.content {
             Set(content.emojis).forEach {
                 add(emoji: $0)
             }
         }
-        
     }
     
     private func add(emoji text: String) {

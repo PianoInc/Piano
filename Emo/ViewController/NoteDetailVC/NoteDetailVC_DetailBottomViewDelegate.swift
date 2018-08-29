@@ -8,19 +8,19 @@
 
 import UIKit
 
-extension NoteDetailViewController: DetailBottomViewDelegate {
-    func detailBottomView(_ detailBottomView: DetailBottomView, keyboardWillHide height: CGFloat) {
-        setHighlightBarButtonIfNeeded()
-    }
-    
-    func detailBottomView(_ detailBottomView: DetailBottomView, keyboardWillShow height: CGFloat) {
-        setDoneBarButtonIfNeeded()
-    }
-    
-    func detailBottomView(_ detailBottomView: DetailBottomView, didSelectSegmentControl index: Int) {
-        ()
-    }
-}
+//extension NoteDetailViewController: DetailBottomViewDelegate {
+//    func detailBottomView(_ detailBottomView: DetailBottomView, keyboardWillHide height: CGFloat) {
+//        setHighlightBarButtonIfNeeded()
+//    }
+//    
+//    func detailBottomView(_ detailBottomView: DetailBottomView, keyboardWillShow height: CGFloat) {
+//        setDoneBarButtonIfNeeded()
+//    }
+//    
+//    func detailBottomView(_ detailBottomView: DetailBottomView, didSelectSegmentControl index: Int) {
+//        ()
+//    }
+//}
 
 extension NoteDetailViewController {
     

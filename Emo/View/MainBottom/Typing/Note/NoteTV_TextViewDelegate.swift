@@ -48,6 +48,5 @@ extension NoteTypingView {
     internal func setWriteButtonEnabled(by text: String) {
         writeButton.isEnabled = text.count != 0
         writeButton.alpha = text.count != 0 ? 1 : 0
-        
     }
 }
